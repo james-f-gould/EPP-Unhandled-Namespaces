@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+  <response>
+    <result code="1301">
+      <msg>Command completed successfully; ack to dequeue</msg>
+      <extValue>
+        <value xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
+          <domain:trnData>
+            <domain:name>example.com
+            </domain:name>
+            <domain:trStatus>serverApproved
+            </domain:trStatus>
+            <domain:reID>ClientX
+            </domain:reID>
+            <domain:reDate>2018-08-24T18:26:51.021Z
+            </domain:reDate>
+            <domain:acID>ClientY
+            </domain:acID>
+            <domain:acDate>2018-08-24T18:26:51.021Z
+            </domain:acDate>
+            <domain:exDate>2018-08-24T18:26:51.021Z
+            </domain:exDate>
+          </domain:trnData>
+        </value>
+        <reason>
+          urn:ietf:params:xml:ns:domain-1.0 not in login services
+        </reason>
+      </extValue>
+    </result>
+    <msgQ
+      count="1"
+      id="1"
+    >
+      <qDate>2018-08-24T18:26:51.021Z</qDate>
+      <msg>Transfer Auto Approved.</msg>
+    </msgQ>
+    <trID>
+      <clTRID>ABC-12345</clTRID>
+      <svTRID>54322-XYZ</svTRID>
+    </trID>
+  </response>
+</epp>

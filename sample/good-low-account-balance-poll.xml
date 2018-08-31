@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+  <response>
+    <result code="1301">
+      <msg>Command completed successfully; ack to dequeue</msg>
+      <extValue>
+        <value xmlns:lowbalance-poll="http://www.verisign.com/epp/lowbalance-poll-1.0">
+          <lowbalance-poll:pollData>
+            <lowbalance-poll:registrarName>Test Registar
+            </lowbalance-poll:registrarName>
+            <lowbalance-poll:creditLimit>1000
+            </lowbalance-poll:creditLimit>
+            <lowbalance-poll:creditThreshold type="PERCENT">10
+            </lowbalance-poll:creditThreshold>
+            <lowbalance-poll:availableCredit>80
+            </lowbalance-poll:availableCredit>
+          </lowbalance-poll:pollData>
+        </value>
+        <reason>
+          http://www.verisign.com/epp/lowbalance-poll-1.0 not in login services
+        </reason>
+      </extValue>
+    </result>
+    <msgQ
+      count="4"
+      id="11"
+    >
+      <qDate>2018-08-24T18:26:51.022Z</qDate>
+      <msg>Low Account Balance (SRS)</msg>
+    </msgQ>
+    <trID>
+      <clTRID>ABC-12345</clTRID>
+      <svTRID>54322-XYZ</svTRID>
+    </trID>
+  </response>
+</epp>

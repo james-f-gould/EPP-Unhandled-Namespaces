@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+  <response>
+    <result code="1301">
+      <msg>Command completed successfully; ack to dequeue</msg>
+      <extValue>
+        <value xmlns:rgp-poll="http://www.verisign.com/epp/rgp-poll-1.0">
+          <rgp-poll:pollData>
+            <rgp-poll:name>NSPollTst.com
+            </rgp-poll:name>
+            <rgp-poll:rgpStatus s="pendingRestore"/>
+            <rgp-poll:reqDate>2018-08-24T18:26:51.022Z
+            </rgp-poll:reqDate>
+            <rgp-poll:reportDueDate>2018-08-24T18:26:54.622Z
+            </rgp-poll:reportDueDate>
+          </rgp-poll:pollData>
+        </value>
+        <reason>
+          http://www.verisign.com/epp/rgp-poll-1.0 not in login services
+        </reason>
+      </extValue>
+    </result>
+    <msgQ
+      count="3"
+      id="12"
+    >
+      <qDate>2018-08-24T18:26:51.022Z</qDate>
+      <msg>Restore Request Pending</msg>
+    </msgQ>
+    <trID>
+      <clTRID>ABC-12345</clTRID>
+      <svTRID>54322-XYZ</svTRID>
+    </trID>
+  </response>
+</epp>
