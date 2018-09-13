@@ -5,7 +5,7 @@
 Network Working Group                                           J. Gould
 Internet-Draft                                            VeriSign, Inc.
 Intended status: Best Current Practice                       M. Casanova
-Expires: March 2, 2019                                            Switch
+Expires: March 2, 2019                                            SWITCH
                                                          August 29, 2018
 
 
@@ -924,7 +924,10 @@ Authors' Addresses
 
 
    Martin Casanova
-   Switch
+   SWITCH
+   P.O. Box
+   8021 Zürich
+   CH
 
    Email: martin.casanova@switch.ch
    URI:   http://www.switch.ch
