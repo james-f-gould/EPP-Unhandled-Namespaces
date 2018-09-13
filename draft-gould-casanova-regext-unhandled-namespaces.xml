@@ -141,7 +141,7 @@
       Unhandled namespaces is an issue also for general EPP responses when the 
       server has information that it cannot return to the client due to 
       the client supported services.  The server should be able to return 
-      unhandled namespace information that the client knows exists and that 
+      unhandled namespace information that 
       the client can process later.  This document defines an operational 
       practice that enables the server to return information associated 
       with unhandled namespace URIs that is compliant with the negotiated 
