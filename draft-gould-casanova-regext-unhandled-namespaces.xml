@@ -78,22 +78,22 @@
     </author>
 
  	<author fullname="Martin Casanova" initials="M.C" surname="Casanova">
-       <organization>Switch</organization>
+       <organization>SWITCH</organization>
 
        <address>
-<!--
+
           <postal>
-             <street></street>
+             <street>P.O. Box</street>
 
-             <city></city>
+             <city>Zurich</city>
 
-             <region></region>
+             <region>ZH</region>
 
-             <code></code>
+             <code>8021</code>
 
-             <country></country>
+             <country>CH</country>
           </postal>
--->
+
 
          <email>martin.casanova@switch.ch</email>
 
