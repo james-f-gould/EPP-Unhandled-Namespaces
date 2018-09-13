@@ -37,7 +37,7 @@ Status of This Memo
    Internet-Drafts are working documents of the Internet Engineering
    Task Force (IETF).  Note that other groups may also distribute
    working documents as Internet-Drafts.  The list of current Internet-
-   Drafts is at http://datatracker.ietf.org/drafts/current/.
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
 
    Internet-Drafts are draft documents valid for a maximum of six months
    and may be updated, replaced, or obsoleted by other documents at any
@@ -65,7 +65,7 @@ Copyright Notice
 
    This document is subject to BCP 78 and the IETF Trust's Legal
    Provisions Relating to IETF Documents
-   (http://trustee.ietf.org/license-info) in effect on the date of
+   (https://trustee.ietf.org/license-info) in effect on the date of
    publication of this document.  Please review these documents
    carefully, as they describe your rights and restrictions with respect
    to this document.  Code Components extracted from this document must
@@ -114,10 +114,10 @@ Gould & Casanova          Expires March 2, 2019                 [Page 2]
 Internet-Draft                 changePoll                    August 2018
 
 
-   that the client knows exists and that the client can process later.
-   This document defines an operational practice that enables the server
-   to return information associated with unhandled namespace URIs that
-   is compliant with the negotiated services defined in [RFC5730].
+   that the client can process later.  This document defines an
+   operational practice that enables the server to return information
+   associated with unhandled namespace URIs that is compliant with the
+   negotiated services defined in [RFC5730].
 
 1.1.  Conventions Used in This Document
 
@@ -194,10 +194,10 @@ Internet-Draft                 changePoll                    August 2018
 
    <value>:  Contains a child-element with the unhandled namespace XML.
        The XML namespace and namespace prefix of the child element MUST
-       be defined, which MAY be defined in the <value> element, in the
-       child element, or in an ancestor element.  XML processing of the
-       <value> element is disabled in [RFC5730], so the information can
-       safely be returned in the <value> element.
+       be defined, which MAY be defined in the <value> element or in the
+       the child element.  XML processing of the <value> element is
+       disabled in [RFC5730], so the information can safely be returned
+       in the <value> element.
    <reason>:  A formatted human-readable message that indicates the
        reason the unhandled namespace data was not returned in the
        appropriate location of the response.  The formatted reason
@@ -309,7 +309,7 @@ Internet-Draft                 changePoll                    August 2018
    S:</epp>
 
    The EPP response is converted from an object response to a general
-   EPP response by the server when the client does not supported the
+   EPP response by the server when the client does not support the
    object-level extension namespace URI.  Below is example of converting
    the <transfer> query response example in [RFC5730] to an unhandled
    namespace response.
@@ -654,7 +654,7 @@ Internet-Draft                 changePoll                    August 2018
 5.  Usage with Poll Message EPP Responses
 
    The unhandled namespace approach, defined in Section 3, MUST be used
-   if there are unhandled namespace information included in a EPP poll
+   if there is unhandled namespace information included in a EPP poll
    message response.  The server inserts poll messages into the client's
    poll queue independent of knowing the supported client login
    services, therefore there may be unhandled object-level and command-
@@ -663,9 +663,9 @@ Internet-Draft                 changePoll                    August 2018
    poll messages that have been inserted by the server.  The poll
    message is an EPP response that includes the <msgQ> element that
    provides poll queue meta-data about the message.  The unhandled
-   namespace approach, defined in Section 3, is used first for an
-   unhandled object-level extension and for each of the unhandled
-   command-response extensions attached to the poll message.  The
+   namespace approach, defined in Section 3, is used for an unhandled
+   object-level extension and for each of the unhandled command-response
+   extensions attached to the poll message.  The resulting EPP poll
 
 
 
@@ -674,16 +674,17 @@ Gould & Casanova          Expires March 2, 2019                [Page 12]
 Internet-Draft                 changePoll                    August 2018
 
 
-   resulting EPP poll message response MAY have either or both the
-   object-level extension or command-response extensions moved to
-   <extValue> elements, as defined in Section 3.
+   message response MAY have either or both the object-level extension
+   or command-response extensions moved to <extValue> elements, as
+   defined in Section 3.
 
    An example of applying the unhandled namespace approach for EPP poll
    message responses is with returning a Change Poll Message, as defined
    in [I-D.ietf-regext-change-poll], which is an extension to any EPP
    object for notifying the client of operations on client sponsored
    objects that were not initiated by the client through EPP.  The
-   object that will be used in the examples, is a [RFC5731] domain name.
+   object that will be used in the examples, is a [RFC5731] domain name
+   object.
 
    [RFC5731] domain name <info> poll message response with the unhandled
    [I-D.ietf-regext-change-poll] <changePoll:changeData> element
@@ -721,7 +722,6 @@ Internet-Draft                 changePoll                    August 2018
    S:      <qDate>2018-08-24T19:21:51.087Z</qDate>
    S:      <msg>Registry initiated update of domain.</msg>
    S:    </msgQ>
-   S:    <resData>
 
 
 
@@ -730,6 +730,7 @@ Gould & Casanova          Expires March 2, 2019                [Page 13]
 Internet-Draft                 changePoll                    August 2018
 
 
+   S:    <resData>
    S:      <domain:infData
    S:        xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
    S:        <domain:name>change-poll.tld</domain:name>
@@ -777,7 +778,6 @@ Internet-Draft                 changePoll                    August 2018
    S:            <domain:contact type="admin">sh8013</domain:contact>
    S:            <domain:contact type="tech">sh8013</domain:contact>
    S:            <domain:clID>ClientX</domain:clID>
-   S:            <domain:crID>ClientY</domain:crID>
 
 
 
@@ -786,6 +786,7 @@ Gould & Casanova          Expires March 2, 2019                [Page 14]
 Internet-Draft                 changePoll                    August 2018
 
 
+   S:            <domain:crID>ClientY</domain:crID>
    S:            <domain:crDate>2012-05-03T04:00:00.000Z</domain:crDate>
    S:            <domain:upID>ClientZ</domain:upID>
    S:            <domain:upDate>2013-11-22T05:00:00.000Z</domain:upDate>
@@ -836,7 +837,6 @@ Internet-Draft                 changePoll                    August 2018
 
 
 
-
 Gould & Casanova          Expires March 2, 2019                [Page 15]
 
 Internet-Draft                 changePoll                    August 2018
@@ -866,23 +866,23 @@ Internet-Draft                 changePoll                    August 2018
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
-              DOI 10.17487/RFC2119, March 1997, <https://www.rfc-
-              editor.org/info/rfc2119>.
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/info/rfc2119>.
 
    [RFC3735]  Hollenbeck, S., "Guidelines for Extending the Extensible
               Provisioning Protocol (EPP)", RFC 3735,
-              DOI 10.17487/RFC3735, March 2004, <https://www.rfc-
-              editor.org/info/rfc3735>.
+              DOI 10.17487/RFC3735, March 2004,
+              <https://www.rfc-editor.org/info/rfc3735>.
 
    [RFC3915]  Hollenbeck, S., "Domain Registry Grace Period Mapping for
               the Extensible Provisioning Protocol (EPP)", RFC 3915,
-              DOI 10.17487/RFC3915, September 2004, <https://www.rfc-
-              editor.org/info/rfc3915>.
+              DOI 10.17487/RFC3915, September 2004,
+              <https://www.rfc-editor.org/info/rfc3915>.
 
    [RFC5234]  Crocker, D., Ed. and P. Overell, "Augmented BNF for Syntax
               Specifications: ABNF", STD 68, RFC 5234,
-              DOI 10.17487/RFC5234, January 2008, <https://www.rfc-
-              editor.org/info/rfc5234>.
+              DOI 10.17487/RFC5234, January 2008,
+              <https://www.rfc-editor.org/info/rfc5234>.
 
    [RFC5730]  Hollenbeck, S., "Extensible Provisioning Protocol (EPP)",
               STD 69, RFC 5730, DOI 10.17487/RFC5730, August 2009,
@@ -900,14 +900,14 @@ Internet-Draft                 changePoll                    August 2018
 
    [RFC5731]  Hollenbeck, S., "Extensible Provisioning Protocol (EPP)
               Domain Name Mapping", STD 69, RFC 5731,
-              DOI 10.17487/RFC5731, August 2009, <https://www.rfc-
-              editor.org/info/rfc5731>.
+              DOI 10.17487/RFC5731, August 2009,
+              <https://www.rfc-editor.org/info/rfc5731>.
 
    [RFC5910]  Gould, J. and S. Hollenbeck, "Domain Name System (DNS)
               Security Extensions Mapping for the Extensible
               Provisioning Protocol (EPP)", RFC 5910,
-              DOI 10.17487/RFC5910, May 2010, <https://www.rfc-
-              editor.org/info/rfc5910>.
+              DOI 10.17487/RFC5910, May 2010,
+              <https://www.rfc-editor.org/info/rfc5910>.
 
 Appendix A.  Change History
 
@@ -926,14 +926,11 @@ Authors' Addresses
    Martin Casanova
    SWITCH
    P.O. Box
-   8021 Zürich
+   Zurich, ZH  8021
    CH
 
    Email: martin.casanova@switch.ch
    URI:   http://www.switch.ch
-
-
-
 
 
 
