@@ -205,7 +205,7 @@
       element contains the following child elements:
         <list hangIndent="4" style="hanging">
           <t hangText="&lt;value&gt;:">Contains a child-element with the unhandled namespace XML.  
-          The XML namespace and namespace prefix of the child element MUST be defined, which MAY be defined in the &lt;value&gt; element, in the child element, or in an ancestor element.  
+          The XML namespace and namespace prefix of the child element MUST be defined, which MAY be defined in the &lt;value&gt; element or in the the child element.  
           XML processing of the &lt;value&gt; element is disabled in 
           <xref target="RFC5730"/>, so the information can safely be returned in the &lt;value&gt; element.</t>
           <t hangText="&lt;reason&gt;:">A formatted human-readable message that indicates the reason the 
