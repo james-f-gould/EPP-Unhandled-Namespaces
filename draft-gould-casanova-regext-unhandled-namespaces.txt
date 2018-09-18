@@ -5,8 +5,8 @@
 Network Working Group                                           J. Gould
 Internet-Draft                                            VeriSign, Inc.
 Intended status: Best Current Practice                       M. Casanova
-Expires: March 17, 2019                                           SWITCH
-                                                      September 13, 2018
+Expires: March 22, 2019                                           SWITCH
+                                                      September 18, 2018
 
 
       Extensible Provisioning Protocol (EPP) Unhandled Namespaces
@@ -17,17 +17,18 @@ Abstract
    The Extensible Provisioning Protocol (EPP), as defined in [RFC5730],
    includes a method for the client and server to negotiate the set of
    services (objects and object extensions) used during the session.
-   The services are identified using namespace URIs.  What is not
-   defined in [RFC5730] is what the server should return in a response
-   when the client does not support the required namespace URI, which is
-   referred to as an unhandled namespace.  Unhandled namespaces is a
-   significant issue for the processing of [RFC5730] poll messages,
-   since poll messages are inserted by the server prior to knowing the
-   supported client services, and the client must be capable of
-   processing all poll messages.  This document defines an operational
-   practice that enables the server to return information associated
-   with unhandled namespace URIs that is compliant with the negotiated
-   services defined in [RFC5730].
+   The services are identified using namespace URIs.  How should the
+   server handle service data (object and object extensions) that needs
+   to be returned in the response when the client does not support the
+   required service namespace URI, which is referred to as an unhandled
+   namespace?  Unhandled namespaces is a significant issue for the
+   processing of [RFC5730] poll messages, since poll messages are
+   inserted by the server prior to knowing the supported client
+   services, and the client must be capable of processing all poll
+   messages.  This document defines an operational practice that enables
+   the server to return information associated with unhandled namespace
+   URIs that is compliant with the negotiated services defined in
+   [RFC5730].
 
 Status of This Memo
 
@@ -44,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on March 17, 2019.
+   This Internet-Draft will expire on March 22, 2019.
 
 
 
@@ -52,8 +53,7 @@ Status of This Memo
 
 
 
-
-Gould & Casanova         Expires March 17, 2019                 [Page 1]
+Gould & Casanova         Expires March 22, 2019                 [Page 1]
 
 Internet-Draft                 changePoll                 September 2018
 
@@ -79,7 +79,7 @@ Table of Contents
      1.1.  Conventions Used in This Document . . . . . . . . . . . .   3
    2.  Unhandled Namespaces  . . . . . . . . . . . . . . . . . . . .   3
    3.  Use of EPP <extValue> for Unhandled Namespace Data  . . . . .   4
-     3.1.  Unhandled Object-Level Extension  . . . . . . . . . . . .   4
+     3.1.  Unhandled Object-Level Extension  . . . . . . . . . . . .   5
      3.2.  Unhandled Command Response Extension  . . . . . . . . . .   7
    4.  Usage with General EPP Responses  . . . . . . . . . . . . . .  11
    5.  Usage with Poll Message EPP Responses . . . . . . . . . . . .  12
@@ -95,29 +95,30 @@ Table of Contents
    The Extensible Provisioning Protocol (EPP), as defined in [RFC5730],
    includes a method for the client and server to negotiate the set of
    services (objects and object extensions) used during the session.
-   The services are identified using namespace URIs.  What is not
-   defined in [RFC5730] is what the server should return in a response
-   when the client does not support the required namespace URI, which is
-   referred to as an unhandled namespace.  Unhandled namespaces is a
-   significant issue for the processing of [RFC5730] poll messages,
-   since poll messages are inserted by the server prior to knowing the
-   supported client services, and the client must be capable of
-   processing all poll messages.  Unhandled namespaces is an issue also
-   for general EPP responses when the server has information that it
-   cannot return to the client due to the client supported services.
-   The server should be able to return unhandled namespace information
+   The services are identified using namespace URIs.  How should the
+   server handle service data (object and object extensions) that needs
+   to be returned in the response when the client does not support the
+   required service namespace URI, which is referred to as an unhandled
+   namespace?  Unhandled namespaces is a significant issue for the
+   processing of [RFC5730] poll messages, since poll messages are
+   inserted by the server prior to knowing the supported client
+   services, and the client must be capable of processing all poll
+   messages.  Unhandled namespaces is an issue also for general EPP
+   responses when the server has information that it cannot return to
+   the client due to the client supported services.  The server should
 
 
 
-Gould & Casanova         Expires March 17, 2019                 [Page 2]
+Gould & Casanova         Expires March 22, 2019                 [Page 2]
 
 Internet-Draft                 changePoll                 September 2018
 
 
-   that the client can process later.  This document defines an
-   operational practice that enables the server to return information
-   associated with unhandled namespace URIs that is compliant with the
-   negotiated services defined in [RFC5730].
+   be able to return unhandled namespace information that the client can
+   process later.  This document defines an operational practice that
+   enables the server to return information associated with unhandled
+   namespace URIs that is compliant with the negotiated services defined
+   in [RFC5730].
 
 1.1.  Conventions Used in This Document
 
@@ -161,15 +162,15 @@ Internet-Draft                 changePoll                 September 2018
    An Unhandled Namespace is an XML namespace that is associated with a
    response extension that is not included in the client-specified EPP
    login services of [RFC5730].  The EPP login services consists of the
-   set of XML namespace URIs included in the <objURI> or <extURI>
 
 
 
-Gould & Casanova         Expires March 17, 2019                 [Page 3]
+Gould & Casanova         Expires March 22, 2019                 [Page 3]
 
 Internet-Draft                 changePoll                 September 2018
 
 
+   set of XML namespace URIs included in the <objURI> or <extURI>
    elements of the [RFC5730] EPP <login> command.  The services
    supported by the server are included in the <objURI> and <extURI>
    elements of the [RFC5730] EPP <greeting>, which should be a superset
@@ -213,19 +214,23 @@ Internet-Draft                 changePoll                 September 2018
    sections on how to handle an unsupported object-level extension
    namespace or an unsupported command-response extension namespace.
 
+
+
+
+
+
+
+
+Gould & Casanova         Expires March 22, 2019                 [Page 4]
+
+Internet-Draft                 changePoll                 September 2018
+
+
 3.1.  Unhandled Object-Level Extension
 
    An object-level extension in [RFC5730] is a child element of the
    <resData> element.  If the client does not handle the namespace of
    the object-level extension, then the <resData> element is removed and
-
-
-
-Gould & Casanova         Expires March 17, 2019                 [Page 4]
-
-Internet-Draft                 changePoll                 September 2018
-
-
    it's object-level extension child element is moved into a [RFC5730]
    <extValue> <value> element, with the namespace URI included in the
    corresponding <extValue> <reason> element.  The response becomes a
@@ -272,12 +277,7 @@ Internet-Draft                 changePoll                 September 2018
 
 
 
-
-
-
-
-
-Gould & Casanova         Expires March 17, 2019                 [Page 5]
+Gould & Casanova         Expires March 22, 2019                 [Page 5]
 
 Internet-Draft                 changePoll                 September 2018
 
@@ -333,7 +333,7 @@ Internet-Draft                 changePoll                 September 2018
 
 
 
-Gould & Casanova         Expires March 17, 2019                 [Page 6]
+Gould & Casanova         Expires March 22, 2019                 [Page 6]
 
 Internet-Draft                 changePoll                 September 2018
 
@@ -389,7 +389,7 @@ Internet-Draft                 changePoll                 September 2018
 
 
 
-Gould & Casanova         Expires March 17, 2019                 [Page 7]
+Gould & Casanova         Expires March 22, 2019                 [Page 7]
 
 Internet-Draft                 changePoll                 September 2018
 
@@ -445,7 +445,7 @@ Internet-Draft                 changePoll                 September 2018
 
 
 
-Gould & Casanova         Expires March 17, 2019                 [Page 8]
+Gould & Casanova         Expires March 22, 2019                 [Page 8]
 
 Internet-Draft                 changePoll                 September 2018
 
@@ -501,7 +501,7 @@ Internet-Draft                 changePoll                 September 2018
 
 
 
-Gould & Casanova         Expires March 17, 2019                 [Page 9]
+Gould & Casanova         Expires March 22, 2019                 [Page 9]
 
 Internet-Draft                 changePoll                 September 2018
 
@@ -557,7 +557,7 @@ Internet-Draft                 changePoll                 September 2018
 
 
 
-Gould & Casanova         Expires March 17, 2019                [Page 10]
+Gould & Casanova         Expires March 22, 2019                [Page 10]
 
 Internet-Draft                 changePoll                 September 2018
 
@@ -613,7 +613,7 @@ Internet-Draft                 changePoll                 September 2018
 
 
 
-Gould & Casanova         Expires March 17, 2019                [Page 11]
+Gould & Casanova         Expires March 22, 2019                [Page 11]
 
 Internet-Draft                 changePoll                 September 2018
 
@@ -669,7 +669,7 @@ Internet-Draft                 changePoll                 September 2018
 
 
 
-Gould & Casanova         Expires March 17, 2019                [Page 12]
+Gould & Casanova         Expires March 22, 2019                [Page 12]
 
 Internet-Draft                 changePoll                 September 2018
 
@@ -725,7 +725,7 @@ Internet-Draft                 changePoll                 September 2018
 
 
 
-Gould & Casanova         Expires March 17, 2019                [Page 13]
+Gould & Casanova         Expires March 22, 2019                [Page 13]
 
 Internet-Draft                 changePoll                 September 2018
 
@@ -781,7 +781,7 @@ Internet-Draft                 changePoll                 September 2018
 
 
 
-Gould & Casanova         Expires March 17, 2019                [Page 14]
+Gould & Casanova         Expires March 22, 2019                [Page 14]
 
 Internet-Draft                 changePoll                 September 2018
 
@@ -837,7 +837,7 @@ Internet-Draft                 changePoll                 September 2018
 
 
 
-Gould & Casanova         Expires March 17, 2019                [Page 15]
+Gould & Casanova         Expires March 22, 2019                [Page 15]
 
 Internet-Draft                 changePoll                 September 2018
 
@@ -893,7 +893,7 @@ Internet-Draft                 changePoll                 September 2018
 
 
 
-Gould & Casanova         Expires March 17, 2019                [Page 16]
+Gould & Casanova         Expires March 22, 2019                [Page 16]
 
 Internet-Draft                 changePoll                 September 2018
 
@@ -949,4 +949,4 @@ Authors' Addresses
 
 
 
-Gould & Casanova         Expires March 17, 2019                [Page 17]
+Gould & Casanova         Expires March 22, 2019                [Page 17]
