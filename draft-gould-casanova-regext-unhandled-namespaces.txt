@@ -16,15 +16,15 @@ Abstract
 
    The Extensible Provisioning Protocol (EPP), as defined in [RFC5730],
    includes a method for the client and server to negotiate the set of
-   services (objects and object extensions) used during the session.
-   The services are identified using namespace URIs.  How should the
-   server handle service data (object and object extensions) that needs
-   to be returned in the response when the client does not support the
+   services (objects and object extensions) used during a session.  The
+   services are identified using namespace URIs.  How should the server
+   handle service data (object and object extensions) that needs to be
+   returned in the response when the client does not support the
    required service namespace URI, which is referred to as an unhandled
    namespace?  Unhandled namespaces is a significant issue for the
    processing of [RFC5730] poll messages, since poll messages are
    inserted by the server prior to knowing the supported client
-   services, and the client must be capable of processing all poll
+   services, and the client needs to be capable of processing all poll
    messages.  This document defines an operational practice that enables
    the server to return information associated with unhandled namespace
    URIs that is compliant with the negotiated services defined in
@@ -77,35 +77,35 @@ Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
      1.1.  Conventions Used in This Document . . . . . . . . . . . .   3
-   2.  Unhandled Namespaces  . . . . . . . . . . . . . . . . . . . .   3
+   2.  Unhandled Namespaces  . . . . . . . . . . . . . . . . . . . .   4
    3.  Use of EPP <extValue> for Unhandled Namespace Data  . . . . .   4
      3.1.  Unhandled Object-Level Extension  . . . . . . . . . . . .   5
-     3.2.  Unhandled Command Response Extension  . . . . . . . . . .   7
+     3.2.  Unhandled Command-Response Extension  . . . . . . . . . .   7
    4.  Usage with General EPP Responses  . . . . . . . . . . . . . .  11
    5.  Usage with Poll Message EPP Responses . . . . . . . . . . . .  12
-   6.  Implementation Status . . . . . . . . . . . . . . . . . . . .  16
+   6.  Implementation Status . . . . . . . . . . . . . . . . . . . .  15
+     6.1.  Verisign EPP SDK  . . . . . . . . . . . . . . . . . . . .  16
    7.  Security Considerations . . . . . . . . . . . . . . . . . . .  16
-   8.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  16
-   9.  Normative References  . . . . . . . . . . . . . . . . . . . .  16
-   Appendix A.  Change History . . . . . . . . . . . . . . . . . . .  17
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  17
+   8.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  17
+   9.  Normative References  . . . . . . . . . . . . . . . . . . . .  17
+   Appendix A.  Change History . . . . . . . . . . . . . . . . . . .  18
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  18
 
 1.  Introduction
 
    The Extensible Provisioning Protocol (EPP), as defined in [RFC5730],
    includes a method for the client and server to negotiate the set of
-   services (objects and object extensions) used during the session.
-   The services are identified using namespace URIs.  How should the
-   server handle service data (object and object extensions) that needs
-   to be returned in the response when the client does not support the
+   services (objects and object extensions) used during a session.  The
+   services are identified using namespace URIs.  How should the server
+   handle service data (object and object extensions) that needs to be
+   returned in the response when the client does not support the
    required service namespace URI, which is referred to as an unhandled
    namespace?  Unhandled namespaces is a significant issue for the
    processing of [RFC5730] poll messages, since poll messages are
    inserted by the server prior to knowing the supported client
    services, and the client must be capable of processing all poll
-   messages.  Unhandled namespaces is an issue also for general EPP
+   messages.  An unhandled namespaces is an issue also for general EPP
    responses when the server has information that it cannot return to
-   the client due to the client supported services.  The server should
 
 
 
@@ -114,6 +114,7 @@ Gould & Casanova         Expires March 22, 2019                 [Page 2]
 Internet-Draft                 changePoll                 September 2018
 
 
+   the client due to the client's supported services.  The server should
    be able to return unhandled namespace information that the client can
    process later.  This document defines an operational practice that
    enables the server to return information associated with unhandled
@@ -153,15 +154,14 @@ Internet-Draft                 changePoll                 September 2018
    "[NAMESPACE-XML]":  XML content associated with a login service
        namespace URI.  An example is the <domain:infData> element
        content in [RFC5731].
-   "[NAMESPACE-URI]":  XML namespace URI associated with the
-       "[NAMESPACE-XML]" XML content.  An example is
-       "urn:ietf:params:xml:ns:domain-1.0" in [RFC5731].
+   "[NAMESPACE-URI]":  XML namespace URI associated with the [NAMESPACE-
+       XML] XML content.  An example is "urn:ietf:params:xml:ns:domain-
+       1.0" in [RFC5731].
 
-2.  Unhandled Namespaces
 
-   An Unhandled Namespace is an XML namespace that is associated with a
-   response extension that is not included in the client-specified EPP
-   login services of [RFC5730].  The EPP login services consists of the
+
+
+
 
 
 
@@ -170,6 +170,11 @@ Gould & Casanova         Expires March 22, 2019                 [Page 3]
 Internet-Draft                 changePoll                 September 2018
 
 
+2.  Unhandled Namespaces
+
+   An Unhandled Namespace is an XML namespace that is associated with a
+   response extension that is not included in the client-specified EPP
+   login services of [RFC5730].  The EPP login services consists of the
    set of XML namespace URIs included in the <objURI> or <extURI>
    elements of the [RFC5730] EPP <login> command.  The services
    supported by the server are included in the <objURI> and <extURI>
@@ -177,21 +182,22 @@ Internet-Draft                 changePoll                 September 2018
    of the login services included in the EPP <login> command.  A server
    may have information associated with a specific namespace that it
    needs to return in the response to a client.  The unhandled
-   namespaces problem exists when the server does have information that
-   it needs to return to the client that the client does not support
-   based on the EPP <login> command services.
+   namespaces problem exists when the server has information that it
+   needs to return to the client that is not supported based on the EPP
+   <login> command services.
 
 3.  Use of EPP <extValue> for Unhandled Namespace Data
 
-   When a server has data to return to the client that the client does
-   not support based on the login services, the server returns a
-   successful response with the data for each unsupported namespace MAY
-   be moved into an [RFC5730] <extValue> element.  The unhandled
-   namespace will not cause an error response, but will instead be moved
-   to a <extValue> element that includes the data that will not be
-   processed by the XML processor, along with a reason why the data
-   could not be included in the appropriate location of the response.
-   The <extValue> element contains the following child elements:
+   When a server has data to return to the client, that the client does
+   not support based on the login services, the server MAY return a
+   successful response with the data for each unsupported namespace
+   moved into an [RFC5730] <extValue> element.  The unhandled namespace
+   will not cause an error response, but the unhandled namespace data
+   will instead be moved to an <extValue> element, along with a reason
+   why the unhandled namespace data could not be included in the
+   appropriate location of the response.  The <extValue> element XML
+   will not be processed by the XML processor.  The <extValue> element
+   contains the following child elements:
 
    <value>:  Contains a child-element with the unhandled namespace XML.
        The XML namespace and namespace prefix of the child element MUST
@@ -211,12 +217,6 @@ Internet-Draft                 changePoll                 September 2018
    [RFC3735] object-level extensions and command-response extensions.
    This document does not support [RFC3735] protocol-level extensions or
    authentication information extensions.  Refer to the following
-   sections on how to handle an unsupported object-level extension
-   namespace or an unsupported command-response extension namespace.
-
-
-
-
 
 
 
@@ -226,18 +226,21 @@ Gould & Casanova         Expires March 22, 2019                 [Page 4]
 Internet-Draft                 changePoll                 September 2018
 
 
+   sections on how to handle an unsupported object-level extension
+   namespace or an unsupported command-response extension namespace.
+
 3.1.  Unhandled Object-Level Extension
 
    An object-level extension in [RFC5730] is a child element of the
    <resData> element.  If the client does not handle the namespace of
    the object-level extension, then the <resData> element is removed and
-   it's object-level extension child element is moved into a [RFC5730]
+   its object-level extension child element is moved into a [RFC5730]
    <extValue> <value> element, with the namespace URI included in the
    corresponding <extValue> <reason> element.  The response becomes a
    general EPP response without the <resData> element.
 
    Template response for a supported object-level extension.  The
-   "[NAMESPACE-XML]" variable represents the object-level extension XML.
+   [NAMESPACE-XML] variable represents the object-level extension XML.
 
    S:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
    S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
@@ -274,18 +277,15 @@ Internet-Draft                 changePoll                 September 2018
 
 
 
-
-
-
 Gould & Casanova         Expires March 22, 2019                 [Page 5]
 
 Internet-Draft                 changePoll                 September 2018
 
 
    Template unhandled namespace response for an unsupported object-level
-   extension.  The "[NAMESPACE-XML]" variable represents the object-
-   level extension XML and "[NAMESPACE-URI]" represents the object-level
-   extension XML namespace URI.
+   extension.  The [NAMESPACE-XML] variable represents the object-level
+   extension XML and the [NAMESPACE-URI] variable represents the object-
+   level extension XML namespace URI.
 
    S:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
    S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
@@ -371,7 +371,7 @@ Internet-Draft                 changePoll                 September 2018
    S:  </response>
    S:</epp>
 
-3.2.  Unhandled Command Response Extension
+3.2.  Unhandled Command-Response Extension
 
    A command-response extension in [RFC5730] is a child element of the
    <extension> element.  If the client does not handle the namespace of
@@ -395,7 +395,7 @@ Internet-Draft                 changePoll                 September 2018
 
 
    Template response for a supported command-response extension.  The
-   "[NAMESPACE-XML]" variable represents the command-response extension
+   [NAMESPACE-XML] variable represents the command-response extension
    XML.
 
    S:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -451,9 +451,9 @@ Internet-Draft                 changePoll                 September 2018
 
 
    Template unhandled namespace response for an unsupported command-
-   response extension.  The "[NAMESPACE-XML]" variable represents the
-   command-response extension XML and "[NAMESPACE-URI]" represents the
-   command-response extension XML namespace URI.
+   response extension.  The [NAMESPACE-XML] variable represents the
+   command-response extension XML and the [NAMESPACE-URI] variable
+   represents the command-response extension XML namespace URI.
 
    S:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
    S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0"
@@ -581,14 +581,14 @@ Internet-Draft                 changePoll                 September 2018
    command extension.  The server MAY return an unhandled object-level
    extension to the client as defined in Section 3.1.
 
-   An example of applying the unhandled namespace approach for a general
-   EPP response is with returning domain name Redemption Grace Period
-   (RGP) data to a client using [RFC3915].  If the client does not
-   include the "urn:ietf:params:xml:ns:rgp-1.0" namespace URI in the
-   login services, and the domain info response of a domain name does
-   have RGP information, the server MAY exclude the <rgp:infData>
-   element from the EPP response or MAY include it under in the
-   <extValue> element per Section 3.2.
+   Returning domain name Redemption Grace Period (RGP) data, based on
+   [RFC3915], provides an example of applying the unhandled namespace
+   approach for a general EPP response.  If the client does not include
+   the "urn:ietf:params:xml:ns:rgp-1.0" namespace URI in the login
+   services, and the domain <info> response of a domain name does have
+   RGP information, the server MAY exclude the <rgp:infData> element
+   from the EPP response or MAY include it under in the <extValue>
+   element per Section 3.2.
 
    [RFC5731] domain name <info> response with the unhandled [RFC3915]
    <rgp:infData> element included under an <extValue> element:
@@ -654,18 +654,18 @@ Internet-Draft                 changePoll                 September 2018
 5.  Usage with Poll Message EPP Responses
 
    The unhandled namespace approach, defined in Section 3, MUST be used
-   if there is unhandled namespace information included in a EPP poll
+   if there is unhandled namespace information included in an EPP <poll>
    message response.  The server inserts poll messages into the client's
    poll queue independent of knowing the supported client login
    services, therefore there may be unhandled object-level and command-
    response extensions included in a client's poll queue.  In [RFC5730],
-   the poll command is used by the client to retrieve and acknowledge
-   poll messages that have been inserted by the server.  The poll
-   message is an EPP response that includes the <msgQ> element that
-   provides poll queue meta-data about the message.  The unhandled
+   the <poll> command is used by the client to retrieve and acknowledge
+   poll messages that have been inserted by the server.  The <poll>
+   message response is an EPP response that includes the <msgQ> element
+   that provides poll queue meta-data about the message.  The unhandled
    namespace approach, defined in Section 3, is used for an unhandled
    object-level extension and for each of the unhandled command-response
-   extensions attached to the poll message.  The resulting EPP poll
+   extensions attached to the <poll> message response.  The resulting
 
 
 
@@ -674,21 +674,19 @@ Gould & Casanova         Expires March 22, 2019                [Page 12]
 Internet-Draft                 changePoll                 September 2018
 
 
-   message response MAY have either or both the object-level extension
-   or command-response extensions moved to <extValue> elements, as
-   defined in Section 3.
+   EPP <poll> message response MAY have either or both the object-level
+   extension or command-response extensions moved to <extValue>
+   elements, as defined in Section 3.
 
-   An example of applying the unhandled namespace approach for EPP poll
-   message responses is with returning a Change Poll Message, as defined
-   in [I-D.ietf-regext-change-poll], which is an extension to any EPP
-   object for notifying the client of operations on client sponsored
-   objects that were not initiated by the client through EPP.  The
-   object that will be used in the examples, is a [RFC5731] domain name
-   object.
+   The Change Poll Message, as defined in [I-D.ietf-regext-change-poll],
+   which is an extension of any EPP object, is an example of applying
+   the unhandled namespace approach for EPP <poll> message responses.
+   The object that will be used in the examples is a [RFC5731] domain
+   name object.
 
-   [RFC5731] domain name <info> poll message response with the unhandled
-   [I-D.ietf-regext-change-poll] <changePoll:changeData> element
-   included under an <extValue> element:
+   [RFC5731] domain name <info> <poll> message response with the
+   unhandled [I-D.ietf-regext-change-poll] <changePoll:changeData>
+   element included under an <extValue> element:
 
    S:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
    S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
@@ -722,6 +720,8 @@ Internet-Draft                 changePoll                 September 2018
    S:      <qDate>2018-08-24T19:21:51.087Z</qDate>
    S:      <msg>Registry initiated update of domain.</msg>
    S:    </msgQ>
+   S:    <resData>
+   S:      <domain:infData
 
 
 
@@ -730,8 +730,6 @@ Gould & Casanova         Expires March 22, 2019                [Page 13]
 Internet-Draft                 changePoll                 September 2018
 
 
-   S:    <resData>
-   S:      <domain:infData
    S:        xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
    S:        <domain:name>change-poll.tld</domain:name>
    S:        <domain:roid>EXAMPLE1-REP</domain:roid>
@@ -756,8 +754,8 @@ Internet-Draft                 changePoll                 September 2018
    S:  </response>
    S:</epp>
 
-   Unhandled [RFC5731] domain name poll message <info> response and the
-   unhandled [I-D.ietf-regext-change-poll] <changePoll:changeData>
+   Unhandled [RFC5731] domain name <info> <poll> message response and
+   the unhandled [I-D.ietf-regext-change-poll] <changePoll:changeData>
    element included under an <extValue> element:
 
    S:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -778,6 +776,8 @@ Internet-Draft                 changePoll                 September 2018
    S:            <domain:contact type="admin">sh8013</domain:contact>
    S:            <domain:contact type="tech">sh8013</domain:contact>
    S:            <domain:clID>ClientX</domain:clID>
+   S:            <domain:crID>ClientY</domain:crID>
+   S:            <domain:crDate>2012-05-03T04:00:00.000Z</domain:crDate>
 
 
 
@@ -786,8 +786,6 @@ Gould & Casanova         Expires March 22, 2019                [Page 14]
 Internet-Draft                 changePoll                 September 2018
 
 
-   S:            <domain:crID>ClientY</domain:crID>
-   S:            <domain:crDate>2012-05-03T04:00:00.000Z</domain:crDate>
    S:            <domain:upID>ClientZ</domain:upID>
    S:            <domain:upDate>2013-11-22T05:00:00.000Z</domain:upDate>
    S:            <domain:exDate>2014-05-03T04:00:00.000Z</domain:exDate>
@@ -831,8 +829,10 @@ Internet-Draft                 changePoll                 September 2018
    S:  </response>
    S:</epp>
 
+6.  Implementation Status
 
-
+   Note to RFC Editor: Please remove this section and the reference to
+   RFC 7942 [RFC7942] before publication.
 
 
 
@@ -842,9 +842,45 @@ Gould & Casanova         Expires March 22, 2019                [Page 15]
 Internet-Draft                 changePoll                 September 2018
 
 
-6.  Implementation Status
+   This section records the status of known implementations of the
+   protocol defined by this specification at the time of posting of this
+   Internet-Draft, and is based on a proposal described in RFC 7942
+   [RFC7942].  The description of implementations in this section is
+   intended to assist the IETF in its decision processes in progressing
+   drafts to RFCs.  Please note that the listing of any individual
+   implementation here does not imply endorsement by the IETF.
+   Furthermore, no effort has been spent to verify the information
+   presented here that was supplied by IETF contributors.  This is not
+   intended as, and must not be construed to be, a catalog of available
+   implementations or their features.  Readers are advised to note that
+   other implementations may exist.
 
-   TBD
+   According to RFC 7942 [RFC7942], "this will allow reviewers and
+   working groups to assign due consideration to documents that have the
+   benefit of running code, which may serve as evidence of valuable
+   experimentation and feedback that have made the implemented protocols
+   more mature.  It is up to the individual working groups to use this
+   information as they see fit".
+
+6.1.  Verisign EPP SDK
+
+   Organization: Verisign Inc.
+
+   Name: Verisign EPP SDK
+
+   Description: The Verisign EPP SDK includes an implementation of the
+   unhandled namespaces for the processing of the poll queue messages.
+
+   Level of maturity: Development
+
+   Coverage: All aspects of the protocol are implemented.
+
+   Licensing: GNU Lesser General Public License
+
+   Contact: jgould@verisign.com
+
+   URL: https://www.verisign.com/en_US/channel-resources/domain-
+   registry-products/epp-sdks
 
 7.  Security Considerations
 
@@ -852,6 +888,15 @@ Internet-Draft                 changePoll                 September 2018
    described by EPP [RFC5730] and protocol layers used by EPP.  The
    security considerations described in these other specifications apply
    to this specification as well.
+
+
+
+
+
+Gould & Casanova         Expires March 22, 2019                [Page 16]
+
+Internet-Draft                 changePoll                 September 2018
+
 
 8.  Acknowledgements
 
@@ -888,16 +933,6 @@ Internet-Draft                 changePoll                 September 2018
               STD 69, RFC 5730, DOI 10.17487/RFC5730, August 2009,
               <https://www.rfc-editor.org/info/rfc5730>.
 
-
-
-
-
-
-Gould & Casanova         Expires March 22, 2019                [Page 16]
-
-Internet-Draft                 changePoll                 September 2018
-
-
    [RFC5731]  Hollenbeck, S., "Extensible Provisioning Protocol (EPP)
               Domain Name Mapping", STD 69, RFC 5731,
               DOI 10.17487/RFC5731, August 2009, <https://www.rfc-
@@ -908,6 +943,21 @@ Internet-Draft                 changePoll                 September 2018
               Provisioning Protocol (EPP)", RFC 5910,
               DOI 10.17487/RFC5910, May 2010, <https://www.rfc-
               editor.org/info/rfc5910>.
+
+
+
+
+
+
+Gould & Casanova         Expires March 22, 2019                [Page 17]
+
+Internet-Draft                 changePoll                 September 2018
+
+
+   [RFC7942]  Sheffer, Y. and A. Farrel, "Improving Awareness of Running
+              Code: The Implementation Status Section", BCP 205,
+              RFC 7942, DOI 10.17487/RFC7942, July 2016,
+              <https://www.rfc-editor.org/info/rfc7942>.
 
 Appendix A.  Change History
 
@@ -949,4 +999,10 @@ Authors' Addresses
 
 
 
-Gould & Casanova         Expires March 22, 2019                [Page 17]
+
+
+
+
+
+
+Gould & Casanova         Expires March 22, 2019                [Page 18]
