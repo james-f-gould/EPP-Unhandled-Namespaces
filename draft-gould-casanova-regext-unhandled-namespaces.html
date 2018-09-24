@@ -396,7 +396,7 @@
 
   <meta name="dct.creator" content="Gould, J. and M. Casanova" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-gould-casanova-regext-unhandled-namespaces-00" />
-  <meta name="dct.issued" scheme="ISO8601" content="2018-9-18" />
+  <meta name="dct.issued" scheme="ISO8601" content="2018-9-24" />
   <meta name="dct.abstract" content="The Extensible Provisioning Protocol (EPP), as defined in " />
   <meta name="description" content="The Extensible Provisioning Protocol (EPP), as defined in " />
 
@@ -420,12 +420,12 @@
   <td class="right">M. Casanova</td>
 </tr>
 <tr>
-  <td class="left">Expires: March 22, 2019</td>
+  <td class="left">Expires: March 28, 2019</td>
   <td class="right">SWITCH</td>
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">September 18, 2018</td>
+  <td class="right">September 24, 2018</td>
 </tr>
 
     	
@@ -438,14 +438,14 @@
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
 </h1>
-<p>The Extensible Provisioning Protocol (EPP), as defined in <a href="#RFC5730">[RFC5730]</a>, includes a method for the client and server to negotiate the set of services (objects and object extensions) used during a session.  The services are identified using namespace URIs.  How should the server handle service data (object and object extensions) that needs to be returned in the response when the client does not support the required service namespace URI, which is referred to as an unhandled namespace?  Unhandled namespaces is a significant issue for the processing of <a href="#RFC5730">[RFC5730]</a> poll messages, since poll messages are inserted by the server prior to knowing the supported client services, and the client needs to be capable of processing all poll messages.  This document defines an operational practice that enables the server to return information associated with unhandled namespace URIs that is compliant with the negotiated services defined in <a href="#RFC5730">[RFC5730]</a>.</p>
+<p>The Extensible Provisioning Protocol (EPP), as defined in <a href="#RFC5730">[RFC5730]</a>, includes a method for the client and server to determine the objects to be managed during the session and the object extensions to be used during the session.  The services are identified using namespace URIs.  How should the server handle service data (object and object extensions) that needs to be returned in the response when the client does not support the required service namespace URI, which is referred to as an unhandled namespace?  Unhandled namespaces is a significant issue for the processing of <a href="#RFC5730">[RFC5730]</a> poll messages, since poll messages are inserted by the server prior to knowing the supported client services, and the client needs to be capable of processing all poll messages.  This document defines an operational practice that enables the server to return information associated with unhandled namespace URIs that is compliant with the negotiated services defined in <a href="#RFC5730">[RFC5730]</a>.</p>
 <h1 id="rfc.status">
   <a href="#rfc.status">Status of This Memo</a>
 </h1>
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on March 22, 2019.</p>
+<p>This Internet-Draft will expire on March 28, 2019.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -477,7 +477,7 @@
   </ul>
 
   <h1 id="rfc.section.1"><a href="#rfc.section.1">1.</a> Introduction</h1>
-<p id="rfc.section.1.p.1">The Extensible Provisioning Protocol (EPP), as defined in <a href="#RFC5730">[RFC5730]</a>, includes a method for the client and server to negotiate the set of services (objects and object extensions) used during a session.  The services are identified using namespace URIs.  How should the server handle service data (object and object extensions) that needs to be returned in the response when the client does not support the required service namespace URI, which is referred to as an unhandled namespace?  Unhandled namespaces is a significant issue for the processing of <a href="#RFC5730">[RFC5730]</a> poll messages, since poll messages are inserted by the server prior to knowing the supported client services, and the client must be capable of processing all poll messages.  An unhandled namespaces is an issue also for general EPP responses when the server has information that it cannot return to the client due to the client's supported services.  The server should be able to return unhandled namespace information that the client can process later.  This document defines an operational practice that enables the server to return information associated with unhandled namespace URIs that is compliant with the negotiated services defined in <a href="#RFC5730">[RFC5730]</a>.</p>
+<p id="rfc.section.1.p.1">The Extensible Provisioning Protocol (EPP), as defined in <a href="#RFC5730">[RFC5730]</a>, includes a method for the client and server to determine the objects to be managed during the session and the object extensions to be used during the session.  The services are identified using namespace URIs.  How should the server handle service data (object and object extensions) that needs to be returned in the response when the client does not support the required service namespace URI, which is referred to as an unhandled namespace?  Unhandled namespaces is a significant issue for the processing of <a href="#RFC5730">[RFC5730]</a> poll messages, since poll messages are inserted by the server prior to knowing the supported client services, and the client needs to be capable of processing all poll messages.  An unhandled namespaces is an issue also for general EPP responses when the server has information that it cannot return to the client due to the client's supported services.  The server should be able to return unhandled namespace information that the client can process later.  This document defines an operational practice that enables the server to return information associated with unhandled namespace URIs that is compliant with the negotiated services defined in <a href="#RFC5730">[RFC5730]</a>.</p>
 <h1 id="rfc.section.1.1"><a href="#rfc.section.1.1">1.1.</a> Conventions Used in This Document</h1>
 <p id="rfc.section.1.1.p.1">The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <a href="#RFC2119">RFC 2119</a> <cite title="NONE">[RFC2119]</cite>.</p>
 <p id="rfc.section.1.1.p.2">XML is case sensitive. Unless stated otherwise, XML specifications and examples provided in this document MUST be interpreted in the character case presented in order to develop a conforming implementation.</p>
@@ -503,9 +503,9 @@
   <dd style="margin-left: 4">XML namespace URI associated with the [NAMESPACE-XML] XML content.  An example is "urn:ietf:params:xml:ns:domain-1.0" in <a href="#RFC5731">[RFC5731]</a>.</dd>
 </dl>
 <h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#unhandledNamespace" id="unhandledNamespace">Unhandled Namespaces</a></h1>
-<p id="rfc.section.2.p.1">An Unhandled Namespace is an XML namespace that is associated with a response extension that is not included in the client-specified EPP login services of <a href="#RFC5730">[RFC5730]</a>.  The EPP login services consists of the set of XML namespace URIs included in the &lt;objURI&gt; or &lt;extURI&gt; elements of the <a href="#RFC5730">[RFC5730]</a> EPP &lt;login&gt; command.  The services supported by the server are included in the &lt;objURI&gt; and &lt;extURI&gt; elements of the <a href="#RFC5730">[RFC5730]</a> EPP &lt;greeting&gt;, which should be a superset of the login services included in the EPP &lt;login&gt; command.  A server may have information associated with a specific namespace that it needs to return in the response to a client.  The unhandled namespaces problem exists when the server has information that it needs to return to the client that is not supported based on the EPP &lt;login&gt; command services.</p>
+<p id="rfc.section.2.p.1">An Unhandled Namespace is an XML namespace that is associated with a response extension that is not included in the client-specified EPP login services of <a href="#RFC5730">[RFC5730]</a>.  The EPP login services consists of the set of XML namespace URIs included in the &lt;objURI&gt; or &lt;extURI&gt; elements of the <a href="#RFC5730">[RFC5730]</a> EPP &lt;login&gt; command.  The services supported by the server are included in the &lt;objURI&gt; and &lt;extURI&gt; elements of the <a href="#RFC5730">[RFC5730]</a> EPP &lt;greeting&gt;, which should be a superset of the login services included in the EPP &lt;login&gt; command.  A server may have information associated with a specific namespace that it needs to return in the response to a client.  The unhandled namespaces problem exists when the server has information, that it needs to return to the client, that is not supported by the client based on the negotiated EPP &lt;login&gt; command services.</p>
 <h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#extValueApproach" id="extValueApproach">Use of EPP &lt;extValue&gt; for Unhandled Namespace Data</a></h1>
-<p id="rfc.section.3.p.1">When a server has data to return to the client, that the client does not support based on the login services, the server MAY return a successful response with the data for each unsupported namespace moved into an <a href="#RFC5730">[RFC5730]</a> &lt;extValue&gt; element.  The unhandled namespace will not cause an error response, but the unhandled namespace data will instead be moved to an &lt;extValue&gt; element, along with a reason why the unhandled namespace data could not be included in the appropriate location of the response.  The &lt;extValue&gt; element XML will not be processed by the XML processor.  The &lt;extValue&gt; element contains the following child elements: </p>
+<p id="rfc.section.3.p.1">When a server has data to return to the client, that the client does not support based on the login services, the server MAY return a successful response, with the data for each unsupported namespace moved into an <a href="#RFC5730">[RFC5730]</a> &lt;extValue&gt; element.  The unhandled namespace will not cause an error response, but the unhandled namespace data will instead be moved to an &lt;extValue&gt; element, along with a reason why the unhandled namespace data could not be included in the appropriate location of the response.  The &lt;extValue&gt; element XML will not be processed by the XML processor.  The &lt;extValue&gt; element contains the following child elements: </p>
 
 <dl>
   <dt>&lt;value&gt;:</dt>
