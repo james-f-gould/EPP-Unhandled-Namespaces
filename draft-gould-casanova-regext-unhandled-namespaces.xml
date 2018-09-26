@@ -102,26 +102,25 @@
       </address>
     </author>
 
-    <date day="24" month="September" year="2018"/>
+    <date day="26" month="September" year="2018"/>
 
     <abstract>
-      <t>The Extensible Provisioning Protocol (EPP), as defined in <xref
-      target="RFC5730"/>, includes a method for the client and server to 
+      <t>The Extensible Provisioning Protocol (EPP), as defined in RFC 5730, 
+      includes a method for the client and server to 
       determine the objects to be managed during the session and the object 
-      extensions to be used during the session.  The services are identified using 
+      extensions to be used during a session.  The services are identified using 
       namespace URIs.  How should the server handle 
-      service data (object and object extensions)  
-      that needs to be returned in the response when 
+      service data that needs to be returned in the response when 
       the client does not support the required service namespace URI, 
-      which is referred to as an unhandled namespace?  Unhandled namespaces 
-      is a significant issue for the processing of <xref
-      target="RFC5730"/> poll messages, since poll messages are inserted 
+      which is referred to as an unhandled namespace?  An unhandled namespace 
+      is a significant issue for the processing of RFC 5730 
+      poll messages, since poll messages are inserted 
       by the server prior to knowing the supported client services, 
       and the client needs to be capable of processing all poll messages.  
       This document defines an operational practice that enables the server 
       to return information associated with unhandled namespace URIs that is 
       compliant with the negotiated services defined in 
-      <xref target="RFC5730"/>.</t>
+      RFC 5730.</t>
     </abstract>
 
   </front>
@@ -131,17 +130,16 @@
       <t>The Extensible Provisioning Protocol (EPP), as defined in <xref
       target="RFC5730"/>, includes a method for the client and server to 
       determine the objects to be managed during the session and the object 
-      extensions to be used during the session.  The services are identified using 
+      extensions to be used during a session.  The services are identified using 
       namespace URIs.  How should the server handle 
-      service data (object and object extensions)  
-      that needs to be returned in the response when 
+      service data that needs to be returned in the response when 
       the client does not support the required service namespace URI, 
-      which is referred to as an unhandled namespace?  Unhandled namespaces 
+      which is referred to as an unhandled namespace?  An unhandled namespace 
       is a significant issue for the processing of <xref
       target="RFC5730"/> poll messages, since poll messages are inserted 
       by the server prior to knowing the supported client services, 
       and the client needs to be capable of processing all poll messages.  
-      An unhandled namespaces is an issue also for general EPP responses when the 
+      An unhandled namespace is an issue also for general EPP responses when the 
       server has information that it cannot return to the client due to 
       the client's supported services.  The server should be able to return 
       unhandled namespace information that 
