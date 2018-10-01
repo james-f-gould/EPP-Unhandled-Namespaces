@@ -102,12 +102,12 @@
       </address>
     </author>
 
-    <date day="26" month="September" year="2018"/>
+    <date day="1" month="October" year="2018"/>
 
     <abstract>
       <t>The Extensible Provisioning Protocol (EPP), as defined in RFC 5730, 
       includes a method for the client and server to 
-      determine the objects to be managed during the session and the object 
+      determine the objects to be managed during a session and the object 
       extensions to be used during a session.  The services are identified using 
       namespace URIs.  How should the server handle 
       service data that needs to be returned in the response when 
@@ -129,7 +129,7 @@
     <section title="Introduction">
       <t>The Extensible Provisioning Protocol (EPP), as defined in <xref
       target="RFC5730"/>, includes a method for the client and server to 
-      determine the objects to be managed during the session and the object 
+      determine the objects to be managed during a session and the object 
       extensions to be used during a session.  The services are identified using 
       namespace URIs.  How should the server handle 
       service data that needs to be returned in the response when 

@@ -5,8 +5,8 @@
 Network Working Group                                           J. Gould
 Internet-Draft                                            VeriSign, Inc.
 Intended status: Best Current Practice                       M. Casanova
-Expires: March 30, 2019                                           SWITCH
-                                                      September 26, 2018
+Expires: April 4, 2019                                            SWITCH
+                                                         October 1, 2018
 
 
       Extensible Provisioning Protocol (EPP) Unhandled Namespaces
@@ -16,7 +16,7 @@ Abstract
 
    The Extensible Provisioning Protocol (EPP), as defined in RFC 5730,
    includes a method for the client and server to determine the objects
-   to be managed during the session and the object extensions to be used
+   to be managed during a session and the object extensions to be used
    during a session.  The services are identified using namespace URIs.
    How should the server handle service data that needs to be returned
    in the response when the client does not support the required service
@@ -44,7 +44,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on March 30, 2019.
+   This Internet-Draft will expire on April 4, 2019.
 
 
 
@@ -53,9 +53,9 @@ Status of This Memo
 
 
 
-Gould & Casanova         Expires March 30, 2019                 [Page 1]
+Gould & Casanova          Expires April 4, 2019                 [Page 1]
 
-Internet-Draft                 changePoll                 September 2018
+Internet-Draft                 changePoll                   October 2018
 
 
 Copyright Notice
@@ -95,7 +95,7 @@ Table of Contents
 
    The Extensible Provisioning Protocol (EPP), as defined in [RFC5730],
    includes a method for the client and server to determine the objects
-   to be managed during the session and the object extensions to be used
+   to be managed during a session and the object extensions to be used
    during a session.  The services are identified using namespace URIs.
    How should the server handle service data that needs to be returned
    in the response when the client does not support the required service
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Gould & Casanova         Expires March 30, 2019                 [Page 2]
+Gould & Casanova          Expires April 4, 2019                 [Page 2]
 
-Internet-Draft                 changePoll                 September 2018
+Internet-Draft                 changePoll                   October 2018
 
 
    client's supported services.  The server should be able to return
@@ -165,9 +165,9 @@ Internet-Draft                 changePoll                 September 2018
 
 
 
-Gould & Casanova         Expires March 30, 2019                 [Page 3]
+Gould & Casanova          Expires April 4, 2019                 [Page 3]
 
-Internet-Draft                 changePoll                 September 2018
+Internet-Draft                 changePoll                   October 2018
 
 
    set of XML namespace URIs included in the <objURI> or <extURI>
@@ -221,9 +221,9 @@ Internet-Draft                 changePoll                 September 2018
 
 
 
-Gould & Casanova         Expires March 30, 2019                 [Page 4]
+Gould & Casanova          Expires April 4, 2019                 [Page 4]
 
-Internet-Draft                 changePoll                 September 2018
+Internet-Draft                 changePoll                   October 2018
 
 
 3.1.  Unhandled Object-Level Extension
@@ -277,9 +277,9 @@ Internet-Draft                 changePoll                 September 2018
 
 
 
-Gould & Casanova         Expires March 30, 2019                 [Page 5]
+Gould & Casanova          Expires April 4, 2019                 [Page 5]
 
-Internet-Draft                 changePoll                 September 2018
+Internet-Draft                 changePoll                   October 2018
 
 
    Template unhandled namespace response for an unsupported object-level
@@ -333,9 +333,9 @@ Internet-Draft                 changePoll                 September 2018
 
 
 
-Gould & Casanova         Expires March 30, 2019                 [Page 6]
+Gould & Casanova          Expires April 4, 2019                 [Page 6]
 
-Internet-Draft                 changePoll                 September 2018
+Internet-Draft                 changePoll                   October 2018
 
 
    [RFC5730] example <transfer> query response converted into an
@@ -389,9 +389,9 @@ Internet-Draft                 changePoll                 September 2018
 
 
 
-Gould & Casanova         Expires March 30, 2019                 [Page 7]
+Gould & Casanova          Expires April 4, 2019                 [Page 7]
 
-Internet-Draft                 changePoll                 September 2018
+Internet-Draft                 changePoll                   October 2018
 
 
    Template response for a supported command-response extension.  The
@@ -445,9 +445,9 @@ Internet-Draft                 changePoll                 September 2018
 
 
 
-Gould & Casanova         Expires March 30, 2019                 [Page 8]
+Gould & Casanova          Expires April 4, 2019                 [Page 8]
 
-Internet-Draft                 changePoll                 September 2018
+Internet-Draft                 changePoll                   October 2018
 
 
    Template unhandled namespace response for an unsupported command-
@@ -501,9 +501,9 @@ Internet-Draft                 changePoll                 September 2018
 
 
 
-Gould & Casanova         Expires March 30, 2019                 [Page 9]
+Gould & Casanova          Expires April 4, 2019                 [Page 9]
 
-Internet-Draft                 changePoll                 September 2018
+Internet-Draft                 changePoll                   October 2018
 
 
    S:          <secDNS:keyTag>12345</secDNS:keyTag>
@@ -557,9 +557,9 @@ Internet-Draft                 changePoll                 September 2018
 
 
 
-Gould & Casanova         Expires March 30, 2019                [Page 10]
+Gould & Casanova          Expires April 4, 2019                [Page 10]
 
-Internet-Draft                 changePoll                 September 2018
+Internet-Draft                 changePoll                   October 2018
 
 
 4.  Usage with General EPP Responses
@@ -613,9 +613,9 @@ Internet-Draft                 changePoll                 September 2018
 
 
 
-Gould & Casanova         Expires March 30, 2019                [Page 11]
+Gould & Casanova          Expires April 4, 2019                [Page 11]
 
-Internet-Draft                 changePoll                 September 2018
+Internet-Draft                 changePoll                   October 2018
 
 
    S:      <domain:infData
@@ -669,9 +669,9 @@ Internet-Draft                 changePoll                 September 2018
 
 
 
-Gould & Casanova         Expires March 30, 2019                [Page 12]
+Gould & Casanova          Expires April 4, 2019                [Page 12]
 
-Internet-Draft                 changePoll                 September 2018
+Internet-Draft                 changePoll                   October 2018
 
 
    EPP <poll> message response MAY have either or both the object-level
@@ -725,9 +725,9 @@ Internet-Draft                 changePoll                 September 2018
 
 
 
-Gould & Casanova         Expires March 30, 2019                [Page 13]
+Gould & Casanova          Expires April 4, 2019                [Page 13]
 
-Internet-Draft                 changePoll                 September 2018
+Internet-Draft                 changePoll                   October 2018
 
 
    S:        xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
@@ -781,9 +781,9 @@ Internet-Draft                 changePoll                 September 2018
 
 
 
-Gould & Casanova         Expires March 30, 2019                [Page 14]
+Gould & Casanova          Expires April 4, 2019                [Page 14]
 
-Internet-Draft                 changePoll                 September 2018
+Internet-Draft                 changePoll                   October 2018
 
 
    S:            <domain:upID>ClientZ</domain:upID>
@@ -837,9 +837,9 @@ Internet-Draft                 changePoll                 September 2018
 
 
 
-Gould & Casanova         Expires March 30, 2019                [Page 15]
+Gould & Casanova          Expires April 4, 2019                [Page 15]
 
-Internet-Draft                 changePoll                 September 2018
+Internet-Draft                 changePoll                   October 2018
 
 
    This section records the status of known implementations of the
@@ -893,9 +893,9 @@ Internet-Draft                 changePoll                 September 2018
 
 
 
-Gould & Casanova         Expires March 30, 2019                [Page 16]
+Gould & Casanova          Expires April 4, 2019                [Page 16]
 
-Internet-Draft                 changePoll                 September 2018
+Internet-Draft                 changePoll                   October 2018
 
 
 8.  Acknowledgements
@@ -949,9 +949,9 @@ Internet-Draft                 changePoll                 September 2018
 
 
 
-Gould & Casanova         Expires March 30, 2019                [Page 17]
+Gould & Casanova          Expires April 4, 2019                [Page 17]
 
-Internet-Draft                 changePoll                 September 2018
+Internet-Draft                 changePoll                   October 2018
 
 
    [RFC7942]  Sheffer, Y. and A. Farrel, "Improving Awareness of Running
@@ -1005,4 +1005,4 @@ Authors' Addresses
 
 
 
-Gould & Casanova         Expires March 30, 2019                [Page 18]
+Gould & Casanova          Expires April 4, 2019                [Page 18]
