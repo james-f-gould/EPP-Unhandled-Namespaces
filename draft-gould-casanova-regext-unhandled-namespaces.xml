@@ -44,7 +44,7 @@
 <?rfc inline="yes" ?>
 <!-- inline cref output -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="bcp" docName="draft-gould-casanova-regext-unhandled-namespaces-00" ipr="trust200902">
+<rfc category="bcp" docName="draft-gould-casanova-regext-unhandled-namespaces-01" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
      you can add the attributes updates="NNNN" and obsoletes="NNNN"
@@ -777,6 +777,12 @@ S:</epp>]]>
     </references>
           
     <section title="Change History">
+      <section title="Change from 00 to 01" anchor="version-00-to-01">
+        <t><list style="numbers">
+          <t>Removed xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" reference from examples.</t>
+          <t>removed &lt;extension&gt;&lt;/extension&gt; block from example.</t>
+        </list></t>
+      </section>
     </section>
 
   </back>

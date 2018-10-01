@@ -388,6 +388,7 @@
 <link href="#rfc.section.8" rel="Chapter" title="8 Acknowledgements"/>
 <link href="#rfc.references" rel="Chapter" title="9 Normative References"/>
 <link href="#rfc.appendix.A" rel="Chapter" title="A Change History"/>
+<link href="#rfc.appendix.A.1" rel="Chapter" title="A.1 Change from 00 to 01"/>
 <link href="#rfc.authors" rel="Chapter"/>
 
 
@@ -395,7 +396,7 @@
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Gould, J. and M. Casanova" />
-  <meta name="dct.identifier" content="urn:ietf:id:draft-gould-casanova-regext-unhandled-namespaces-00" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-gould-casanova-regext-unhandled-namespaces-01" />
   <meta name="dct.issued" scheme="ISO8601" content="2018-10-1" />
   <meta name="dct.abstract" content="The Extensible Provisioning Protocol (EPP), as defined in RFC 5730, includes a method for the client and server to determine the objects to be managed during a session and the object extensions to be used during a session.  The services are identified using namespace URIs.  How should the server handle service data that needs to be returned in the response when the client does not support the required service namespace URI, which is referred to as an unhandled namespace?  An unhandled namespace is a significant issue for the processing of RFC 5730 poll messages, since poll messages are inserted by the server prior to knowing the supported client services, and the client needs to be capable of processing all poll messages.  This document defines an operational practice that enables the server to return information associated with unhandled namespace URIs that is compliant with the negotiated services defined in RFC 5730." />
   <meta name="description" content="The Extensible Provisioning Protocol (EPP), as defined in RFC 5730, includes a method for the client and server to determine the objects to be managed during a session and the object extensions to be used during a session.  The services are identified using namespace URIs.  How should the server handle service data that needs to be returned in the response when the client does not support the required service namespace URI, which is referred to as an unhandled namespace?  An unhandled namespace is a significant issue for the processing of RFC 5730 poll messages, since poll messages are inserted by the server prior to knowing the supported client services, and the client needs to be capable of processing all poll messages.  This document defines an operational practice that enables the server to return information associated with unhandled namespace URIs that is compliant with the negotiated services defined in RFC 5730." />
@@ -433,7 +434,7 @@
   </table>
 
   <p class="title">Extensible Provisioning Protocol (EPP) Unhandled Namespaces<br />
-  <span class="filename">draft-gould-casanova-regext-unhandled-namespaces-00</span></p>
+  <span class="filename">draft-gould-casanova-regext-unhandled-namespaces-01</span></p>
   
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
@@ -471,7 +472,8 @@
 <li>8.   <a href="#rfc.section.8">Acknowledgements</a></li>
 <li>9.   <a href="#rfc.references">Normative References</a></li>
 <li>Appendix A.   <a href="#rfc.appendix.A">Change History</a></li>
-<li><a href="#rfc.authors">Authors' Addresses</a></li>
+<ul><li>A.1.   <a href="#rfc.appendix.A.1">Change from 00 to 01</a></li>
+</ul><li><a href="#rfc.authors">Authors' Addresses</a></li>
 
 
   </ul>
@@ -973,6 +975,13 @@ S:&lt;/epp&gt;
   </tbody>
 </table>
 <h1 id="rfc.appendix.A"><a href="#rfc.appendix.A">Appendix A.</a> Change History</h1>
+<h1 id="rfc.appendix.A.1"><a href="#rfc.appendix.A.1">A.1.</a> <a href="#version-00-to-01" id="version-00-to-01">Change from 00 to 01</a></h1>
+<p/>
+
+<ol>
+  <li>Removed xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" reference from examples.</li>
+  <li>removed &lt;extension&gt;&lt;/extension&gt; block from example.</li>
+</ol>
 <h1 id="rfc.authors">
   <a href="#rfc.authors">Authors' Addresses</a>
 </h1>
