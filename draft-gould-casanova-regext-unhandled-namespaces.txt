@@ -433,8 +433,6 @@ Internet-Draft                 changePoll                   October 2018
    S:        </reason>
    S:      </extValue>
    S:    </result>
-   S:    <extension>
-   S:    </extension>
    S:    <trID>
    S:      <clTRID>ABC-12345</clTRID>
    S:      <svTRID>54322-XYZ</svTRID>
@@ -442,6 +440,8 @@ Internet-Draft                 changePoll                   October 2018
    S:  </response>
    S:</epp>
 
+   The EPP response is converted to an unhandled namespace response by
+   moving the unhandled command-response extension from under the
 
 
 
@@ -450,8 +450,6 @@ Gould & Casanova          Expires April 4, 2019                 [Page 8]
 Internet-Draft                 changePoll                   October 2018
 
 
-   The EPP response is converted to an unhandled namespace response by
-   moving the unhandled command-response extension from under the
    <extension> to an <extValue> element.  Below is example of converting
    the DS Data Interface <info> response example in [RFC5910] to an
    unhandled namespace response.
@@ -498,6 +496,8 @@ Internet-Draft                 changePoll                   October 2018
    S:        <domain:host>ns2.example.com</domain:host>
    S:        <domain:clID>ClientX</domain:clID>
    S:        <domain:crID>ClientY</domain:crID>
+   S:        <domain:crDate>1999-04-03T22:00:00.0Z</domain:crDate>
+   S:        <domain:upID>ClientX</domain:upID>
 
 
 
@@ -506,8 +506,6 @@ Gould & Casanova          Expires April 4, 2019                 [Page 9]
 Internet-Draft                 changePoll                   October 2018
 
 
-   S:        <domain:crDate>1999-04-03T22:00:00.0Z</domain:crDate>
-   S:        <domain:upID>ClientX</domain:upID>
    S:        <domain:upDate>1999-12-03T09:00:00.0Z</domain:upDate>
    S:        <domain:exDate>2005-04-03T22:00:00.0Z</domain:exDate>
    S:        <domain:trDate>2000-04-08T09:00:00.0Z</domain:trDate>
@@ -554,6 +552,8 @@ Internet-Draft                 changePoll                   October 2018
    [RFC5731] domain name <info> response with the unhandled [RFC3915]
    <rgp:infData> element included under an <extValue> element:
 
+   S:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+   S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
 
 
 
@@ -562,8 +562,6 @@ Gould & Casanova          Expires April 4, 2019                [Page 10]
 Internet-Draft                 changePoll                   October 2018
 
 
-   S:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-   S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
    S:  <response>
    S:    <result code="1000">
    S:      <msg>Command completed successfully</msg>
@@ -610,6 +608,8 @@ Internet-Draft                 changePoll                   October 2018
    S:      <svTRID>54322-XYZ</svTRID>
    S:    </trID>
    S:  </response>
+   S:</epp>
+
 
 
 
@@ -617,8 +617,6 @@ Gould & Casanova          Expires April 4, 2019                [Page 11]
 
 Internet-Draft                 changePoll                   October 2018
 
-
-   S:</epp>
 
 5.  Usage with Poll Message EPP Responses
 
@@ -666,6 +664,8 @@ Internet-Draft                 changePoll                   October 2018
    S:            <changePoll:who>URS Admin</changePoll:who>
    S:            <changePoll:caseId type="urs">urs123
    S:            </changePoll:caseId>
+   S:            <changePoll:reason>URS Lock</changePoll:reason>
+   S:          </changePoll:changeData>
 
 
 
@@ -674,8 +674,6 @@ Gould & Casanova          Expires April 4, 2019                [Page 12]
 Internet-Draft                 changePoll                   October 2018
 
 
-   S:            <changePoll:reason>URS Lock</changePoll:reason>
-   S:          </changePoll:changeData>
    S:        </value>
    S:        <reason>
    S:      urn:ietf:params:xml:ns:changePoll-1.0 not in login services
@@ -722,6 +720,8 @@ Internet-Draft                 changePoll                   October 2018
    S:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
    S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
    S:  <response>
+   S:    <result code="1301">
+   S:      <msg>Command completed successfully; ack to dequeue</msg>
 
 
 
@@ -730,8 +730,6 @@ Gould & Casanova          Expires April 4, 2019                [Page 13]
 Internet-Draft                 changePoll                   October 2018
 
 
-   S:    <result code="1301">
-   S:      <msg>Command completed successfully; ack to dequeue</msg>
    S:      <extValue>
    S:        <value>
    S:          <domain:infData
@@ -778,6 +776,8 @@ Internet-Draft                 changePoll                   October 2018
    S:    </result>
    S:    <msgQ
    S:      count="15"
+   S:      id="1"
+   S:    >
 
 
 
@@ -786,8 +786,6 @@ Gould & Casanova          Expires April 4, 2019                [Page 14]
 Internet-Draft                 changePoll                   October 2018
 
 
-   S:      id="1"
-   S:    >
    S:      <qDate>2018-08-24T19:23:12.822Z</qDate>
    S:      <msg>Registry initiated update of domain.</msg>
    S:    </msgQ>
@@ -834,6 +832,8 @@ Internet-Draft                 changePoll                   October 2018
 
    Level of maturity: Development
 
+   Coverage: All aspects of the protocol are implemented.
+
 
 
 
@@ -841,8 +841,6 @@ Gould & Casanova          Expires April 4, 2019                [Page 15]
 
 Internet-Draft                 changePoll                   October 2018
 
-
-   Coverage: All aspects of the protocol are implemented.
 
    Licensing: GNU Lesser General Public License
 
@@ -889,7 +887,9 @@ Internet-Draft                 changePoll                   October 2018
               DOI 10.17487/RFC5234, January 2008, <https://www.rfc-
               editor.org/info/rfc5234>.
 
-
+   [RFC5730]  Hollenbeck, S., "Extensible Provisioning Protocol (EPP)",
+              STD 69, RFC 5730, DOI 10.17487/RFC5730, August 2009,
+              <https://www.rfc-editor.org/info/rfc5730>.
 
 
 
@@ -897,10 +897,6 @@ Gould & Casanova          Expires April 4, 2019                [Page 16]
 
 Internet-Draft                 changePoll                   October 2018
 
-
-   [RFC5730]  Hollenbeck, S., "Extensible Provisioning Protocol (EPP)",
-              STD 69, RFC 5730, DOI 10.17487/RFC5730, August 2009,
-              <https://www.rfc-editor.org/info/rfc5730>.
 
    [RFC5731]  Hollenbeck, S., "Extensible Provisioning Protocol (EPP)
               Domain Name Mapping", STD 69, RFC 5731,
@@ -940,6 +936,10 @@ Authors' Addresses
 
    Email: martin.casanova@switch.ch
    URI:   http://www.switch.ch
+
+
+
+
 
 
 

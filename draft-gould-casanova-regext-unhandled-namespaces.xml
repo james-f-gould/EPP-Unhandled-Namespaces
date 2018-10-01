@@ -366,8 +366,6 @@ S:          [NAMESPACE-URI] not in login services
 S:        </reason>
 S:      </extValue>      
 S:    </result>
-S:    <extension>
-S:    </extension>
 S:    <trID>
 S:      <clTRID>ABC-12345</clTRID>
 S:      <svTRID>54322-XYZ</svTRID>
