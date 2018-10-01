@@ -81,15 +81,15 @@ Table of Contents
    3.  Use of EPP <extValue> for Unhandled Namespace Data  . . . . .   4
      3.1.  Unhandled Object-Level Extension  . . . . . . . . . . . .   5
      3.2.  Unhandled Command-Response Extension  . . . . . . . . . .   7
-   4.  Usage with General EPP Responses  . . . . . . . . . . . . . .  11
+   4.  Usage with General EPP Responses  . . . . . . . . . . . . . .  10
    5.  Usage with Poll Message EPP Responses . . . . . . . . . . . .  12
    6.  Implementation Status . . . . . . . . . . . . . . . . . . . .  15
-     6.1.  Verisign EPP SDK  . . . . . . . . . . . . . . . . . . . .  16
+     6.1.  Verisign EPP SDK  . . . . . . . . . . . . . . . . . . . .  15
    7.  Security Considerations . . . . . . . . . . . . . . . . . . .  16
-   8.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  17
-   9.  Normative References  . . . . . . . . . . . . . . . . . . . .  17
-   Appendix A.  Change History . . . . . . . . . . . . . . . . . . .  18
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  18
+   8.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  16
+   9.  Normative References  . . . . . . . . . . . . . . . . . . . .  16
+   Appendix A.  Change History . . . . . . . . . . . . . . . . . . .  17
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  17
 
 1.  Introduction
 
@@ -399,8 +399,7 @@ Internet-Draft                 changePoll                   October 2018
    XML.
 
    S:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-   S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0"
-   S:     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
    S:  <response>
    S:    <result code="1000">
    S:      <msg>Command completed successfully</msg>
@@ -415,49 +414,13 @@ Internet-Draft                 changePoll                   October 2018
    S:  </response>
    S:</epp>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Gould & Casanova          Expires April 4, 2019                 [Page 8]
-
-Internet-Draft                 changePoll                   October 2018
-
-
    Template unhandled namespace response for an unsupported command-
    response extension.  The [NAMESPACE-XML] variable represents the
    command-response extension XML and the [NAMESPACE-URI] variable
    represents the command-response extension XML namespace URI.
 
    S:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-   S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0"
-   S:     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
    S:  <response>
    S:    <result code="1000">
    S:      <msg>Command completed successfully</msg>
@@ -479,6 +442,14 @@ Internet-Draft                 changePoll                   October 2018
    S:  </response>
    S:</epp>
 
+
+
+
+Gould & Casanova          Expires April 4, 2019                 [Page 8]
+
+Internet-Draft                 changePoll                   October 2018
+
+
    The EPP response is converted to an unhandled namespace response by
    moving the unhandled command-response extension from under the
    <extension> to an <extValue> element.  Below is example of converting
@@ -498,14 +469,6 @@ Internet-Draft                 changePoll                   October 2018
    S:        <secDNS:infData
    S:          xmlns:secDNS="urn:ietf:params:xml:ns:secDNS-1.1">
    S:          <secDNS:dsData>
-
-
-
-Gould & Casanova          Expires April 4, 2019                 [Page 9]
-
-Internet-Draft                 changePoll                   October 2018
-
-
    S:          <secDNS:keyTag>12345</secDNS:keyTag>
    S:          <secDNS:alg>3</secDNS:alg>
    S:          <secDNS:digestType>1</secDNS:digestType>
@@ -535,6 +498,14 @@ Internet-Draft                 changePoll                   October 2018
    S:        <domain:host>ns2.example.com</domain:host>
    S:        <domain:clID>ClientX</domain:clID>
    S:        <domain:crID>ClientY</domain:crID>
+
+
+
+Gould & Casanova          Expires April 4, 2019                 [Page 9]
+
+Internet-Draft                 changePoll                   October 2018
+
+
    S:        <domain:crDate>1999-04-03T22:00:00.0Z</domain:crDate>
    S:        <domain:upID>ClientX</domain:upID>
    S:        <domain:upDate>1999-12-03T09:00:00.0Z</domain:upDate>
@@ -551,16 +522,6 @@ Internet-Draft                 changePoll                   October 2018
    S:    </trID>
    S:  </response>
    S:</epp>
-
-
-
-
-
-
-Gould & Casanova          Expires April 4, 2019                [Page 10]
-
-Internet-Draft                 changePoll                   October 2018
-
 
 4.  Usage with General EPP Responses
 
@@ -593,6 +554,14 @@ Internet-Draft                 changePoll                   October 2018
    [RFC5731] domain name <info> response with the unhandled [RFC3915]
    <rgp:infData> element included under an <extValue> element:
 
+
+
+
+Gould & Casanova          Expires April 4, 2019                [Page 10]
+
+Internet-Draft                 changePoll                   October 2018
+
+
    S:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
    S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
    S:  <response>
@@ -610,14 +579,6 @@ Internet-Draft                 changePoll                   October 2018
    S:      </extValue>
    S:    </result>
    S:    <resData>
-
-
-
-Gould & Casanova          Expires April 4, 2019                [Page 11]
-
-Internet-Draft                 changePoll                   October 2018
-
-
    S:      <domain:infData
    S:       xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
    S:        <domain:name>example.com</domain:name>
@@ -649,6 +610,14 @@ Internet-Draft                 changePoll                   October 2018
    S:      <svTRID>54322-XYZ</svTRID>
    S:    </trID>
    S:  </response>
+
+
+
+Gould & Casanova          Expires April 4, 2019                [Page 11]
+
+Internet-Draft                 changePoll                   October 2018
+
+
    S:</epp>
 
 5.  Usage with Poll Message EPP Responses
@@ -666,14 +635,6 @@ Internet-Draft                 changePoll                   October 2018
    namespace approach, defined in Section 3, is used for an unhandled
    object-level extension and for each of the unhandled command-response
    extensions attached to the <poll> message response.  The resulting
-
-
-
-Gould & Casanova          Expires April 4, 2019                [Page 12]
-
-Internet-Draft                 changePoll                   October 2018
-
-
    EPP <poll> message response MAY have either or both the object-level
    extension or command-response extensions moved to <extValue>
    elements, as defined in Section 3.
@@ -705,6 +666,14 @@ Internet-Draft                 changePoll                   October 2018
    S:            <changePoll:who>URS Admin</changePoll:who>
    S:            <changePoll:caseId type="urs">urs123
    S:            </changePoll:caseId>
+
+
+
+Gould & Casanova          Expires April 4, 2019                [Page 12]
+
+Internet-Draft                 changePoll                   October 2018
+
+
    S:            <changePoll:reason>URS Lock</changePoll:reason>
    S:          </changePoll:changeData>
    S:        </value>
@@ -722,14 +691,6 @@ Internet-Draft                 changePoll                   October 2018
    S:    </msgQ>
    S:    <resData>
    S:      <domain:infData
-
-
-
-Gould & Casanova          Expires April 4, 2019                [Page 13]
-
-Internet-Draft                 changePoll                   October 2018
-
-
    S:        xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
    S:        <domain:name>change-poll.tld</domain:name>
    S:        <domain:roid>EXAMPLE1-REP</domain:roid>
@@ -761,6 +722,14 @@ Internet-Draft                 changePoll                   October 2018
    S:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
    S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
    S:  <response>
+
+
+
+Gould & Casanova          Expires April 4, 2019                [Page 13]
+
+Internet-Draft                 changePoll                   October 2018
+
+
    S:    <result code="1301">
    S:      <msg>Command completed successfully; ack to dequeue</msg>
    S:      <extValue>
@@ -778,14 +747,6 @@ Internet-Draft                 changePoll                   October 2018
    S:            <domain:clID>ClientX</domain:clID>
    S:            <domain:crID>ClientY</domain:crID>
    S:            <domain:crDate>2012-05-03T04:00:00.000Z</domain:crDate>
-
-
-
-Gould & Casanova          Expires April 4, 2019                [Page 14]
-
-Internet-Draft                 changePoll                   October 2018
-
-
    S:            <domain:upID>ClientZ</domain:upID>
    S:            <domain:upDate>2013-11-22T05:00:00.000Z</domain:upDate>
    S:            <domain:exDate>2014-05-03T04:00:00.000Z</domain:exDate>
@@ -817,6 +778,14 @@ Internet-Draft                 changePoll                   October 2018
    S:    </result>
    S:    <msgQ
    S:      count="15"
+
+
+
+Gould & Casanova          Expires April 4, 2019                [Page 14]
+
+Internet-Draft                 changePoll                   October 2018
+
+
    S:      id="1"
    S:    >
    S:      <qDate>2018-08-24T19:23:12.822Z</qDate>
@@ -833,14 +802,6 @@ Internet-Draft                 changePoll                   October 2018
 
    Note to RFC Editor: Please remove this section and the reference to
    RFC 7942 [RFC7942] before publication.
-
-
-
-
-Gould & Casanova          Expires April 4, 2019                [Page 15]
-
-Internet-Draft                 changePoll                   October 2018
-
 
    This section records the status of known implementations of the
    protocol defined by this specification at the time of posting of this
@@ -873,6 +834,14 @@ Internet-Draft                 changePoll                   October 2018
 
    Level of maturity: Development
 
+
+
+
+Gould & Casanova          Expires April 4, 2019                [Page 15]
+
+Internet-Draft                 changePoll                   October 2018
+
+
    Coverage: All aspects of the protocol are implemented.
 
    Licensing: GNU Lesser General Public License
@@ -888,15 +857,6 @@ Internet-Draft                 changePoll                   October 2018
    described by EPP [RFC5730] and protocol layers used by EPP.  The
    security considerations described in these other specifications apply
    to this specification as well.
-
-
-
-
-
-Gould & Casanova          Expires April 4, 2019                [Page 16]
-
-Internet-Draft                 changePoll                   October 2018
-
 
 8.  Acknowledgements
 
@@ -929,6 +889,15 @@ Internet-Draft                 changePoll                   October 2018
               DOI 10.17487/RFC5234, January 2008, <https://www.rfc-
               editor.org/info/rfc5234>.
 
+
+
+
+
+Gould & Casanova          Expires April 4, 2019                [Page 16]
+
+Internet-Draft                 changePoll                   October 2018
+
+
    [RFC5730]  Hollenbeck, S., "Extensible Provisioning Protocol (EPP)",
               STD 69, RFC 5730, DOI 10.17487/RFC5730, August 2009,
               <https://www.rfc-editor.org/info/rfc5730>.
@@ -943,16 +912,6 @@ Internet-Draft                 changePoll                   October 2018
               Provisioning Protocol (EPP)", RFC 5910,
               DOI 10.17487/RFC5910, May 2010, <https://www.rfc-
               editor.org/info/rfc5910>.
-
-
-
-
-
-
-Gould & Casanova          Expires April 4, 2019                [Page 17]
-
-Internet-Draft                 changePoll                   October 2018
-
 
    [RFC7942]  Sheffer, Y. and A. Farrel, "Improving Awareness of Running
               Code: The Implementation Status Section", BCP 205,
@@ -990,19 +949,4 @@ Authors' Addresses
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Gould & Casanova          Expires April 4, 2019                [Page 18]
+Gould & Casanova          Expires April 4, 2019                [Page 17]

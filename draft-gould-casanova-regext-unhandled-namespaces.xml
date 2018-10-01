@@ -329,8 +329,7 @@ S:</epp>]]>
 		      The [NAMESPACE-XML] variable represents the command-response extension XML.</preamble>                                                  
 		    <artwork><![CDATA[
 S:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0"
-S:     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
 S:  <response>
 S:    <result code="1000">
 S:      <msg>Command completed successfully</msg>
@@ -354,8 +353,7 @@ S:</epp>]]>
 		      [NAMESPACE-URI] variable represents the command-response extension XML namespace URI.</preamble>                                                  
 		    <artwork><![CDATA[
 S:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0"
-S:     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
 S:  <response>
 S:    <result code="1000">
 S:      <msg>Command completed successfully</msg>
