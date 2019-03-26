@@ -85,12 +85,13 @@ Table of Contents
    5.  Usage with Poll Message EPP Responses . . . . . . . . . . . .  12
    6.  Implementation Status . . . . . . . . . . . . . . . . . . . .  15
      6.1.  Verisign EPP SDK  . . . . . . . . . . . . . . . . . . . .  15
+     6.2.  SWITCH Automated DNSSEC Provisioning Process  . . . . . .  16
    7.  Security Considerations . . . . . . . . . . . . . . . . . . .  16
    8.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  16
    9.  Normative References  . . . . . . . . . . . . . . . . . . . .  16
    Appendix A.  Change History . . . . . . . . . . . . . . . . . . .  17
      A.1.  Change from 00 to 01  . . . . . . . . . . . . . . . . . .  17
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  17
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  18
 
 1.  Introduction
 
@@ -105,7 +106,6 @@ Table of Contents
    [RFC5730] poll messages, since poll messages are inserted by the
    server prior to knowing the supported client services, and the client
    needs to be capable of processing all poll messages.  An unhandled
-   namespace is an issue also for general EPP responses when the server
 
 
 
@@ -114,6 +114,7 @@ Gould & Casanova       Expires September 27, 2019               [Page 2]
 Internet-Draft                 changePoll                     March 2019
 
 
+   namespace is an issue also for general EPP responses when the server
    has information that it cannot return to the client due to the
    client's supported services.  The server should be able to return
    unhandled namespace information that the client can process later.
@@ -157,7 +158,6 @@ Internet-Draft                 changePoll                     March 2019
    "[NAMESPACE-URI]":  XML namespace URI associated with the [NAMESPACE-
        XML] XML content.  An example is "urn:ietf:params:xml:ns:domain-
        1.0" in [RFC5731].
-
 
 
 
@@ -849,6 +849,28 @@ Internet-Draft                 changePoll                     March 2019
    URL: https://www.verisign.com/en_US/channel-resources/domain-
    registry-products/epp-sdks
 
+6.2.  SWITCH Automated DNSSEC Provisioning Process
+
+   Organization: SWITCH
+
+   Name: Registry of .CH and .LI
+
+   Description:SWITCH uses poll messages to inform the registrar about
+   DNSSEC changes at the registry triggered by CDS records.  These poll
+   messages are enriched with the 'urn:ietf:params:xml:ns:changePoll-
+   1.0' and the 'urn:ietf:params:xml:ns:secDNS-1.1' extension that are
+   rendered in the poll msg response according to this draft.
+
+   Level of maturity: Operational
+
+   Coverage: All aspects of the protocol are implemented.
+
+   Licensing: n.a.
+
+   Contact: martin.casanova@switch.ch
+
+   URL: https://www.nic.ch/cds
+
 7.  Security Considerations
 
    The document do not provide any security services beyond those
@@ -866,6 +888,15 @@ Internet-Draft                 changePoll                     March 2019
               Gould, J. and K. Feher, "Change Poll Extension for the
               Extensible Provisioning Protocol (EPP)", draft-ietf-
               regext-change-poll-12 (work in progress), January 2019.
+
+
+
+
+
+Gould & Casanova       Expires September 27, 2019              [Page 16]
+
+Internet-Draft                 changePoll                     March 2019
+
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -891,13 +922,6 @@ Internet-Draft                 changePoll                     March 2019
               STD 69, RFC 5730, DOI 10.17487/RFC5730, August 2009,
               <https://www.rfc-editor.org/info/rfc5730>.
 
-
-
-Gould & Casanova       Expires September 27, 2019              [Page 16]
-
-Internet-Draft                 changePoll                     March 2019
-
-
    [RFC5731]  Hollenbeck, S., "Extensible Provisioning Protocol (EPP)
               Domain Name Mapping", STD 69, RFC 5731,
               DOI 10.17487/RFC5731, August 2009, <https://www.rfc-
@@ -921,6 +945,14 @@ A.1.  Change from 00 to 01
    1.  Removed xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        reference from examples.
    2.  removed <extension></extension> block from example.
+
+
+
+
+Gould & Casanova       Expires September 27, 2019              [Page 17]
+
+Internet-Draft                 changePoll                     March 2019
+
 
 Authors' Addresses
 
@@ -949,4 +981,28 @@ Authors' Addresses
 
 
 
-Gould & Casanova       Expires September 27, 2019              [Page 17]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Gould & Casanova       Expires September 27, 2019              [Page 18]

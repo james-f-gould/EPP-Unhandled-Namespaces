@@ -384,6 +384,7 @@
 <link href="#rfc.section.5" rel="Chapter" title="5 Usage with Poll Message EPP Responses"/>
 <link href="#rfc.section.6" rel="Chapter" title="6 Implementation Status"/>
 <link href="#rfc.section.6.1" rel="Chapter" title="6.1 Verisign EPP SDK"/>
+<link href="#rfc.section.6.2" rel="Chapter" title="6.2 SWITCH Automated DNSSEC Provisioning Process"/>
 <link href="#rfc.section.7" rel="Chapter" title="7 Security Considerations"/>
 <link href="#rfc.section.8" rel="Chapter" title="8 Acknowledgements"/>
 <link href="#rfc.references" rel="Chapter" title="9 Normative References"/>
@@ -468,6 +469,7 @@
 <li>5.   <a href="#rfc.section.5">Usage with Poll Message EPP Responses</a></li>
 <li>6.   <a href="#rfc.section.6">Implementation Status</a></li>
 <ul><li>6.1.   <a href="#rfc.section.6.1">Verisign EPP SDK</a></li>
+<li>6.2.   <a href="#rfc.section.6.2">SWITCH Automated DNSSEC Provisioning Process</a></li>
 </ul><li>7.   <a href="#rfc.section.7">Security Considerations</a></li>
 <li>8.   <a href="#rfc.section.8">Acknowledgements</a></li>
 <li>9.   <a href="#rfc.references">Normative References</a></li>
@@ -911,6 +913,15 @@ S:&lt;/epp&gt;
 <p id="rfc.section.6.1.p.6">Licensing: GNU Lesser General Public License</p>
 <p id="rfc.section.6.1.p.7">Contact: jgould@verisign.com</p>
 <p id="rfc.section.6.1.p.8">URL: https://www.verisign.com/en_US/channel-resources/domain-registry-products/epp-sdks</p>
+<h1 id="rfc.section.6.2"><a href="#rfc.section.6.2">6.2.</a> SWITCH Automated DNSSEC Provisioning Process</h1>
+<p id="rfc.section.6.2.p.1">Organization: SWITCH</p>
+<p id="rfc.section.6.2.p.2">Name: Registry of .CH and .LI</p>
+<p id="rfc.section.6.2.p.3">Description:SWITCH uses poll messages to inform the registrar about DNSSEC changes at the registry triggered by CDS records. These poll messages are enriched with the 'urn:ietf:params:xml:ns:changePoll-1.0' and the 'urn:ietf:params:xml:ns:secDNS-1.1' extension that are rendered in the poll msg response according to this draft.</p>
+<p id="rfc.section.6.2.p.4">Level of maturity: Operational</p>
+<p id="rfc.section.6.2.p.5">Coverage: All aspects of the protocol are implemented.</p>
+<p id="rfc.section.6.2.p.6">Licensing: n.a.</p>
+<p id="rfc.section.6.2.p.7">Contact: martin.casanova@switch.ch</p>
+<p id="rfc.section.6.2.p.8">URL: https://www.nic.ch/cds</p>
 <h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#Security" id="Security">Security Considerations</a></h1>
 <p id="rfc.section.7.p.1">The document do not provide any security services beyond those described by <a href="#RFC5730">EPP</a> <cite title="NONE">[RFC5730]</cite> and protocol layers used by EPP. The security considerations described in these other specifications apply to this specification as well.</p>
 <h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#Acknowledgements" id="Acknowledgements">Acknowledgements</a></h1>
