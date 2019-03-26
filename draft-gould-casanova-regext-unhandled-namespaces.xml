@@ -724,10 +724,10 @@ S:</epp>]]>
       <section title="SWITCH Automated DNSSEC Provisioning Process">
         <t>Organization: SWITCH</t>
         <t>Name: Registry of .CH and .LI</t>
-        <t>Description:SWITCH uses poll messages to inform the registrar about DNSSEC changes at the registry triggered by CDS records. These poll messages are enriched with the 'urn:ietf:params:xml:ns:changePoll-1.0' and the 'urn:ietf:params:xml:ns:secDNS-1.1' extension that are rendered in the poll msg response according to this draft.</t>
+        <t>Description: SWITCH uses poll messages to inform the registrar about DNSSEC changes at the registry triggered by CDS records. These poll messages are enriched with the 'urn:ietf:params:xml:ns:changePoll-1.0' and the 'urn:ietf:params:xml:ns:secDNS-1.1' extension that are rendered in the poll msg response according to this draft.</t>
         <t>Level of maturity: Operational</t>
         <t>Coverage: All aspects of the protocol are implemented.</t>
-        <t>Licensing: n.a.</t>
+        <t>Licensing: Proprietary</t>
         <t>Contact: martin.casanova@switch.ch</t>
         <t>URL: https://www.nic.ch/cds</t>
       </section>
@@ -791,6 +791,7 @@ S:</epp>]]>
         <t><list style="numbers">
           <t>Removed xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" reference from examples.</t>
           <t>removed &lt;extension&gt;&lt;/extension&gt; block from example.</t>
+          <t>added SWITCH Automated DNSSEC Provisioning Process at Implementation Status</t>
         </list></t>
       </section>
     </section>
