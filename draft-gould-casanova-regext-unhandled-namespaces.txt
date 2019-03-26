@@ -5,18 +5,18 @@
 Network Working Group                                           J. Gould
 Internet-Draft                                            VeriSign, Inc.
 Intended status: Best Current Practice                       M. Casanova
-Expires: March 30, 2019                                           SWITCH
-                                                      September 26, 2018
+Expires: September 27, 2019                                       SWITCH
+                                                          March 26, 2019
 
 
       Extensible Provisioning Protocol (EPP) Unhandled Namespaces
-          draft-gould-casanova-regext-unhandled-namespaces-00
+          draft-gould-casanova-regext-unhandled-namespaces-01
 
 Abstract
 
    The Extensible Provisioning Protocol (EPP), as defined in RFC 5730,
    includes a method for the client and server to determine the objects
-   to be managed during the session and the object extensions to be used
+   to be managed during a session and the object extensions to be used
    during a session.  The services are identified using namespace URIs.
    How should the server handle service data that needs to be returned
    in the response when the client does not support the required service
@@ -44,7 +44,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on March 30, 2019.
+   This Internet-Draft will expire on September 27, 2019.
 
 
 
@@ -53,14 +53,14 @@ Status of This Memo
 
 
 
-Gould & Casanova         Expires March 30, 2019                 [Page 1]
+Gould & Casanova       Expires September 27, 2019               [Page 1]
 
-Internet-Draft                 changePoll                 September 2018
+Internet-Draft                 changePoll                     March 2019
 
 
 Copyright Notice
 
-   Copyright (c) 2018 IETF Trust and the persons identified as the
+   Copyright (c) 2019 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -77,25 +77,26 @@ Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
      1.1.  Conventions Used in This Document . . . . . . . . . . . .   3
-   2.  Unhandled Namespaces  . . . . . . . . . . . . . . . . . . . .   3
+   2.  Unhandled Namespaces  . . . . . . . . . . . . . . . . . . . .   4
    3.  Use of EPP <extValue> for Unhandled Namespace Data  . . . . .   4
      3.1.  Unhandled Object-Level Extension  . . . . . . . . . . . .   5
      3.2.  Unhandled Command-Response Extension  . . . . . . . . . .   7
-   4.  Usage with General EPP Responses  . . . . . . . . . . . . . .  11
+   4.  Usage with General EPP Responses  . . . . . . . . . . . . . .  10
    5.  Usage with Poll Message EPP Responses . . . . . . . . . . . .  12
    6.  Implementation Status . . . . . . . . . . . . . . . . . . . .  15
-     6.1.  Verisign EPP SDK  . . . . . . . . . . . . . . . . . . . .  16
+     6.1.  Verisign EPP SDK  . . . . . . . . . . . . . . . . . . . .  15
    7.  Security Considerations . . . . . . . . . . . . . . . . . . .  16
-   8.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  17
-   9.  Normative References  . . . . . . . . . . . . . . . . . . . .  17
-   Appendix A.  Change History . . . . . . . . . . . . . . . . . . .  18
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  18
+   8.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  16
+   9.  Normative References  . . . . . . . . . . . . . . . . . . . .  16
+   Appendix A.  Change History . . . . . . . . . . . . . . . . . . .  17
+     A.1.  Change from 00 to 01  . . . . . . . . . . . . . . . . . .  17
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  17
 
 1.  Introduction
 
    The Extensible Provisioning Protocol (EPP), as defined in [RFC5730],
    includes a method for the client and server to determine the objects
-   to be managed during the session and the object extensions to be used
+   to be managed during a session and the object extensions to be used
    during a session.  The services are identified using namespace URIs.
    How should the server handle service data that needs to be returned
    in the response when the client does not support the required service
@@ -105,15 +106,15 @@ Table of Contents
    server prior to knowing the supported client services, and the client
    needs to be capable of processing all poll messages.  An unhandled
    namespace is an issue also for general EPP responses when the server
-   has information that it cannot return to the client due to the
 
 
 
-Gould & Casanova         Expires March 30, 2019                 [Page 2]
+Gould & Casanova       Expires September 27, 2019               [Page 2]
 
-Internet-Draft                 changePoll                 September 2018
+Internet-Draft                 changePoll                     March 2019
 
 
+   has information that it cannot return to the client due to the
    client's supported services.  The server should be able to return
    unhandled namespace information that the client can process later.
    This document defines an operational practice that enables the server
@@ -157,19 +158,23 @@ Internet-Draft                 changePoll                 September 2018
        XML] XML content.  An example is "urn:ietf:params:xml:ns:domain-
        1.0" in [RFC5731].
 
+
+
+
+
+
+
+
+Gould & Casanova       Expires September 27, 2019               [Page 3]
+
+Internet-Draft                 changePoll                     March 2019
+
+
 2.  Unhandled Namespaces
 
    An Unhandled Namespace is an XML namespace that is associated with a
    response extension that is not included in the client-specified EPP
    login services of [RFC5730].  The EPP login services consists of the
-
-
-
-Gould & Casanova         Expires March 30, 2019                 [Page 3]
-
-Internet-Draft                 changePoll                 September 2018
-
-
    set of XML namespace URIs included in the <objURI> or <extURI>
    elements of the [RFC5730] EPP <login> command.  The services
    supported by the server are included in the <objURI> and <extURI>
@@ -212,19 +217,17 @@ Internet-Draft                 changePoll                 September 2018
    [RFC3735] object-level extensions and command-response extensions.
    This document does not support [RFC3735] protocol-level extensions or
    authentication information extensions.  Refer to the following
+
+
+
+
+Gould & Casanova       Expires September 27, 2019               [Page 4]
+
+Internet-Draft                 changePoll                     March 2019
+
+
    sections on how to handle an unsupported object-level extension
    namespace or an unsupported command-response extension namespace.
-
-
-
-
-
-
-
-Gould & Casanova         Expires March 30, 2019                 [Page 4]
-
-Internet-Draft                 changePoll                 September 2018
-
 
 3.1.  Unhandled Object-Level Extension
 
@@ -274,12 +277,9 @@ Internet-Draft                 changePoll                 September 2018
 
 
 
-
-
-
-Gould & Casanova         Expires March 30, 2019                 [Page 5]
+Gould & Casanova       Expires September 27, 2019               [Page 5]
 
-Internet-Draft                 changePoll                 September 2018
+Internet-Draft                 changePoll                     March 2019
 
 
    Template unhandled namespace response for an unsupported object-level
@@ -333,9 +333,9 @@ Internet-Draft                 changePoll                 September 2018
 
 
 
-Gould & Casanova         Expires March 30, 2019                 [Page 6]
+Gould & Casanova       Expires September 27, 2019               [Page 6]
 
-Internet-Draft                 changePoll                 September 2018
+Internet-Draft                 changePoll                     March 2019
 
 
    [RFC5730] example <transfer> query response converted into an
@@ -389,9 +389,9 @@ Internet-Draft                 changePoll                 September 2018
 
 
 
-Gould & Casanova         Expires March 30, 2019                 [Page 7]
+Gould & Casanova       Expires September 27, 2019               [Page 7]
 
-Internet-Draft                 changePoll                 September 2018
+Internet-Draft                 changePoll                     March 2019
 
 
    Template response for a supported command-response extension.  The
@@ -399,8 +399,7 @@ Internet-Draft                 changePoll                 September 2018
    XML.
 
    S:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-   S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0"
-   S:     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
    S:  <response>
    S:    <result code="1000">
    S:      <msg>Command completed successfully</msg>
@@ -415,49 +414,13 @@ Internet-Draft                 changePoll                 September 2018
    S:  </response>
    S:</epp>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Gould & Casanova         Expires March 30, 2019                 [Page 8]
-
-Internet-Draft                 changePoll                 September 2018
-
-
    Template unhandled namespace response for an unsupported command-
    response extension.  The [NAMESPACE-XML] variable represents the
    command-response extension XML and the [NAMESPACE-URI] variable
    represents the command-response extension XML namespace URI.
 
    S:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-   S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0"
-   S:     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
    S:  <response>
    S:    <result code="1000">
    S:      <msg>Command completed successfully</msg>
@@ -470,8 +433,6 @@ Internet-Draft                 changePoll                 September 2018
    S:        </reason>
    S:      </extValue>
    S:    </result>
-   S:    <extension>
-   S:    </extension>
    S:    <trID>
    S:      <clTRID>ABC-12345</clTRID>
    S:      <svTRID>54322-XYZ</svTRID>
@@ -481,6 +442,14 @@ Internet-Draft                 changePoll                 September 2018
 
    The EPP response is converted to an unhandled namespace response by
    moving the unhandled command-response extension from under the
+
+
+
+Gould & Casanova       Expires September 27, 2019               [Page 8]
+
+Internet-Draft                 changePoll                     March 2019
+
+
    <extension> to an <extValue> element.  Below is example of converting
    the DS Data Interface <info> response example in [RFC5910] to an
    unhandled namespace response.
@@ -498,14 +467,6 @@ Internet-Draft                 changePoll                 September 2018
    S:        <secDNS:infData
    S:          xmlns:secDNS="urn:ietf:params:xml:ns:secDNS-1.1">
    S:          <secDNS:dsData>
-
-
-
-Gould & Casanova         Expires March 30, 2019                 [Page 9]
-
-Internet-Draft                 changePoll                 September 2018
-
-
    S:          <secDNS:keyTag>12345</secDNS:keyTag>
    S:          <secDNS:alg>3</secDNS:alg>
    S:          <secDNS:digestType>1</secDNS:digestType>
@@ -537,6 +498,14 @@ Internet-Draft                 changePoll                 September 2018
    S:        <domain:crID>ClientY</domain:crID>
    S:        <domain:crDate>1999-04-03T22:00:00.0Z</domain:crDate>
    S:        <domain:upID>ClientX</domain:upID>
+
+
+
+Gould & Casanova       Expires September 27, 2019               [Page 9]
+
+Internet-Draft                 changePoll                     March 2019
+
+
    S:        <domain:upDate>1999-12-03T09:00:00.0Z</domain:upDate>
    S:        <domain:exDate>2005-04-03T22:00:00.0Z</domain:exDate>
    S:        <domain:trDate>2000-04-08T09:00:00.0Z</domain:trDate>
@@ -551,16 +520,6 @@ Internet-Draft                 changePoll                 September 2018
    S:    </trID>
    S:  </response>
    S:</epp>
-
-
-
-
-
-
-Gould & Casanova         Expires March 30, 2019                [Page 10]
-
-Internet-Draft                 changePoll                 September 2018
-
 
 4.  Usage with General EPP Responses
 
@@ -595,6 +554,14 @@ Internet-Draft                 changePoll                 September 2018
 
    S:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
    S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+
+
+
+Gould & Casanova       Expires September 27, 2019              [Page 10]
+
+Internet-Draft                 changePoll                     March 2019
+
+
    S:  <response>
    S:    <result code="1000">
    S:      <msg>Command completed successfully</msg>
@@ -610,14 +577,6 @@ Internet-Draft                 changePoll                 September 2018
    S:      </extValue>
    S:    </result>
    S:    <resData>
-
-
-
-Gould & Casanova         Expires March 30, 2019                [Page 11]
-
-Internet-Draft                 changePoll                 September 2018
-
-
    S:      <domain:infData
    S:       xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
    S:        <domain:name>example.com</domain:name>
@@ -651,6 +610,14 @@ Internet-Draft                 changePoll                 September 2018
    S:  </response>
    S:</epp>
 
+
+
+
+Gould & Casanova       Expires September 27, 2019              [Page 11]
+
+Internet-Draft                 changePoll                     March 2019
+
+
 5.  Usage with Poll Message EPP Responses
 
    The unhandled namespace approach, defined in Section 3, MUST be used
@@ -666,14 +633,6 @@ Internet-Draft                 changePoll                 September 2018
    namespace approach, defined in Section 3, is used for an unhandled
    object-level extension and for each of the unhandled command-response
    extensions attached to the <poll> message response.  The resulting
-
-
-
-Gould & Casanova         Expires March 30, 2019                [Page 12]
-
-Internet-Draft                 changePoll                 September 2018
-
-
    EPP <poll> message response MAY have either or both the object-level
    extension or command-response extensions moved to <extValue>
    elements, as defined in Section 3.
@@ -707,6 +666,14 @@ Internet-Draft                 changePoll                 September 2018
    S:            </changePoll:caseId>
    S:            <changePoll:reason>URS Lock</changePoll:reason>
    S:          </changePoll:changeData>
+
+
+
+Gould & Casanova       Expires September 27, 2019              [Page 12]
+
+Internet-Draft                 changePoll                     March 2019
+
+
    S:        </value>
    S:        <reason>
    S:      urn:ietf:params:xml:ns:changePoll-1.0 not in login services
@@ -722,14 +689,6 @@ Internet-Draft                 changePoll                 September 2018
    S:    </msgQ>
    S:    <resData>
    S:      <domain:infData
-
-
-
-Gould & Casanova         Expires March 30, 2019                [Page 13]
-
-Internet-Draft                 changePoll                 September 2018
-
-
    S:        xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
    S:        <domain:name>change-poll.tld</domain:name>
    S:        <domain:roid>EXAMPLE1-REP</domain:roid>
@@ -763,6 +722,14 @@ Internet-Draft                 changePoll                 September 2018
    S:  <response>
    S:    <result code="1301">
    S:      <msg>Command completed successfully; ack to dequeue</msg>
+
+
+
+Gould & Casanova       Expires September 27, 2019              [Page 13]
+
+Internet-Draft                 changePoll                     March 2019
+
+
    S:      <extValue>
    S:        <value>
    S:          <domain:infData
@@ -778,14 +745,6 @@ Internet-Draft                 changePoll                 September 2018
    S:            <domain:clID>ClientX</domain:clID>
    S:            <domain:crID>ClientY</domain:crID>
    S:            <domain:crDate>2012-05-03T04:00:00.000Z</domain:crDate>
-
-
-
-Gould & Casanova         Expires March 30, 2019                [Page 14]
-
-Internet-Draft                 changePoll                 September 2018
-
-
    S:            <domain:upID>ClientZ</domain:upID>
    S:            <domain:upDate>2013-11-22T05:00:00.000Z</domain:upDate>
    S:            <domain:exDate>2014-05-03T04:00:00.000Z</domain:exDate>
@@ -819,6 +778,14 @@ Internet-Draft                 changePoll                 September 2018
    S:      count="15"
    S:      id="1"
    S:    >
+
+
+
+Gould & Casanova       Expires September 27, 2019              [Page 14]
+
+Internet-Draft                 changePoll                     March 2019
+
+
    S:      <qDate>2018-08-24T19:23:12.822Z</qDate>
    S:      <msg>Registry initiated update of domain.</msg>
    S:    </msgQ>
@@ -833,14 +800,6 @@ Internet-Draft                 changePoll                 September 2018
 
    Note to RFC Editor: Please remove this section and the reference to
    RFC 7942 [RFC7942] before publication.
-
-
-
-
-Gould & Casanova         Expires March 30, 2019                [Page 15]
-
-Internet-Draft                 changePoll                 September 2018
-
 
    This section records the status of known implementations of the
    protocol defined by this specification at the time of posting of this
@@ -875,6 +834,14 @@ Internet-Draft                 changePoll                 September 2018
 
    Coverage: All aspects of the protocol are implemented.
 
+
+
+
+Gould & Casanova       Expires September 27, 2019              [Page 15]
+
+Internet-Draft                 changePoll                     March 2019
+
+
    Licensing: GNU Lesser General Public License
 
    Contact: jgould@verisign.com
@@ -889,15 +856,6 @@ Internet-Draft                 changePoll                 September 2018
    security considerations described in these other specifications apply
    to this specification as well.
 
-
-
-
-
-Gould & Casanova         Expires March 30, 2019                [Page 16]
-
-Internet-Draft                 changePoll                 September 2018
-
-
 8.  Acknowledgements
 
    TBD
@@ -907,7 +865,7 @@ Internet-Draft                 changePoll                 September 2018
    [I-D.ietf-regext-change-poll]
               Gould, J. and K. Feher, "Change Poll Extension for the
               Extensible Provisioning Protocol (EPP)", draft-ietf-
-              regext-change-poll-08 (work in progress), May 2018.
+              regext-change-poll-12 (work in progress), January 2019.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -933,6 +891,13 @@ Internet-Draft                 changePoll                 September 2018
               STD 69, RFC 5730, DOI 10.17487/RFC5730, August 2009,
               <https://www.rfc-editor.org/info/rfc5730>.
 
+
+
+Gould & Casanova       Expires September 27, 2019              [Page 16]
+
+Internet-Draft                 changePoll                     March 2019
+
+
    [RFC5731]  Hollenbeck, S., "Extensible Provisioning Protocol (EPP)
               Domain Name Mapping", STD 69, RFC 5731,
               DOI 10.17487/RFC5731, August 2009, <https://www.rfc-
@@ -944,22 +909,18 @@ Internet-Draft                 changePoll                 September 2018
               DOI 10.17487/RFC5910, May 2010, <https://www.rfc-
               editor.org/info/rfc5910>.
 
-
-
-
-
-
-Gould & Casanova         Expires March 30, 2019                [Page 17]
-
-Internet-Draft                 changePoll                 September 2018
-
-
    [RFC7942]  Sheffer, Y. and A. Farrel, "Improving Awareness of Running
               Code: The Implementation Status Section", BCP 205,
               RFC 7942, DOI 10.17487/RFC7942, July 2016,
               <https://www.rfc-editor.org/info/rfc7942>.
 
 Appendix A.  Change History
+
+A.1.  Change from 00 to 01
+
+   1.  Removed xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       reference from examples.
+   2.  removed <extension></extension> block from example.
 
 Authors' Addresses
 
@@ -988,21 +949,4 @@ Authors' Addresses
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Gould & Casanova         Expires March 30, 2019                [Page 18]
+Gould & Casanova       Expires September 27, 2019              [Page 17]

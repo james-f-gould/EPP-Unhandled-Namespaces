@@ -44,7 +44,7 @@
 <?rfc inline="yes" ?>
 <!-- inline cref output -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="bcp" docName="draft-gould-casanova-regext-unhandled-namespaces-00" ipr="trust200902">
+<rfc category="bcp" docName="draft-gould-casanova-regext-unhandled-namespaces-01" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
      you can add the attributes updates="NNNN" and obsoletes="NNNN"
@@ -102,12 +102,12 @@
       </address>
     </author>
 
-    <date day="26" month="September" year="2018"/>
+    <date day="26" month="March" year="2019"/>
 
     <abstract>
       <t>The Extensible Provisioning Protocol (EPP), as defined in RFC 5730, 
       includes a method for the client and server to 
-      determine the objects to be managed during the session and the object 
+      determine the objects to be managed during a session and the object 
       extensions to be used during a session.  The services are identified using 
       namespace URIs.  How should the server handle 
       service data that needs to be returned in the response when 
@@ -129,7 +129,7 @@
     <section title="Introduction">
       <t>The Extensible Provisioning Protocol (EPP), as defined in <xref
       target="RFC5730"/>, includes a method for the client and server to 
-      determine the objects to be managed during the session and the object 
+      determine the objects to be managed during a session and the object 
       extensions to be used during a session.  The services are identified using 
       namespace URIs.  How should the server handle 
       service data that needs to be returned in the response when 
@@ -329,8 +329,7 @@ S:</epp>]]>
 		      The [NAMESPACE-XML] variable represents the command-response extension XML.</preamble>                                                  
 		    <artwork><![CDATA[
 S:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0"
-S:     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
 S:  <response>
 S:    <result code="1000">
 S:      <msg>Command completed successfully</msg>
@@ -354,8 +353,7 @@ S:</epp>]]>
 		      [NAMESPACE-URI] variable represents the command-response extension XML namespace URI.</preamble>                                                  
 		    <artwork><![CDATA[
 S:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0"
-S:     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
 S:  <response>
 S:    <result code="1000">
 S:      <msg>Command completed successfully</msg>
@@ -368,8 +366,6 @@ S:          [NAMESPACE-URI] not in login services
 S:        </reason>
 S:      </extValue>      
 S:    </result>
-S:    <extension>
-S:    </extension>
 S:    <trID>
 S:      <clTRID>ABC-12345</clTRID>
 S:      <svTRID>54322-XYZ</svTRID>
@@ -781,6 +777,12 @@ S:</epp>]]>
     </references>
           
     <section title="Change History">
+      <section title="Change from 00 to 01" anchor="version-00-to-01">
+        <t><list style="numbers">
+          <t>Removed xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" reference from examples.</t>
+          <t>removed &lt;extension&gt;&lt;/extension&gt; block from example.</t>
+        </list></t>
+      </section>
     </section>
 
   </back>
