@@ -721,6 +721,16 @@ S:</epp>]]>
         <t>Contact: jgould@verisign.com</t>
         <t>URL: https://www.verisign.com/en_US/channel-resources/domain-registry-products/epp-sdks</t>
       </section>
+      <section title="SWITCH Automated DNSSEC Provisioning Process">
+        <t>Organization: SWITCH</t>
+        <t>Name: Registry of .CH and .LI</t>
+        <t>Description:SWITCH uses poll messages to inform the registrar about DNSSEC changes at the registry triggered by CDS records. These poll messages are enriched with the 'urn:ietf:params:xml:ns:changePoll-1.0' and the 'urn:ietf:params:xml:ns:secDNS-1.1' extension that are rendered in the poll msg response according to this draft.</t>
+        <t>Level of maturity: Operational</t>
+        <t>Coverage: All aspects of the protocol are implemented.</t>
+        <t>Licensing: n.a.</t>
+        <t>Contact: martin.casanova@switch.ch</t>
+        <t>URL: https://www.nic.ch/cds</t>
+      </section>
     </section>
 
 
