@@ -44,7 +44,7 @@
 <?rfc inline="yes" ?>
 <!-- inline cref output -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="bcp" docName="draft-gould-casanova-regext-unhandled-namespaces-01" ipr="trust200902">
+<rfc category="bcp" docName="draft-gould-casanova-regext-unhandled-namespaces-02" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
      you can add the attributes updates="NNNN" and obsoletes="NNNN"
