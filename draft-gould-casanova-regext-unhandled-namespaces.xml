@@ -102,7 +102,7 @@
       </address>
     </author>
 
-    <date day="26" month="March" year="2019"/>
+    <date day="24" month="September" year="2019"/>
 
     <abstract>
       <t>The Extensible Provisioning Protocol (EPP), as defined in RFC 5730, 
@@ -791,6 +791,11 @@ S:</epp>]]>
         <t><list style="numbers">
           <t>Removed xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" reference from examples.</t>
           <t>removed &lt;extension&gt;&lt;/extension&gt; block from example.</t>
+        </list></t>
+      </section>
+      <section title="Change from 01 to 02" anchor="version-01-to-02">
+        <t><list style="numbers">
+          <t>Ping update</t>
         </list></t>
       </section>
     </section>
