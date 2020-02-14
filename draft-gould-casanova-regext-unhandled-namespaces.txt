@@ -1,16 +1,15 @@
 
 
 
-
 Network Working Group                                           J. Gould
 Internet-Draft                                            VeriSign, Inc.
 Intended status: Best Current Practice                       M. Casanova
-Expires: September 27, 2019                                       SWITCH
-                                                          March 26, 2019
+Expires: March 27, 2020                                           SWITCH
+                                                      September 24, 2019
 
 
       Extensible Provisioning Protocol (EPP) Unhandled Namespaces
-          draft-gould-casanova-regext-unhandled-namespaces-01
+          draft-gould-casanova-regext-unhandled-namespaces-02
 
 Abstract
 
@@ -37,14 +36,14 @@ Status of This Memo
    Internet-Drafts are working documents of the Internet Engineering
    Task Force (IETF).  Note that other groups may also distribute
    working documents as Internet-Drafts.  The list of current Internet-
-   Drafts is at http://datatracker.ietf.org/drafts/current/.
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
 
    Internet-Drafts are draft documents valid for a maximum of six months
    and may be updated, replaced, or obsoleted by other documents at any
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on September 27, 2019.
+   This Internet-Draft will expire on March 27, 2020.
 
 
 
@@ -53,9 +52,9 @@ Status of This Memo
 
 
 
-Gould & Casanova       Expires September 27, 2019               [Page 1]
+Gould & Casanova         Expires March 27, 2020                 [Page 1]
 
-Internet-Draft                 changePoll                     March 2019
+Internet-Draft                 changePoll                 September 2019
 
 
 Copyright Notice
@@ -65,7 +64,7 @@ Copyright Notice
 
    This document is subject to BCP 78 and the IETF Trust's Legal
    Provisions Relating to IETF Documents
-   (http://trustee.ietf.org/license-info) in effect on the date of
+   (https://trustee.ietf.org/license-info) in effect on the date of
    publication of this document.  Please review these documents
    carefully, as they describe your rights and restrictions with respect
    to this document.  Code Components extracted from this document must
@@ -91,6 +90,7 @@ Table of Contents
    9.  Normative References  . . . . . . . . . . . . . . . . . . . .  16
    Appendix A.  Change History . . . . . . . . . . . . . . . . . . .  17
      A.1.  Change from 00 to 01  . . . . . . . . . . . . . . . . . .  17
+     A.2.  Change from 01 to 02  . . . . . . . . . . . . . . . . . .  18
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  18
 
 1.  Introduction
@@ -105,15 +105,15 @@ Table of Contents
    unhandled namespace is a significant issue for the processing of
    [RFC5730] poll messages, since poll messages are inserted by the
    server prior to knowing the supported client services, and the client
-   needs to be capable of processing all poll messages.  An unhandled
 
 
 
-Gould & Casanova       Expires September 27, 2019               [Page 2]
+Gould & Casanova         Expires March 27, 2020                 [Page 2]
 
-Internet-Draft                 changePoll                     March 2019
+Internet-Draft                 changePoll                 September 2019
 
 
+   needs to be capable of processing all poll messages.  An unhandled
    namespace is an issue also for general EPP responses when the server
    has information that it cannot return to the client due to the
    client's supported services.  The server should be able to return
@@ -164,10 +164,9 @@ Internet-Draft                 changePoll                     March 2019
 
 
 
-
-Gould & Casanova       Expires September 27, 2019               [Page 3]
+Gould & Casanova         Expires March 27, 2020                 [Page 3]
 
-Internet-Draft                 changePoll                     March 2019
+Internet-Draft                 changePoll                 September 2019
 
 
 2.  Unhandled Namespaces
@@ -221,9 +220,9 @@ Internet-Draft                 changePoll                     March 2019
 
 
 
-Gould & Casanova       Expires September 27, 2019               [Page 4]
+Gould & Casanova         Expires March 27, 2020                 [Page 4]
 
-Internet-Draft                 changePoll                     March 2019
+Internet-Draft                 changePoll                 September 2019
 
 
    sections on how to handle an unsupported object-level extension
@@ -277,9 +276,9 @@ Internet-Draft                 changePoll                     March 2019
 
 
 
-Gould & Casanova       Expires September 27, 2019               [Page 5]
+Gould & Casanova         Expires March 27, 2020                 [Page 5]
 
-Internet-Draft                 changePoll                     March 2019
+Internet-Draft                 changePoll                 September 2019
 
 
    Template unhandled namespace response for an unsupported object-level
@@ -333,9 +332,9 @@ Internet-Draft                 changePoll                     March 2019
 
 
 
-Gould & Casanova       Expires September 27, 2019               [Page 6]
+Gould & Casanova         Expires March 27, 2020                 [Page 6]
 
-Internet-Draft                 changePoll                     March 2019
+Internet-Draft                 changePoll                 September 2019
 
 
    [RFC5730] example <transfer> query response converted into an
@@ -389,9 +388,9 @@ Internet-Draft                 changePoll                     March 2019
 
 
 
-Gould & Casanova       Expires September 27, 2019               [Page 7]
+Gould & Casanova         Expires March 27, 2020                 [Page 7]
 
-Internet-Draft                 changePoll                     March 2019
+Internet-Draft                 changePoll                 September 2019
 
 
    Template response for a supported command-response extension.  The
@@ -445,9 +444,9 @@ Internet-Draft                 changePoll                     March 2019
 
 
 
-Gould & Casanova       Expires September 27, 2019               [Page 8]
+Gould & Casanova         Expires March 27, 2020                 [Page 8]
 
-Internet-Draft                 changePoll                     March 2019
+Internet-Draft                 changePoll                 September 2019
 
 
    <extension> to an <extValue> element.  Below is example of converting
@@ -501,9 +500,9 @@ Internet-Draft                 changePoll                     March 2019
 
 
 
-Gould & Casanova       Expires September 27, 2019               [Page 9]
+Gould & Casanova         Expires March 27, 2020                 [Page 9]
 
-Internet-Draft                 changePoll                     March 2019
+Internet-Draft                 changePoll                 September 2019
 
 
    S:        <domain:upDate>1999-12-03T09:00:00.0Z</domain:upDate>
@@ -557,9 +556,9 @@ Internet-Draft                 changePoll                     March 2019
 
 
 
-Gould & Casanova       Expires September 27, 2019              [Page 10]
+Gould & Casanova         Expires March 27, 2020                [Page 10]
 
-Internet-Draft                 changePoll                     March 2019
+Internet-Draft                 changePoll                 September 2019
 
 
    S:  <response>
@@ -613,9 +612,9 @@ Internet-Draft                 changePoll                     March 2019
 
 
 
-Gould & Casanova       Expires September 27, 2019              [Page 11]
+Gould & Casanova         Expires March 27, 2020                [Page 11]
 
-Internet-Draft                 changePoll                     March 2019
+Internet-Draft                 changePoll                 September 2019
 
 
 5.  Usage with Poll Message EPP Responses
@@ -669,9 +668,9 @@ Internet-Draft                 changePoll                     March 2019
 
 
 
-Gould & Casanova       Expires September 27, 2019              [Page 12]
+Gould & Casanova         Expires March 27, 2020                [Page 12]
 
-Internet-Draft                 changePoll                     March 2019
+Internet-Draft                 changePoll                 September 2019
 
 
    S:        </value>
@@ -725,9 +724,9 @@ Internet-Draft                 changePoll                     March 2019
 
 
 
-Gould & Casanova       Expires September 27, 2019              [Page 13]
+Gould & Casanova         Expires March 27, 2020                [Page 13]
 
-Internet-Draft                 changePoll                     March 2019
+Internet-Draft                 changePoll                 September 2019
 
 
    S:      <extValue>
@@ -781,9 +780,9 @@ Internet-Draft                 changePoll                     March 2019
 
 
 
-Gould & Casanova       Expires September 27, 2019              [Page 14]
+Gould & Casanova         Expires March 27, 2020                [Page 14]
 
-Internet-Draft                 changePoll                     March 2019
+Internet-Draft                 changePoll                 September 2019
 
 
    S:      <qDate>2018-08-24T19:23:12.822Z</qDate>
@@ -837,9 +836,9 @@ Internet-Draft                 changePoll                     March 2019
 
 
 
-Gould & Casanova       Expires September 27, 2019              [Page 15]
+Gould & Casanova         Expires March 27, 2020                [Page 15]
 
-Internet-Draft                 changePoll                     March 2019
+Internet-Draft                 changePoll                 September 2019
 
 
    Licensing: GNU Lesser General Public License
@@ -855,7 +854,7 @@ Internet-Draft                 changePoll                     March 2019
 
    Name: Registry of .CH and .LI
 
-   Description:SWITCH uses poll messages to inform the registrar about
+   Description: SWITCH uses poll messages to inform the registrar about
    DNSSEC changes at the registry triggered by CDS records.  These poll
    messages are enriched with the 'urn:ietf:params:xml:ns:changePoll-
    1.0' and the 'urn:ietf:params:xml:ns:secDNS-1.1' extension that are
@@ -865,7 +864,7 @@ Internet-Draft                 changePoll                     March 2019
 
    Coverage: All aspects of the protocol are implemented.
 
-   Licensing: n.a.
+   Licensing: Proprietary
 
    Contact: martin.casanova@switch.ch
 
@@ -893,30 +892,30 @@ Internet-Draft                 changePoll                     March 2019
 
 
 
-Gould & Casanova       Expires September 27, 2019              [Page 16]
+Gould & Casanova         Expires March 27, 2020                [Page 16]
 
-Internet-Draft                 changePoll                     March 2019
+Internet-Draft                 changePoll                 September 2019
 
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
-              DOI 10.17487/RFC2119, March 1997, <https://www.rfc-
-              editor.org/info/rfc2119>.
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/info/rfc2119>.
 
    [RFC3735]  Hollenbeck, S., "Guidelines for Extending the Extensible
               Provisioning Protocol (EPP)", RFC 3735,
-              DOI 10.17487/RFC3735, March 2004, <https://www.rfc-
-              editor.org/info/rfc3735>.
+              DOI 10.17487/RFC3735, March 2004,
+              <https://www.rfc-editor.org/info/rfc3735>.
 
    [RFC3915]  Hollenbeck, S., "Domain Registry Grace Period Mapping for
               the Extensible Provisioning Protocol (EPP)", RFC 3915,
-              DOI 10.17487/RFC3915, September 2004, <https://www.rfc-
-              editor.org/info/rfc3915>.
+              DOI 10.17487/RFC3915, September 2004,
+              <https://www.rfc-editor.org/info/rfc3915>.
 
    [RFC5234]  Crocker, D., Ed. and P. Overell, "Augmented BNF for Syntax
               Specifications: ABNF", STD 68, RFC 5234,
-              DOI 10.17487/RFC5234, January 2008, <https://www.rfc-
-              editor.org/info/rfc5234>.
+              DOI 10.17487/RFC5234, January 2008,
+              <https://www.rfc-editor.org/info/rfc5234>.
 
    [RFC5730]  Hollenbeck, S., "Extensible Provisioning Protocol (EPP)",
               STD 69, RFC 5730, DOI 10.17487/RFC5730, August 2009,
@@ -924,14 +923,14 @@ Internet-Draft                 changePoll                     March 2019
 
    [RFC5731]  Hollenbeck, S., "Extensible Provisioning Protocol (EPP)
               Domain Name Mapping", STD 69, RFC 5731,
-              DOI 10.17487/RFC5731, August 2009, <https://www.rfc-
-              editor.org/info/rfc5731>.
+              DOI 10.17487/RFC5731, August 2009,
+              <https://www.rfc-editor.org/info/rfc5731>.
 
    [RFC5910]  Gould, J. and S. Hollenbeck, "Domain Name System (DNS)
               Security Extensions Mapping for the Extensible
               Provisioning Protocol (EPP)", RFC 5910,
-              DOI 10.17487/RFC5910, May 2010, <https://www.rfc-
-              editor.org/info/rfc5910>.
+              DOI 10.17487/RFC5910, May 2010,
+              <https://www.rfc-editor.org/info/rfc5910>.
 
    [RFC7942]  Sheffer, Y. and A. Farrel, "Improving Awareness of Running
               Code: The Implementation Status Section", BCP 205,
@@ -949,10 +948,17 @@ A.1.  Change from 00 to 01
 
 
 
-Gould & Casanova       Expires September 27, 2019              [Page 17]
+Gould & Casanova         Expires March 27, 2020                [Page 17]
 
-Internet-Draft                 changePoll                     March 2019
+Internet-Draft                 changePoll                 September 2019
 
+
+   3.  added SWITCH Automated DNSSEC Provisioning Process at
+       Implementation Status
+
+A.2.  Change from 01 to 02
+
+   1.  Ping update
 
 Authors' Addresses
 
@@ -974,35 +980,3 @@ Authors' Addresses
 
    Email: martin.casanova@switch.ch
    URI:   http://www.switch.ch
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Gould & Casanova       Expires September 27, 2019              [Page 18]
