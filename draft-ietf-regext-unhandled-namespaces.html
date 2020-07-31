@@ -380,26 +380,33 @@
 <link href="#rfc.section.3" rel="Chapter" title="3 Use of EPP &lt;extValue&gt; for Unhandled Namespace Data">
 <link href="#rfc.section.3.1" rel="Chapter" title="3.1 Unhandled Object-Level Extension">
 <link href="#rfc.section.3.2" rel="Chapter" title="3.2 Unhandled Command-Response Extension">
-<link href="#rfc.section.4" rel="Chapter" title="4 Usage with General EPP Responses">
-<link href="#rfc.section.5" rel="Chapter" title="5 Usage with Poll Message EPP Responses">
-<link href="#rfc.section.6" rel="Chapter" title="6 Implementation Status">
-<link href="#rfc.section.6.1" rel="Chapter" title="6.1 Verisign EPP SDK">
-<link href="#rfc.section.6.2" rel="Chapter" title="6.2 SWITCH Automated DNSSEC Provisioning Process">
-<link href="#rfc.section.7" rel="Chapter" title="7 Security Considerations">
-<link href="#rfc.section.8" rel="Chapter" title="8 Acknowledgements">
-<link href="#rfc.references" rel="Chapter" title="9 Normative References">
+<link href="#rfc.section.4" rel="Chapter" title="4 Signaling Client and Server Support">
+<link href="#rfc.section.5" rel="Chapter" title="5 Usage with General EPP Responses">
+<link href="#rfc.section.6" rel="Chapter" title="6 Usage with Poll Message EPP Responses">
+<link href="#rfc.section.7" rel="Chapter" title="7 IANA Considerations">
+<link href="#rfc.section.7.1" rel="Chapter" title="7.1 XML Namespace">
+<link href="#rfc.section.7.2" rel="Chapter" title="7.2 EPP Extension Registry">
+<link href="#rfc.section.8" rel="Chapter" title="8 Implementation Status">
+<link href="#rfc.section.8.1" rel="Chapter" title="8.1 Verisign EPP SDK">
+<link href="#rfc.section.8.2" rel="Chapter" title="8.2 SWITCH Automated DNSSEC Provisioning Process">
+<link href="#rfc.section.9" rel="Chapter" title="9 Security Considerations">
+<link href="#rfc.section.10" rel="Chapter" title="10 Acknowledgements">
+<link href="#rfc.references" rel="Chapter" title="11 Normative References">
 <link href="#rfc.appendix.A" rel="Chapter" title="A Change History">
 <link href="#rfc.appendix.A.1" rel="Chapter" title="A.1 Change from 00 to 01">
 <link href="#rfc.appendix.A.2" rel="Chapter" title="A.2 Change from 01 to 02">
+<link href="#rfc.appendix.A.3" rel="Chapter" title="A.3 Change from 02 to REGEXT 00">
+<link href="#rfc.appendix.A.4" rel="Chapter" title="A.4 Change from REGEXT 00 to REGEXT 01">
+<link href="#rfc.appendix.A.5" rel="Chapter" title="A.5 Change from REGEXT 01 to REGEXT 02">
 <link href="#rfc.authors" rel="Chapter">
 
 
-  <meta name="generator" content="xml2rfc version 2.30.0 - https://tools.ietf.org/tools/xml2rfc" />
+  <meta name="generator" content="xml2rfc version 2.23.1 - https://tools.ietf.org/tools/xml2rfc" />
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Gould, J. and M. Casanova" />
-  <meta name="dct.identifier" content="urn:ietf:id:draft-gould-casanova-regext-unhandled-namespaces-02" />
-  <meta name="dct.issued" scheme="ISO8601" content="2019-09-24" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-regext-unhandled-namespaces-02" />
+  <meta name="dct.issued" scheme="ISO8601" content="2020-07-31" />
   <meta name="dct.abstract" content="The Extensible Provisioning Protocol (EPP), as defined in RFC 5730, includes a method for the client and server to determine the objects to be managed during a session and the object extensions to be used during a session.  The services are identified using namespace URIs.  How should the server handle service data that needs to be returned in the response when the client does not support the required service namespace URI, which is referred to as an unhandled namespace?  An unhandled namespace is a significant issue for the processing of RFC 5730 poll messages, since poll messages are inserted by the server prior to knowing the supported client services, and the client needs to be capable of processing all poll messages.  This document defines an operational practice that enables the server to return information associated with unhandled namespace URIs that is compliant with the negotiated services defined in RFC 5730." />
   <meta name="description" content="The Extensible Provisioning Protocol (EPP), as defined in RFC 5730, includes a method for the client and server to determine the objects to be managed during a session and the object extensions to be used during a session.  The services are identified using namespace URIs.  How should the server handle service data that needs to be returned in the response when the client does not support the required service namespace URI, which is referred to as an unhandled namespace?  An unhandled namespace is a significant issue for the processing of RFC 5730 poll messages, since poll messages are inserted by the server prior to knowing the supported client services, and the client needs to be capable of processing all poll messages.  This document defines an operational practice that enables the server to return information associated with unhandled namespace URIs that is compliant with the negotiated services defined in RFC 5730." />
 
@@ -423,12 +430,12 @@
 <td class="right">M. Casanova</td>
 </tr>
 <tr>
-<td class="left">Expires: March 27, 2020</td>
+<td class="left">Expires: February 1, 2021</td>
 <td class="right">SWITCH</td>
 </tr>
 <tr>
 <td class="left"></td>
-<td class="right">September 24, 2019</td>
+<td class="right">July 31, 2020</td>
 </tr>
 
     	
@@ -436,7 +443,7 @@
   </table>
 
   <p class="title">Extensible Provisioning Protocol (EPP) Unhandled Namespaces<br />
-  <span class="filename">draft-gould-casanova-regext-unhandled-namespaces-02</span></p>
+  <span class="filename">draft-ietf-regext-unhandled-namespaces-02</span></p>
   
   <h1 id="rfc.abstract"><a href="#rfc.abstract">Abstract</a></h1>
 <p>The Extensible Provisioning Protocol (EPP), as defined in RFC 5730, includes a method for the client and server to determine the objects to be managed during a session and the object extensions to be used during a session.  The services are identified using namespace URIs.  How should the server handle service data that needs to be returned in the response when the client does not support the required service namespace URI, which is referred to as an unhandled namespace?  An unhandled namespace is a significant issue for the processing of RFC 5730 poll messages, since poll messages are inserted by the server prior to knowing the supported client services, and the client needs to be capable of processing all poll messages.  This document defines an operational practice that enables the server to return information associated with unhandled namespace URIs that is compliant with the negotiated services defined in RFC 5730.</p>
@@ -444,9 +451,9 @@
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on March 27, 2020.</p>
+<p>This Internet-Draft will expire on February 1, 2021.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
-<p>Copyright (c) 2019 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
+<p>Copyright (c) 2020 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
 
   
@@ -466,27 +473,41 @@
 </li>
 <li>3.2.   <a href="#rfc.section.3.2">Unhandled Command-Response Extension</a>
 </li>
-</ul><li>4.   <a href="#rfc.section.4">Usage with General EPP Responses</a>
+</ul><li>4.   <a href="#rfc.section.4">Signaling Client and Server Support</a>
 </li>
-<li>5.   <a href="#rfc.section.5">Usage with Poll Message EPP Responses</a>
+<li>5.   <a href="#rfc.section.5">Usage with General EPP Responses</a>
 </li>
-<li>6.   <a href="#rfc.section.6">Implementation Status</a>
+<li>6.   <a href="#rfc.section.6">Usage with Poll Message EPP Responses</a>
 </li>
-<ul><li>6.1.   <a href="#rfc.section.6.1">Verisign EPP SDK</a>
+<li>7.   <a href="#rfc.section.7">IANA Considerations</a>
 </li>
-<li>6.2.   <a href="#rfc.section.6.2">SWITCH Automated DNSSEC Provisioning Process</a>
+<ul><li>7.1.   <a href="#rfc.section.7.1">XML Namespace</a>
 </li>
-</ul><li>7.   <a href="#rfc.section.7">Security Considerations</a>
+<li>7.2.   <a href="#rfc.section.7.2">EPP Extension Registry</a>
 </li>
-<li>8.   <a href="#rfc.section.8">Acknowledgements</a>
+</ul><li>8.   <a href="#rfc.section.8">Implementation Status</a>
 </li>
-<li>9.   <a href="#rfc.references">Normative References</a>
+<ul><li>8.1.   <a href="#rfc.section.8.1">Verisign EPP SDK</a>
+</li>
+<li>8.2.   <a href="#rfc.section.8.2">SWITCH Automated DNSSEC Provisioning Process</a>
+</li>
+</ul><li>9.   <a href="#rfc.section.9">Security Considerations</a>
+</li>
+<li>10.   <a href="#rfc.section.10">Acknowledgements</a>
+</li>
+<li>11.   <a href="#rfc.references">Normative References</a>
 </li>
 <li>Appendix A.   <a href="#rfc.appendix.A">Change History</a>
 </li>
 <ul><li>A.1.   <a href="#rfc.appendix.A.1">Change from 00 to 01</a>
 </li>
 <li>A.2.   <a href="#rfc.appendix.A.2">Change from 01 to 02</a>
+</li>
+<li>A.3.   <a href="#rfc.appendix.A.3">Change from 02 to REGEXT 00</a>
+</li>
+<li>A.4.   <a href="#rfc.appendix.A.4">Change from REGEXT 00 to REGEXT 01</a>
+</li>
+<li>A.5.   <a href="#rfc.appendix.A.5">Change from REGEXT 01 to REGEXT 02</a>
 </li>
 </ul><li><a href="#rfc.authors">Authors' Addresses</a>
 </li>
@@ -589,10 +610,10 @@ S:    &lt;/trID&gt;
 S:  &lt;/response&gt;
 S:&lt;/epp&gt;
             </pre>
-<p id="rfc.section.3.1.p.4">The EPP response is converted from an object response to a general EPP response by the server when the client does not support the object-level extension namespace URI.  Below is example of converting the &lt;transfer&gt; query response example in <a href="#RFC5730" class="xref">[RFC5730]</a> to an unhandled namespace response.</p>
+<p id="rfc.section.3.1.p.4">The EPP response is converted from an object response to a general EPP response by the server when the client does not support the object-level extension namespace URI.  Below is example of converting the &lt;transfer&gt; query response example in <a href="#RFC5731" class="xref">[RFC5731]</a> to an unhandled namespace response.</p>
 <p></p>
 
-<p><a href="#RFC5730" class="xref">[RFC5730]</a> example &lt;transfer&gt; query response converted into an unhandled namespace response.</p>
+<p><a href="#RFC5731" class="xref">[RFC5731]</a> example &lt;transfer&gt; query response converted into an unhandled namespace response.</p>
 <pre>
 S:&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
 S:&lt;epp xmlns="urn:ietf:params:xml:ns:epp-1.0"&gt;
@@ -639,7 +660,7 @@ S:    &lt;result code="1000"&gt;
 S:      &lt;msg&gt;Command completed successfully&lt;/msg&gt;
 S:    &lt;/result&gt;
 S:    &lt;extension&gt;
-S:      [NAMESPACE-XML]    
+S:      [NAMESPACE-XML]
 S:    &lt;/extension&gt;
 S:    &lt;trID&gt;
 S:     &lt;clTRID&gt;ABC-12345&lt;/clTRID&gt;
@@ -659,12 +680,12 @@ S:    &lt;result code="1000"&gt;
 S:      &lt;msg&gt;Command completed successfully&lt;/msg&gt;
 S:      &lt;extValue&gt;
 S:        &lt;value&gt;
-S:         [NAMESPACE-XML]    
+S:         [NAMESPACE-XML]
 S:        &lt;/value&gt;
 S:        &lt;reason&gt;
 S:          [NAMESPACE-URI] not in login services
 S:        &lt;/reason&gt;
-S:      &lt;/extValue&gt;      
+S:      &lt;/extValue&gt;
 S:    &lt;/result&gt;
 S:    &lt;trID&gt;
 S:      &lt;clTRID&gt;ABC-12345&lt;/clTRID&gt;
@@ -685,7 +706,7 @@ S:    &lt;result code="1000"&gt;
 S:      &lt;msg&gt;Command completed successfully&lt;/msg&gt;
 S:      &lt;extValue&gt;
 S:        &lt;value&gt;
-S:        &lt;secDNS:infData 
+S:        &lt;secDNS:infData
 S:          xmlns:secDNS="urn:ietf:params:xml:ns:secDNS-1.1"&gt;
 S:          &lt;secDNS:dsData&gt;
 S:          &lt;secDNS:keyTag&gt;12345&lt;/secDNS:keyTag&gt;
@@ -735,11 +756,28 @@ S:  &lt;/response&gt;
 S:&lt;/epp&gt;
             </pre>
 <h1 id="rfc.section.4">
-<a href="#rfc.section.4">4.</a> <a href="#usageGeneralResponses" id="usageGeneralResponses">Usage with General EPP Responses</a>
+<a href="#rfc.section.4">4.</a> <a href="#signal-client-server-support" id="signal-client-server-support">Signaling Client and Server Support</a>
 </h1>
-<p id="rfc.section.4.p.1">The unhandled namespace approach defined in <a href="#extValueApproach" class="xref">Section 3</a> MAY be used for a general EPP response to an EPP command.  A general EPP response includes any non-poll message EPP response.  The use of the unhandled namespace approach for poll message EPP responses is defined in <a href="#usagePollMessages" class="xref">Section 5</a>.  The server MAY exclude the unhandled namespace information in the general EPP response or MAY include it using the unhandled namespace approach.</p>
-<p id="rfc.section.4.p.2">The unhandled namespace approach for general EPP responses SHOULD only be applicable to command-response extensions, defined in <a href="#commandResponseLevelExtension" class="xref">Section 3.2</a>, since the server SHOULD NOT accept an object-level EPP command if the client did not include the object-level namespace URI in the login services.  An object-level EPP response extension is returned when the server successfully executes an object-level EPP command extension.  The server MAY return an unhandled object-level extension to the client as defined in <a href="#objectLevelExtension" class="xref">Section 3.1</a>.</p>
-<p id="rfc.section.4.p.3">Returning domain name Redemption Grace Period (RGP) data, based on <a href="#RFC3915" class="xref">[RFC3915]</a>, provides an example of applying the unhandled namespace approach for a general EPP response.  If the client does not include the "urn:ietf:params:xml:ns:rgp-1.0" namespace URI in the login services, and the domain &lt;info&gt; response of a domain name does have RGP information, the server MAY exclude the &lt;rgp:infData&gt; element from the EPP response or MAY include it under in the &lt;extValue&gt; element per <a href="#commandResponseLevelExtension" class="xref">Section 3.2</a>.</p>
+<p id="rfc.section.4.p.1">This document does not define new protocol but a Best Current Practice (BCP) using the existing EPP protocol, where the client and the server can signal support for the BCP using a namespace URI in the login and greeting extension services.  The namespace URI "urn:ietf:params:xml:ns:epp:unhandled-namespaces-1.0" is used to signal support for the BCP.  The client includes the namespace URI in an &lt;svcExtension&gt; &lt;extURI&gt; element of the <a href="#RFC5730" class="xref">[RFC5730]</a> &lt;login&gt; Command.  The server includes the namespace URI in an &lt;svcExtension&gt; &lt;extURI&gt; element of the <a href="#RFC5730" class="xref">[RFC5730]</a> Greeting.</p>
+<p id="rfc.section.4.p.2">A client that receives the namespace URI in the server's Greeting extension services, can expect the following supported behavior by the server: </p>
+
+<ol>
+<li>Support unhandled namespace object-level extensions and command-response extensions in EPP poll messages, per <a href="#usagePollMessages" class="xref">Section 6</a>.</li>
+<li>Support the option of unhandled namespace command-response extensions in general EPP responses, per <a href="#usageGeneralResponses" class="xref">Section 5</a>.</li>
+</ol>
+
+<p> </p>
+<p id="rfc.section.4.p.3">A server that receives the namespace URI in the client's &lt;login&gt; Command extension services, can expect the following supported behavior by the client: </p>
+
+<ol><li>Support monitoring the EPP poll messages and general EPP responses for unhandled namespaces.</li></ol>
+
+<p> </p>
+<h1 id="rfc.section.5">
+<a href="#rfc.section.5">5.</a> <a href="#usageGeneralResponses" id="usageGeneralResponses">Usage with General EPP Responses</a>
+</h1>
+<p id="rfc.section.5.p.1">The unhandled namespace approach defined in <a href="#extValueApproach" class="xref">Section 3</a> MAY be used for a general EPP response to an EPP command.  A general EPP response includes any non-poll message EPP response.  The use of the unhandled namespace approach for poll message EPP responses is defined in <a href="#usagePollMessages" class="xref">Section 6</a>.  The server MAY exclude the unhandled namespace information in the general EPP response or MAY include it using the unhandled namespace approach.</p>
+<p id="rfc.section.5.p.2">The unhandled namespace approach for general EPP responses SHOULD only be applicable to command-response extensions, defined in <a href="#commandResponseLevelExtension" class="xref">Section 3.2</a>, since the server SHOULD NOT accept an object-level EPP command if the client did not include the object-level namespace URI in the login services.  An object-level EPP response extension is returned when the server successfully executes an object-level EPP command extension.  The server MAY return an unhandled object-level extension to the client as defined in <a href="#objectLevelExtension" class="xref">Section 3.1</a>.</p>
+<p id="rfc.section.5.p.3">Returning domain name Redemption Grace Period (RGP) data, based on <a href="#RFC3915" class="xref">[RFC3915]</a>, provides an example of applying the unhandled namespace approach for a general EPP response.  If the client does not include the "urn:ietf:params:xml:ns:rgp-1.0" namespace URI in the login services, and the domain &lt;info&gt; response of a domain name does have RGP information, the server MAY exclude the &lt;rgp:infData&gt; element from the EPP response or MAY include it under in the &lt;extValue&gt; element per <a href="#commandResponseLevelExtension" class="xref">Section 3.2</a>.</p>
 <p></p>
 
 <p><a href="#RFC5731" class="xref">[RFC5731]</a> domain name &lt;info&gt; response with the unhandled <a href="#RFC3915" class="xref">[RFC3915]</a> &lt;rgp:infData&gt; element included under an &lt;extValue&gt; element: </p>
@@ -794,11 +832,11 @@ S:    &lt;/trID&gt;
 S:  &lt;/response&gt;
 S:&lt;/epp&gt;
             </pre>
-<h1 id="rfc.section.5">
-<a href="#rfc.section.5">5.</a> <a href="#usagePollMessages" id="usagePollMessages">Usage with Poll Message EPP Responses</a>
+<h1 id="rfc.section.6">
+<a href="#rfc.section.6">6.</a> <a href="#usagePollMessages" id="usagePollMessages">Usage with Poll Message EPP Responses</a>
 </h1>
-<p id="rfc.section.5.p.1">The unhandled namespace approach, defined in <a href="#extValueApproach" class="xref">Section 3</a>, MUST be used if there is unhandled namespace information included in an EPP &lt;poll&gt; message response.  The server inserts poll messages into the client's poll queue independent of knowing the supported client login services, therefore there may be unhandled object-level and command-response extensions included in a client's poll queue.  In <a href="#RFC5730" class="xref">[RFC5730]</a>, the &lt;poll&gt; command is used by the client to retrieve and acknowledge poll messages that have been inserted by the server.  The &lt;poll&gt; message response is an EPP response that includes the &lt;msgQ&gt; element that provides poll queue meta-data about the message.  The unhandled namespace approach, defined in <a href="#extValueApproach" class="xref">Section 3</a>, is used for an unhandled object-level extension and for each of the unhandled command-response extensions attached to the &lt;poll&gt; message response.  The resulting EPP &lt;poll&gt; message response MAY have either or both the object-level extension or command-response extensions moved to &lt;extValue&gt; elements, as defined in <a href="#extValueApproach" class="xref">Section 3</a>.</p>
-<p id="rfc.section.5.p.2">The Change Poll Message, as defined in <a href="#I-D.ietf-regext-change-poll" class="xref">[I-D.ietf-regext-change-poll]</a>, which is an extension of any EPP object, is an example of applying the unhandled namespace approach for EPP &lt;poll&gt; message responses.  The object that will be used in the examples is a <a href="#RFC5731" class="xref">[RFC5731]</a> domain name object.</p>
+<p id="rfc.section.6.p.1">The unhandled namespace approach, defined in <a href="#extValueApproach" class="xref">Section 3</a>, MUST be used if there is unhandled namespace information included in an EPP &lt;poll&gt; message response.  The server inserts poll messages into the client's poll queue independent of knowing the supported client login services, therefore there may be unhandled object-level and command-response extensions included in a client's poll queue.  In <a href="#RFC5730" class="xref">[RFC5730]</a>, the &lt;poll&gt; command is used by the client to retrieve and acknowledge poll messages that have been inserted by the server.  The &lt;poll&gt; message response is an EPP response that includes the &lt;msgQ&gt; element that provides poll queue meta-data about the message.  The unhandled namespace approach, defined in <a href="#extValueApproach" class="xref">Section 3</a>, is used for an unhandled object-level extension and for each of the unhandled command-response extensions attached to the &lt;poll&gt; message response.  The resulting EPP &lt;poll&gt; message response MAY have either or both the object-level extension or command-response extensions moved to &lt;extValue&gt; elements, as defined in <a href="#extValueApproach" class="xref">Section 3</a>.</p>
+<p id="rfc.section.6.p.2">The Change Poll Message, as defined in <a href="#I-D.ietf-regext-change-poll" class="xref">[I-D.ietf-regext-change-poll]</a>, which is an extension of any EPP object, is an example of applying the unhandled namespace approach for EPP &lt;poll&gt; message responses.  The object that will be used in the examples is a <a href="#RFC5731" class="xref">[RFC5731]</a> domain name object.</p>
 <p></p>
 
 <p><a href="#RFC5731" class="xref">[RFC5731]</a> domain name &lt;info&gt; &lt;poll&gt; message response with the unhandled <a href="#I-D.ietf-regext-change-poll" class="xref">[I-D.ietf-regext-change-poll]</a> &lt;changePoll:changeData&gt; element included under an &lt;extValue&gt; element: </p>
@@ -810,8 +848,8 @@ S:    &lt;result code="1301"&gt;
 S:      &lt;msg&gt;Command completed successfully; ack to dequeue&lt;/msg&gt;
 S:      &lt;extValue&gt;
 S:        &lt;value&gt;
-S:          &lt;changePoll:changeData 
-S:          xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0" 
+S:          &lt;changePoll:changeData
+S:          xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0"
 S:            state="after"&gt;
 S:            &lt;changePoll:operation&gt;update&lt;/changePoll:operation&gt;
 S:            &lt;changePoll:date&gt;
@@ -872,7 +910,7 @@ S:    &lt;result code="1301"&gt;
 S:      &lt;msg&gt;Command completed successfully; ack to dequeue&lt;/msg&gt;
 S:      &lt;extValue&gt;
 S:        &lt;value&gt;
-S:          &lt;domain:infData  
+S:          &lt;domain:infData
 S:            xmlns:domain="urn:ietf:params:xml:ns:domain-1.0"&gt;
 S:            &lt;domain:name&gt;change-poll.tld&lt;/domain:name&gt;
 S:            &lt;domain:roid&gt;EXAMPLE1-REP&lt;/domain:roid&gt;
@@ -896,8 +934,8 @@ S:        &lt;/reason&gt;
 S:      &lt;/extValue&gt;
 S:      &lt;extValue&gt;
 S:        &lt;value&gt;
-S:          &lt;changePoll:changeData 
-S:          xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0" 
+S:          &lt;changePoll:changeData
+S:          xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0"
 S:            state="after"&gt;
 S:            &lt;changePoll:operation&gt;update&lt;/changePoll:operation&gt;
 S:            &lt;changePoll:date&gt;
@@ -928,42 +966,76 @@ S:    &lt;/trID&gt;
 S:  &lt;/response&gt;
 S:&lt;/epp&gt;
             </pre>
-<h1 id="rfc.section.6">
-<a href="#rfc.section.6">6.</a> <a href="#Implementation" id="Implementation">Implementation Status</a>
-</h1>
-<p id="rfc.section.6.p.1">Note to RFC Editor: Please remove this section and the reference to <a href="#RFC7942" class="xref">RFC 7942</a> before publication.</p>
-<p id="rfc.section.6.p.2">This section records the status of known implementations of the protocol defined by this specification at the time of posting of this Internet-Draft, and is based on a proposal described in <a href="#RFC7942" class="xref">RFC 7942</a>.  The description of implementations in this section is intended to assist the IETF in its decision processes in progressing drafts to RFCs.  Please note that the listing of any individual implementation here does not imply endorsement by the IETF.  Furthermore, no effort has been spent to verify the information presented here that was supplied by IETF contributors.  This is not intended as, and must not be construed to be, a catalog of available implementations or their features.  Readers are advised to note that other implementations may exist.</p>
-<p id="rfc.section.6.p.3">According to <a href="#RFC7942" class="xref">RFC 7942</a>, "this will allow reviewers and working groups to assign due consideration to documents that have the benefit of running code, which may serve as evidence of valuable experimentation and feedback that have made the implemented protocols more mature.  It is up to the individual working groups to use this information as they see fit".</p>
-<h1 id="rfc.section.6.1">
-<a href="#rfc.section.6.1">6.1.</a> Verisign EPP SDK</h1>
-<p id="rfc.section.6.1.p.1">Organization: Verisign Inc.</p>
-<p id="rfc.section.6.1.p.2">Name: Verisign EPP SDK</p>
-<p id="rfc.section.6.1.p.3">Description: The Verisign EPP SDK includes an implementation of the unhandled namespaces for the processing of the poll queue messages.</p>
-<p id="rfc.section.6.1.p.4">Level of maturity: Development</p>
-<p id="rfc.section.6.1.p.5">Coverage: All aspects of the protocol are implemented.</p>
-<p id="rfc.section.6.1.p.6">Licensing: GNU Lesser General Public License</p>
-<p id="rfc.section.6.1.p.7">Contact: jgould@verisign.com</p>
-<p id="rfc.section.6.1.p.8">URL: https://www.verisign.com/en_US/channel-resources/domain-registry-products/epp-sdks</p>
-<h1 id="rfc.section.6.2">
-<a href="#rfc.section.6.2">6.2.</a> SWITCH Automated DNSSEC Provisioning Process</h1>
-<p id="rfc.section.6.2.p.1">Organization: SWITCH</p>
-<p id="rfc.section.6.2.p.2">Name: Registry of .CH and .LI</p>
-<p id="rfc.section.6.2.p.3">Description: SWITCH uses poll messages to inform the registrar about DNSSEC changes at the registry triggered by CDS records. These poll messages are enriched with the 'urn:ietf:params:xml:ns:changePoll-1.0' and the 'urn:ietf:params:xml:ns:secDNS-1.1' extension that are rendered in the poll msg response according to this draft.</p>
-<p id="rfc.section.6.2.p.4">Level of maturity: Operational</p>
-<p id="rfc.section.6.2.p.5">Coverage: All aspects of the protocol are implemented.</p>
-<p id="rfc.section.6.2.p.6">Licensing: Proprietary</p>
-<p id="rfc.section.6.2.p.7">Contact: martin.casanova@switch.ch</p>
-<p id="rfc.section.6.2.p.8">URL: https://www.nic.ch/cds</p>
 <h1 id="rfc.section.7">
-<a href="#rfc.section.7">7.</a> <a href="#Security" id="Security">Security Considerations</a>
+<a href="#rfc.section.7">7.</a> <a href="#IANA" id="IANA">IANA Considerations</a>
 </h1>
-<p id="rfc.section.7.p.1">The document do not provide any security services beyond those described by <a href="#RFC5730" class="xref">EPP</a> and protocol layers used by EPP. The security considerations described in these other specifications apply to this specification as well.</p>
+<h1 id="rfc.section.7.1">
+<a href="#rfc.section.7.1">7.1.</a> <a href="#IANA-XML-Namespace" id="IANA-XML-Namespace">XML Namespace</a>
+</h1>
+<p id="rfc.section.7.1.p.1">This document uses URNs to describe XML namespaces conforming to a registry mechanism described in <a href="#RFC3688" class="xref">[RFC3688]</a>.  The following URI assignment is requested of IANA: </p>
+<p id="rfc.section.7.1.p.2">Registration request for the unhandled namespaces namespace:</p>
+<p></p>
+
+<ul class="empty">
+<li>URI: urn:ietf:params:xml:ns:epp:unhandled-namespaces-1.0</li>
+<li>Registrant Contact: IESG</li>
+<li>XML: None. Namespace URIs do not represent an XML specification.</li>
+</ul>
+<h1 id="rfc.section.7.2">
+<a href="#rfc.section.7.2">7.2.</a> <a href="#EPP-Extension-Registry" id="EPP-Extension-Registry">EPP Extension Registry</a>
+</h1>
+<p id="rfc.section.7.2.p.1">The EPP Best Current Practice (BCP) described in this document should be registered by the IANA in the EPP Extension Registry described in <a href="#RFC7451" class="xref">[RFC7451]</a>.  The details of the registration are as follows: </p>
+<p id="rfc.section.7.2.p.2">Name of Extension: "Extensible Provisioning Protocol (EPP) Unhandled Namespaces" </p>
+<p id="rfc.section.7.2.p.3">Document status: Best Current Practice </p>
+<p id="rfc.section.7.2.p.4">Reference: (insert reference to RFC version of this document) </p>
+<p id="rfc.section.7.2.p.5">Registrant Name and Email Address: IESG, &lt;iesg@ietf.org&gt; </p>
+<p id="rfc.section.7.2.p.6">TLDs: Any </p>
+<p id="rfc.section.7.2.p.7">IPR Disclosure: None </p>
+<p id="rfc.section.7.2.p.8">Status: Active </p>
+<p id="rfc.section.7.2.p.9">Notes: None </p>
 <h1 id="rfc.section.8">
-<a href="#rfc.section.8">8.</a> <a href="#Acknowledgements" id="Acknowledgements">Acknowledgements</a>
+<a href="#rfc.section.8">8.</a> <a href="#Implementation" id="Implementation">Implementation Status</a>
 </h1>
-<p id="rfc.section.8.p.1">TBD</p>
+<p id="rfc.section.8.p.1">Note to RFC Editor: Please remove this section and the reference to <a href="#RFC7942" class="xref">RFC 7942</a> before publication.</p>
+<p id="rfc.section.8.p.2">This section records the status of known implementations of the protocol defined by this specification at the time of posting of this Internet-Draft, and is based on a proposal described in <a href="#RFC7942" class="xref">RFC 7942</a>.  The description of implementations in this section is intended to assist the IETF in its decision processes in progressing drafts to RFCs.  Please note that the listing of any individual implementation here does not imply endorsement by the IETF.  Furthermore, no effort has been spent to verify the information presented here that was supplied by IETF contributors.  This is not intended as, and must not be construed to be, a catalog of available implementations or their features.  Readers are advised to note that other implementations may exist.</p>
+<p id="rfc.section.8.p.3">According to <a href="#RFC7942" class="xref">RFC 7942</a>, "this will allow reviewers and working groups to assign due consideration to documents that have the benefit of running code, which may serve as evidence of valuable experimentation and feedback that have made the implemented protocols more mature.  It is up to the individual working groups to use this information as they see fit".</p>
+<h1 id="rfc.section.8.1">
+<a href="#rfc.section.8.1">8.1.</a> Verisign EPP SDK</h1>
+<p id="rfc.section.8.1.p.1">Organization: Verisign Inc.</p>
+<p id="rfc.section.8.1.p.2">Name: Verisign EPP SDK</p>
+<p id="rfc.section.8.1.p.3">Description: The Verisign EPP SDK includes an implementation of the unhandled namespaces for the processing of the poll queue messages.</p>
+<p id="rfc.section.8.1.p.4">Level of maturity: Development</p>
+<p id="rfc.section.8.1.p.5">Coverage: All aspects of the protocol are implemented.</p>
+<p id="rfc.section.8.1.p.6">Licensing: GNU Lesser General Public License</p>
+<p id="rfc.section.8.1.p.7">Contact: jgould@verisign.com</p>
+<p id="rfc.section.8.1.p.8">URL: https://www.verisign.com/en_US/channel-resources/domain-registry-products/epp-sdks</p>
+<h1 id="rfc.section.8.2">
+<a href="#rfc.section.8.2">8.2.</a> SWITCH Automated DNSSEC Provisioning Process</h1>
+<p id="rfc.section.8.2.p.1">Organization: SWITCH</p>
+<p id="rfc.section.8.2.p.2">Name: Registry of .CH and .LI</p>
+<p id="rfc.section.8.2.p.3">Description: SWITCH uses poll messages to inform the registrar about DNSSEC changes at the registry triggered by CDS records. These poll messages are enriched with the 'urn:ietf:params:xml:ns:changePoll-1.0' and the 'urn:ietf:params:xml:ns:secDNS-1.1' extension that are rendered in the poll msg response according to this draft.</p>
+<p id="rfc.section.8.2.p.4">Level of maturity: Operational</p>
+<p id="rfc.section.8.2.p.5">Coverage: All aspects of the protocol are implemented.</p>
+<p id="rfc.section.8.2.p.6">Licensing: Proprietary</p>
+<p id="rfc.section.8.2.p.7">Contact: martin.casanova@switch.ch</p>
+<p id="rfc.section.8.2.p.8">URL: https://www.nic.ch/cds</p>
+<h1 id="rfc.section.9">
+<a href="#rfc.section.9">9.</a> <a href="#Security" id="Security">Security Considerations</a>
+</h1>
+<p id="rfc.section.9.p.1">The document do not provide any security services beyond those described by <a href="#RFC5730" class="xref">EPP</a> and protocol layers used by EPP. The security considerations described in these other specifications apply to this specification as well.</p>
+<h1 id="rfc.section.10">
+<a href="#rfc.section.10">10.</a> <a href="#Acknowledgements" id="Acknowledgements">Acknowledgements</a>
+</h1>
+<p id="rfc.section.10.p.1">The authors wish to thank the following persons for their feedback and suggestions:</p>
+<p></p>
+
+<ul>
+<li>Scott Hollenbeck</li>
+<li>Patrick Mevzek</li>
+<li>Marcel Parodi</li>
+</ul>
 <h1 id="rfc.references">
-<a href="#rfc.references">9.</a> Normative References</h1>
+<a href="#rfc.references">11.</a> Normative References</h1>
 <table><tbody>
 <tr>
 <td class="reference"><b id="I-D.ietf-regext-change-poll">[I-D.ietf-regext-change-poll]</b></td>
@@ -974,6 +1046,11 @@ S:&lt;/epp&gt;
 <td class="reference"><b id="RFC2119">[RFC2119]</b></td>
 <td class="top">
 <a>Bradner, S.</a>, "<a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>", BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC3688">[RFC3688]</b></td>
+<td class="top">
+<a>Mealling, M.</a>, "<a href="https://tools.ietf.org/html/rfc3688">The IETF XML Registry</a>", BCP 81, RFC 3688, DOI 10.17487/RFC3688, January 2004.</td>
 </tr>
 <tr>
 <td class="reference"><b id="RFC3735">[RFC3735]</b></td>
@@ -1006,6 +1083,11 @@ S:&lt;/epp&gt;
 <a>Gould, J.</a> and <a>S. Hollenbeck</a>, "<a href="https://tools.ietf.org/html/rfc5910">Domain Name System (DNS) Security Extensions Mapping for the Extensible Provisioning Protocol (EPP)</a>", RFC 5910, DOI 10.17487/RFC5910, May 2010.</td>
 </tr>
 <tr>
+<td class="reference"><b id="RFC7451">[RFC7451]</b></td>
+<td class="top">
+<a>Hollenbeck, S.</a>, "<a href="https://tools.ietf.org/html/rfc7451">Extension Registry for the Extensible Provisioning Protocol</a>", RFC 7451, DOI 10.17487/RFC7451, February 2015.</td>
+</tr>
+<tr>
 <td class="reference"><b id="RFC7942">[RFC7942]</b></td>
 <td class="top">
 <a>Sheffer, Y.</a> and <a>A. Farrel</a>, "<a href="https://tools.ietf.org/html/rfc7942">Improving Awareness of Running Code: The Implementation Status Section</a>", BCP 205, RFC 7942, DOI 10.17487/RFC7942, July 2016.</td>
@@ -1029,6 +1111,31 @@ S:&lt;/epp&gt;
 <p></p>
 
 <ol><li>Ping update</li></ol>
+<h1 id="rfc.appendix.A.3">
+<a href="#rfc.appendix.A.3">A.3.</a> <a href="#change-02-to-WG00" id="change-02-to-WG00">Change from 02 to REGEXT 00</a>
+</h1>
+<p></p>
+
+<ol><li>Changed to regext working group draft by changing draft-gould-casanova-regext-unhandled-namespaces to draft-ietf-regext-unhandled-namespaces.</li></ol>
+<h1 id="rfc.appendix.A.4">
+<a href="#rfc.appendix.A.4">A.4.</a> <a href="#change-WG00-to-WG01" id="change-WG00-to-WG01">Change from REGEXT 00 to REGEXT 01</a>
+</h1>
+<p></p>
+
+<ol>
+<li>Added the "Signaling Client and Server Support" section to describe the mechanism to signal support for the BCP by the client and the server.</li>
+<li>Added the IANA Considerations section with the registration of the unhandled namespaces XML namespace and the registration of the EPP Best Current Practice (BCP) in the EPP Extension Registry.</li>
+</ol>
+<h1 id="rfc.appendix.A.5">
+<a href="#rfc.appendix.A.5">A.5.</a> <a href="#change-WG01-to-WG02" id="change-WG01-to-WG02">Change from REGEXT 01 to REGEXT 02</a>
+</h1>
+<p></p>
+
+<ol>
+<li>Filled in the acknowledgements section.</li>
+<li>Changed the reference from RFC 5730 to RFC 5731 for the transfer example in section 3.1 "Unhandled Object-Level" Extension.</li>
+<li>Updated the XML namespace to urn:ietf:params:xml:ns:epp:unhandled-namespaces-1.0, which removed bcp from the namespace and bumped the version from 0.1 and 1.0.  Inclusion of bcp in the XML namespace was discussed at the REGEXT interim meeting.</li>
+</ol>
 <h1 id="rfc.authors"><a href="#rfc.authors">Authors' Addresses</a></h1>
 <div class="avoidbreak">
   <address class="vcard">
