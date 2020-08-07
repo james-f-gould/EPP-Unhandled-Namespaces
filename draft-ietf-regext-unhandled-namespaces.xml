@@ -1,5 +1,21 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!DOCTYPE rfc SYSTEM "rfc2629-xhtml.ent">
+<!DOCTYPE rfc SYSTEM "rfc2629-xhtml.ent" [
+<!-- One method to get references from the online citation libraries.
+     There has to be one entity for each item to be referenced.
+     An alternate method (rfc include) is described in the references. -->
+<!ENTITY RFC2119 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml">
+<!ENTITY RFC3688 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3688.xml">
+<!ENTITY RFC3735 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3735.xml">
+<!ENTITY RFC3915 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3915.xml">
+<!ENTITY RFC5234 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5234.xml">
+<!ENTITY RFC5730 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5730.xml">
+<!ENTITY RFC5731 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5731.xml">
+<!ENTITY RFC5910 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5910.xml">
+<!ENTITY RFC7451 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7451.xml">
+<!ENTITY RFC7942 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7942.xml">
+<!ENTITY RFC8590 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8590.xml">
+<!ENTITY I-D.narten-iana-considerations-rfc2434bis SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.narten-iana-considerations-rfc2434bis.xml">
+]>
 <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 <!-- used by XSLT processors -->
 <!-- For a complete list and description of processing instructions (PIs),
@@ -70,7 +86,7 @@
         <uri>http://www.switch.ch</uri>
       </address>
     </author>
-    <date day="6" month="August" year="2020"/>
+    <date day="7" month="August" year="2020"/>
     <abstract>
       <t>The Extensible Provisioning Protocol (EPP), as defined in RFC 5730,
       includes a method for the client and server to
@@ -493,11 +509,11 @@ S:</epp>
       EPP &lt;poll&gt; message response MAY have either or both the object-level extension or
       command-response extensions moved to &lt;extValue&gt; elements, as defined in
       <xref target="extValueApproach" format="default"/>.</t>
-      <t>The Change Poll Message, as defined in <xref target="I-D.ietf-regext-change-poll" format="default"/>, which is an extension of any EPP object,
+      <t>The Change Poll Message, as defined in <xref target="RFC8590" format="default"/>, which is an extension of any EPP object,
       is an example of applying the unhandled namespace approach for EPP &lt;poll&gt; message responses.
       The object that will be used in the examples is a <xref target="RFC5731" format="default"/> domain name object.</t>
       <t keepWithNext="true"><xref target="RFC5731" format="default"/> domain name &lt;info&gt; &lt;poll&gt; message response with the unhandled
-		    <xref target="I-D.ietf-regext-change-poll" format="default"/> &lt;changePoll:changeData&gt; element included under an &lt;extValue&gt; element:
+		    <xref target="RFC8590" format="default"/> &lt;changePoll:changeData&gt; element included under an &lt;extValue&gt; element:
       </t>
       <artwork name="" type="" align="left" alt=""><![CDATA[
 S:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -559,7 +575,7 @@ S:  </response>
 S:</epp>
             ]]></artwork>
       <t keepWithNext="true">Unhandled <xref target="RFC5731" format="default"/> domain name &lt;info&gt; &lt;poll&gt; message response and the unhandled
-		    <xref target="I-D.ietf-regext-change-poll" format="default"/> &lt;changePoll:changeData&gt; element included under an &lt;extValue&gt; element:
+		    <xref target="RFC8590" format="default"/> &lt;changePoll:changeData&gt; element included under an &lt;extValue&gt; element:
       </t>
       <artwork name="" type="" align="left" alt=""><![CDATA[
 S:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -755,178 +771,29 @@ S:</epp>
 
     <references>
       <name>Normative References</name>
-      <reference anchor="RFC2119" target="https://www.rfc-editor.org/info/rfc2119" xml:base="https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml">
-        <front>
-          <title>Key words for use in RFCs to Indicate Requirement Levels</title>
-          <seriesInfo name="DOI" value="10.17487/RFC2119"/>
-          <seriesInfo name="RFC" value="2119"/>
-          <seriesInfo name="BCP" value="14"/>
-          <author initials="S." surname="Bradner" fullname="S. Bradner">
-            <organization/>
-          </author>
-          <date year="1997" month="March"/>
-          <abstract>
-            <t>In many standards track documents several words are used to signify the requirements in the specification.  These words are often capitalized. This document defines these words as they should be interpreted in IETF documents.  This document specifies an Internet Best Current Practices for the Internet Community, and requests discussion and suggestions for improvements.</t>
-          </abstract>
-        </front>
-      </reference>
-      <reference anchor="RFC3688" target="https://www.rfc-editor.org/info/rfc3688" xml:base="https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.3688.xml">
-        <front>
-          <title>The IETF XML Registry</title>
-          <seriesInfo name="DOI" value="10.17487/RFC3688"/>
-          <seriesInfo name="RFC" value="3688"/>
-          <seriesInfo name="BCP" value="81"/>
-          <author initials="M." surname="Mealling" fullname="M. Mealling">
-            <organization/>
-          </author>
-          <date year="2004" month="January"/>
-          <abstract>
-            <t>This document describes an IANA maintained registry for IETF standards which use Extensible Markup Language (XML) related items such as Namespaces, Document Type Declarations (DTDs), Schemas, and Resource Description Framework (RDF) Schemas.</t>
-          </abstract>
-        </front>
-      </reference>
-      <reference anchor="RFC3735" target="https://www.rfc-editor.org/info/rfc3735" xml:base="https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.3735.xml">
-        <front>
-          <title>Guidelines for Extending the Extensible Provisioning Protocol (EPP)</title>
-          <seriesInfo name="DOI" value="10.17487/RFC3735"/>
-          <seriesInfo name="RFC" value="3735"/>
-          <author initials="S." surname="Hollenbeck" fullname="S. Hollenbeck">
-            <organization/>
-          </author>
-          <date year="2004" month="March"/>
-          <abstract>
-            <t>The Extensible Provisioning Protocol (EPP) is an application layer client-server protocol for the provisioning and management of objects stored in a shared central repository.  Specified in XML, the protocol defines generic object management operations and an extensible framework that maps protocol operations to objects.  This document presents guidelines for use of EPP's extension mechanisms to define new features and object management capabilities.  This memo provides information for the Internet community.</t>
-          </abstract>
-        </front>
-      </reference>
-      <reference anchor="RFC3915" target="https://www.rfc-editor.org/info/rfc3915" xml:base="https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.3915.xml">
-        <front>
-          <title>Domain Registry Grace Period Mapping for the Extensible Provisioning Protocol (EPP)</title>
-          <seriesInfo name="DOI" value="10.17487/RFC3915"/>
-          <seriesInfo name="RFC" value="3915"/>
-          <author initials="S." surname="Hollenbeck" fullname="S. Hollenbeck">
-            <organization/>
-          </author>
-          <date year="2004" month="September"/>
-          <abstract>
-            <t>This document describes an Extensible Provisioning Protocol (EPP) extension mapping for the management of Domain Name System (DNS) domain names subject to "grace period" policies defined by the Internet Corporation for Assigned Names and Numbers (ICANN).  Grace period policies exist to allow protocol actions to be reversed or otherwise revoked during a short period of time after the protocol action has been performed.  Specified in XML, this mapping extends the EPP domain name mapping to provide additional features required for grace period processing.  [STANDARDS-TRACK]</t>
-          </abstract>
-        </front>
-      </reference>
-      <reference anchor="RFC5234" target="https://www.rfc-editor.org/info/rfc5234" xml:base="https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.5234.xml">
-        <front>
-          <title>Augmented BNF for Syntax Specifications: ABNF</title>
-          <seriesInfo name="DOI" value="10.17487/RFC5234"/>
-          <seriesInfo name="RFC" value="5234"/>
-          <seriesInfo name="STD" value="68"/>
-          <author initials="D." surname="Crocker" fullname="D. Crocker" role="editor">
-            <organization/>
-          </author>
-          <author initials="P." surname="Overell" fullname="P. Overell">
-            <organization/>
-          </author>
-          <date year="2008" month="January"/>
-          <abstract>
-            <t>Internet technical specifications often need to define a formal syntax.  Over the years, a modified version of Backus-Naur Form (BNF), called Augmented BNF (ABNF), has been popular among many Internet specifications.  The current specification documents ABNF. It balances compactness and simplicity with reasonable representational power.  The differences between standard BNF and ABNF involve naming rules, repetition, alternatives, order-independence, and value ranges.  This specification also supplies additional rule definitions and encoding for a core lexical analyzer of the type common to several Internet specifications.  [STANDARDS-TRACK]</t>
-          </abstract>
-        </front>
-      </reference>
-      <reference anchor="RFC5730" target="https://www.rfc-editor.org/info/rfc5730" xml:base="https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.5730.xml">
-        <front>
-          <title>Extensible Provisioning Protocol (EPP)</title>
-          <seriesInfo name="DOI" value="10.17487/RFC5730"/>
-          <seriesInfo name="RFC" value="5730"/>
-          <seriesInfo name="STD" value="69"/>
-          <author initials="S." surname="Hollenbeck" fullname="S. Hollenbeck">
-            <organization/>
-          </author>
-          <date year="2009" month="August"/>
-          <abstract>
-            <t>This document describes an application-layer client-server protocol for the provisioning and management of objects stored in a shared central repository.  Specified in XML, the protocol defines generic object management operations and an extensible framework that maps protocol operations to objects.  This document includes a protocol specification, an object mapping template, and an XML media type registration.  This document obsoletes RFC 4930.  [STANDARDS-TRACK]</t>
-          </abstract>
-        </front>
-      </reference>
-      <reference anchor="RFC5731" target="https://www.rfc-editor.org/info/rfc5731" xml:base="https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.5731.xml">
-        <front>
-          <title>Extensible Provisioning Protocol (EPP) Domain Name Mapping</title>
-          <seriesInfo name="DOI" value="10.17487/RFC5731"/>
-          <seriesInfo name="RFC" value="5731"/>
-          <seriesInfo name="STD" value="69"/>
-          <author initials="S." surname="Hollenbeck" fullname="S. Hollenbeck">
-            <organization/>
-          </author>
-          <date year="2009" month="August"/>
-          <abstract>
-            <t>This document describes an Extensible Provisioning Protocol (EPP) mapping for the provisioning and management of Internet domain names stored in a shared central repository.  Specified in XML, the mapping defines EPP command syntax and semantics as applied to domain names. This document obsoletes RFC 4931.  [STANDARDS-TRACK]</t>
-          </abstract>
-        </front>
-      </reference>
-      <reference anchor="RFC5910" target="https://www.rfc-editor.org/info/rfc5910" xml:base="https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.5910.xml">
-        <front>
-          <title>Domain Name System (DNS) Security Extensions Mapping for the Extensible Provisioning Protocol (EPP)</title>
-          <seriesInfo name="DOI" value="10.17487/RFC5910"/>
-          <seriesInfo name="RFC" value="5910"/>
-          <author initials="J." surname="Gould" fullname="J. Gould">
-            <organization/>
-          </author>
-          <author initials="S." surname="Hollenbeck" fullname="S. Hollenbeck">
-            <organization/>
-          </author>
-          <date year="2010" month="May"/>
-          <abstract>
-            <t>This document describes an Extensible Provisioning Protocol (EPP) extension mapping for the provisioning and management of Domain Name System security (DNSSEC) extensions for domain names stored in a shared central repository.  Specified in XML, this mapping extends the EPP domain name mapping to provide additional features required for the provisioning of DNS security extensions.  This document obsoletes RFC 4310.  [STANDARDS-TRACK]</t>
-          </abstract>
-        </front>
-      </reference>
-      <reference anchor="RFC7451" target="https://www.rfc-editor.org/info/rfc7451" xml:base="https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.7451.xml">
-        <front>
-          <title>Extension Registry for the Extensible Provisioning Protocol</title>
-          <seriesInfo name="DOI" value="10.17487/RFC7451"/>
-          <seriesInfo name="RFC" value="7451"/>
-          <author initials="S." surname="Hollenbeck" fullname="S. Hollenbeck">
-            <organization/>
-          </author>
-          <date year="2015" month="February"/>
-          <abstract>
-            <t>The Extensible Provisioning Protocol (EPP) includes features to add functionality by extending the protocol.  It does not, however, describe how those extensions are managed.  This document describes a procedure for the registration and management of extensions to EPP, and it specifies a format for an IANA registry to record those extensions.</t>
-          </abstract>
-        </front>
-      </reference>
-      <reference anchor="RFC7942" target="https://www.rfc-editor.org/info/rfc7942" xml:base="https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.7942.xml">
-        <front>
-          <title>Improving Awareness of Running Code: The Implementation Status Section</title>
-          <seriesInfo name="DOI" value="10.17487/RFC7942"/>
-          <seriesInfo name="RFC" value="7942"/>
-          <seriesInfo name="BCP" value="205"/>
-          <author initials="Y." surname="Sheffer" fullname="Y. Sheffer">
-            <organization/>
-          </author>
-          <author initials="A." surname="Farrel" fullname="A. Farrel">
-            <organization/>
-          </author>
-          <date year="2016" month="July"/>
-          <abstract>
-            <t>This document describes a simple process that allows authors of Internet-Drafts to record the status of known implementations by including an Implementation Status section.  This will allow reviewers and working groups to assign due consideration to documents that have the benefit of running code, which may serve as evidence of valuable experimentation and feedback that have made the implemented protocols more mature.</t>
-            <t>This process is not mandatory.  Authors of Internet-Drafts are encouraged to consider using the process for their documents, and working groups are invited to think about applying the process to all of their protocol specifications.  This document obsoletes RFC 6982, advancing it to a Best Current Practice.</t>
-          </abstract>
-        </front>
-      </reference>
-      <reference anchor="I-D.ietf-regext-change-poll" xml:base="https://xml2rfc.tools.ietf.org/public/rfc/bibxml3/reference.I-D.ietf-regext-change-poll.xml" target="http://www.ietf.org/internet-drafts/draft-ietf-regext-change-poll-12.txt">
-        <front>
-          <title>Change Poll Extension for the Extensible Provisioning Protocol (EPP)</title>
-          <seriesInfo name="Internet-Draft" value="draft-ietf-regext-change-poll-12"/>
-          <author initials="J" surname="Gould" fullname="James Gould">
-            <organization/>
-          </author>
-          <author initials="K" surname="Feher" fullname="Kal Feher">
-            <organization/>
-          </author>
-          <date month="January" day="4" year="2019"/>
-          <abstract>
-            <t>This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations on client-sponsored objects that were not initiated by the client through EPP.  These operations may include contractual or policy requirements including but not limited to regular batch processes, customer support actions, Uniform Domain-Name Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) actions, court-directed actions, and bulk updates based on customer requests.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why.</t>
-          </abstract>
-        </front>
-      </reference>
+
+      &RFC2119;
+
+      &RFC3688;
+
+      &RFC3735;
+
+      &RFC3915;
+
+      &RFC5234;
+
+      &RFC5730;
+
+      &RFC5731;
+
+      &RFC5910;
+
+      &RFC7451;
+
+      &RFC7942;
+
+      &RFC8590;
+
     </references>
     <section numbered="true" toc="default">
       <name>Change History</name>
@@ -972,6 +839,7 @@ S:</epp>
         <ol spacing="compact" type="1">
           <li>Converted from xml2rfc v2 to v3.</li>
           <li>Updated Acknowledgements to match the approach taken by the RFC Editor with draft-ietf-regext-login-security.</li>
+          <li>Changed reference of ietf-regext-change-poll to RFC 8590.</li>
         </ol>
       </section>
     </section>

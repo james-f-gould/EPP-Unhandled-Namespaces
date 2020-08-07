@@ -5,8 +5,8 @@
 Network Working Group                                         J.G. Gould
 Internet-Draft                                            VeriSign, Inc.
 Intended status: Best Current Practice                     M.C. Casanova
-Expires: 7 February 2021                                          SWITCH
-                                                           6 August 2020
+Expires: 8 February 2021                                          SWITCH
+                                                           7 August 2020
 
 
       Extensible Provisioning Protocol (EPP) Unhandled Namespaces
@@ -44,7 +44,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 7 February 2021.
+   This Internet-Draft will expire on 8 February 2021.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Gould & Casanova         Expires 7 February 2021                [Page 1]
+Gould & Casanova         Expires 8 February 2021                [Page 1]
 
 Internet-Draft             unhandledNamespaces               August 2020
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Gould & Casanova         Expires 7 February 2021                [Page 2]
+Gould & Casanova         Expires 8 February 2021                [Page 2]
 
 Internet-Draft             unhandledNamespaces               August 2020
 
@@ -165,7 +165,7 @@ Internet-Draft             unhandledNamespaces               August 2020
 
 
 
-Gould & Casanova         Expires 7 February 2021                [Page 3]
+Gould & Casanova         Expires 8 February 2021                [Page 3]
 
 Internet-Draft             unhandledNamespaces               August 2020
 
@@ -221,7 +221,7 @@ Internet-Draft             unhandledNamespaces               August 2020
 
 
 
-Gould & Casanova         Expires 7 February 2021                [Page 4]
+Gould & Casanova         Expires 8 February 2021                [Page 4]
 
 Internet-Draft             unhandledNamespaces               August 2020
 
@@ -277,7 +277,7 @@ Internet-Draft             unhandledNamespaces               August 2020
 
 
 
-Gould & Casanova         Expires 7 February 2021                [Page 5]
+Gould & Casanova         Expires 8 February 2021                [Page 5]
 
 Internet-Draft             unhandledNamespaces               August 2020
 
@@ -333,7 +333,7 @@ Internet-Draft             unhandledNamespaces               August 2020
 
 
 
-Gould & Casanova         Expires 7 February 2021                [Page 6]
+Gould & Casanova         Expires 8 February 2021                [Page 6]
 
 Internet-Draft             unhandledNamespaces               August 2020
 
@@ -389,7 +389,7 @@ Internet-Draft             unhandledNamespaces               August 2020
 
 
 
-Gould & Casanova         Expires 7 February 2021                [Page 7]
+Gould & Casanova         Expires 8 February 2021                [Page 7]
 
 Internet-Draft             unhandledNamespaces               August 2020
 
@@ -445,7 +445,7 @@ Internet-Draft             unhandledNamespaces               August 2020
 
 
 
-Gould & Casanova         Expires 7 February 2021                [Page 8]
+Gould & Casanova         Expires 8 February 2021                [Page 8]
 
 Internet-Draft             unhandledNamespaces               August 2020
 
@@ -501,7 +501,7 @@ Internet-Draft             unhandledNamespaces               August 2020
 
 
 
-Gould & Casanova         Expires 7 February 2021                [Page 9]
+Gould & Casanova         Expires 8 February 2021                [Page 9]
 
 Internet-Draft             unhandledNamespaces               August 2020
 
@@ -557,7 +557,7 @@ Internet-Draft             unhandledNamespaces               August 2020
 
 
 
-Gould & Casanova         Expires 7 February 2021               [Page 10]
+Gould & Casanova         Expires 8 February 2021               [Page 10]
 
 Internet-Draft             unhandledNamespaces               August 2020
 
@@ -613,7 +613,7 @@ Internet-Draft             unhandledNamespaces               August 2020
 
 
 
-Gould & Casanova         Expires 7 February 2021               [Page 11]
+Gould & Casanova         Expires 8 February 2021               [Page 11]
 
 Internet-Draft             unhandledNamespaces               August 2020
 
@@ -660,23 +660,23 @@ Internet-Draft             unhandledNamespaces               August 2020
    extension or command-response extensions moved to <extValue>
    elements, as defined in Section 3.
 
-   The Change Poll Message, as defined in [I-D.ietf-regext-change-poll],
-   which is an extension of any EPP object, is an example of applying
-   the unhandled namespace approach for EPP <poll> message responses.
-   The object that will be used in the examples is a [RFC5731] domain
-   name object.
+   The Change Poll Message, as defined in [RFC8590], which is an
+   extension of any EPP object, is an example of applying the unhandled
+   namespace approach for EPP <poll> message responses.  The object that
+   will be used in the examples is a [RFC5731] domain name object.
 
 
 
 
-Gould & Casanova         Expires 7 February 2021               [Page 12]
+
+Gould & Casanova         Expires 8 February 2021               [Page 12]
 
 Internet-Draft             unhandledNamespaces               August 2020
 
 
    [RFC5731] domain name <info> <poll> message response with the
-   unhandled [I-D.ietf-regext-change-poll] <changePoll:changeData>
-   element included under an <extValue> element:
+   unhandled [RFC8590] <changePoll:changeData> element included under an
+   <extValue> element:
 
    S:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
    S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
@@ -725,7 +725,7 @@ Internet-Draft             unhandledNamespaces               August 2020
 
 
 
-Gould & Casanova         Expires 7 February 2021               [Page 13]
+Gould & Casanova         Expires 8 February 2021               [Page 13]
 
 Internet-Draft             unhandledNamespaces               August 2020
 
@@ -745,8 +745,8 @@ Internet-Draft             unhandledNamespaces               August 2020
    S:</epp>
 
    Unhandled [RFC5731] domain name <info> <poll> message response and
-   the unhandled [I-D.ietf-regext-change-poll] <changePoll:changeData>
-   element included under an <extValue> element:
+   the unhandled [RFC8590] <changePoll:changeData> element included
+   under an <extValue> element:
 
    S:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
    S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
@@ -781,7 +781,7 @@ Internet-Draft             unhandledNamespaces               August 2020
 
 
 
-Gould & Casanova         Expires 7 February 2021               [Page 14]
+Gould & Casanova         Expires 8 February 2021               [Page 14]
 
 Internet-Draft             unhandledNamespaces               August 2020
 
@@ -837,7 +837,7 @@ Internet-Draft             unhandledNamespaces               August 2020
 
 
 
-Gould & Casanova         Expires 7 February 2021               [Page 15]
+Gould & Casanova         Expires 8 February 2021               [Page 15]
 
 Internet-Draft             unhandledNamespaces               August 2020
 
@@ -893,7 +893,7 @@ Internet-Draft             unhandledNamespaces               August 2020
 
 
 
-Gould & Casanova         Expires 7 February 2021               [Page 16]
+Gould & Casanova         Expires 8 February 2021               [Page 16]
 
 Internet-Draft             unhandledNamespaces               August 2020
 
@@ -949,7 +949,7 @@ Internet-Draft             unhandledNamespaces               August 2020
 
 
 
-Gould & Casanova         Expires 7 February 2021               [Page 17]
+Gould & Casanova         Expires 8 February 2021               [Page 17]
 
 Internet-Draft             unhandledNamespaces               August 2020
 
@@ -960,13 +960,6 @@ Internet-Draft             unhandledNamespaces               August 2020
    and suggestions: Scott Hollenbeck, Patrick Mevzek, and Marcel Parodi.
 
 11.  Normative References
-
-   [I-D.ietf-regext-change-poll]
-              Gould, J. and K. Feher, "Change Poll Extension for the
-              Extensible Provisioning Protocol (EPP)", Work in Progress,
-              Internet-Draft, draft-ietf-regext-change-poll-12, 4
-              January 2019, <http://www.ietf.org/internet-drafts/draft-
-              ietf-regext-change-poll-12.txt>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -1001,20 +994,21 @@ Internet-Draft             unhandledNamespaces               August 2020
               DOI 10.17487/RFC5731, August 2009,
               <https://www.rfc-editor.org/info/rfc5731>.
 
-
-
-
-
-Gould & Casanova         Expires 7 February 2021               [Page 18]
-
-Internet-Draft             unhandledNamespaces               August 2020
-
-
    [RFC5910]  Gould, J. and S. Hollenbeck, "Domain Name System (DNS)
               Security Extensions Mapping for the Extensible
               Provisioning Protocol (EPP)", RFC 5910,
               DOI 10.17487/RFC5910, May 2010,
               <https://www.rfc-editor.org/info/rfc5910>.
+
+
+
+
+
+
+Gould & Casanova         Expires 8 February 2021               [Page 18]
+
+Internet-Draft             unhandledNamespaces               August 2020
+
 
    [RFC7451]  Hollenbeck, S., "Extension Registry for the Extensible
               Provisioning Protocol", RFC 7451, DOI 10.17487/RFC7451,
@@ -1024,6 +1018,11 @@ Internet-Draft             unhandledNamespaces               August 2020
               Code: The Implementation Status Section", BCP 205,
               RFC 7942, DOI 10.17487/RFC7942, July 2016,
               <https://www.rfc-editor.org/info/rfc7942>.
+
+   [RFC8590]  Gould, J. and K. Feher, "Change Poll Extension for the
+              Extensible Provisioning Protocol (EPP)", RFC 8590,
+              DOI 10.17487/RFC8590, May 2019,
+              <https://www.rfc-editor.org/info/rfc8590>.
 
 Appendix A.  Change History
 
@@ -1061,7 +1060,8 @@ A.5.  Change from REGEXT 01 to REGEXT 02
 
 
 
-Gould & Casanova         Expires 7 February 2021               [Page 19]
+
+Gould & Casanova         Expires 8 February 2021               [Page 19]
 
 Internet-Draft             unhandledNamespaces               August 2020
 
@@ -1079,6 +1079,7 @@ A.6.  Change from REGEXT 02 to REGEXT 03
    1.  Converted from xml2rfc v2 to v3.
    2.  Updated Acknowledgements to match the approach taken by the RFC
        Editor with draft-ietf-regext-login-security.
+   3.  Changed reference of ietf-regext-change-poll to RFC 8590.
 
 Authors' Addresses
 
@@ -1116,5 +1117,4 @@ Authors' Addresses
 
 
 
-
-Gould & Casanova         Expires 7 February 2021               [Page 20]
+Gould & Casanova         Expires 8 February 2021               [Page 20]
