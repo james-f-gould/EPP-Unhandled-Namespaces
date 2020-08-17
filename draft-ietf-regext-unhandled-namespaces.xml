@@ -78,7 +78,6 @@
         <postal>
           <street>P.O. Box</street>
           <city>Zurich</city>
-          <region>ZH</region>
           <code>8021</code>
           <country>CH</country>
         </postal>
@@ -86,7 +85,7 @@
         <uri>http://www.switch.ch</uri>
       </address>
     </author>
-    <date day="7" month="August" year="2020"/>
+    <date day="17" month="August" year="2020"/>
     <abstract>
       <t>The Extensible Provisioning Protocol (EPP), as defined in RFC 5730,
       includes a method for the client and server to
