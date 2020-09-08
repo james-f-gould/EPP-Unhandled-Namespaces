@@ -5,8 +5,8 @@
 Network Working Group                                         J.G. Gould
 Internet-Draft                                            VeriSign, Inc.
 Intended status: Best Current Practice                     M.C. Casanova
-Expires: 18 February 2021                                         SWITCH
-                                                          17 August 2020
+Expires: 12 March 2021                                            SWITCH
+                                                        8 September 2020
 
 
       Extensible Provisioning Protocol (EPP) Unhandled Namespaces
@@ -44,7 +44,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 18 February 2021.
+   This Internet-Draft will expire on 12 March 2021.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Gould & Casanova        Expires 18 February 2021                [Page 1]
+Gould & Casanova          Expires 12 March 2021                 [Page 1]
 
-Internet-Draft             unhandledNamespaces               August 2020
+Internet-Draft             unhandledNamespaces            September 2020
 
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Gould & Casanova        Expires 18 February 2021                [Page 2]
+Gould & Casanova          Expires 12 March 2021                 [Page 2]
 
-Internet-Draft             unhandledNamespaces               August 2020
+Internet-Draft             unhandledNamespaces            September 2020
 
 
    [RFC5730] poll messages, since poll messages are inserted by the
@@ -165,9 +165,9 @@ Internet-Draft             unhandledNamespaces               August 2020
 
 
 
-Gould & Casanova        Expires 18 February 2021                [Page 3]
+Gould & Casanova          Expires 12 March 2021                 [Page 3]
 
-Internet-Draft             unhandledNamespaces               August 2020
+Internet-Draft             unhandledNamespaces            September 2020
 
 
 2.  Unhandled Namespaces
@@ -221,9 +221,9 @@ Internet-Draft             unhandledNamespaces               August 2020
 
 
 
-Gould & Casanova        Expires 18 February 2021                [Page 4]
+Gould & Casanova          Expires 12 March 2021                 [Page 4]
 
-Internet-Draft             unhandledNamespaces               August 2020
+Internet-Draft             unhandledNamespaces            September 2020
 
 
    This document supports handling of unsupported namespaces for
@@ -277,9 +277,9 @@ Internet-Draft             unhandledNamespaces               August 2020
 
 
 
-Gould & Casanova        Expires 18 February 2021                [Page 5]
+Gould & Casanova          Expires 12 March 2021                 [Page 5]
 
-Internet-Draft             unhandledNamespaces               August 2020
+Internet-Draft             unhandledNamespaces            September 2020
 
 
    S:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -333,9 +333,9 @@ Internet-Draft             unhandledNamespaces               August 2020
 
 
 
-Gould & Casanova        Expires 18 February 2021                [Page 6]
+Gould & Casanova          Expires 12 March 2021                 [Page 6]
 
-Internet-Draft             unhandledNamespaces               August 2020
+Internet-Draft             unhandledNamespaces            September 2020
 
 
    S:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -389,9 +389,9 @@ Internet-Draft             unhandledNamespaces               August 2020
 
 
 
-Gould & Casanova        Expires 18 February 2021                [Page 7]
+Gould & Casanova          Expires 12 March 2021                 [Page 7]
 
-Internet-Draft             unhandledNamespaces               August 2020
+Internet-Draft             unhandledNamespaces            September 2020
 
 
    S:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -445,9 +445,9 @@ Internet-Draft             unhandledNamespaces               August 2020
 
 
 
-Gould & Casanova        Expires 18 February 2021                [Page 8]
+Gould & Casanova          Expires 12 March 2021                 [Page 8]
 
-Internet-Draft             unhandledNamespaces               August 2020
+Internet-Draft             unhandledNamespaces            September 2020
 
 
    [RFC5910] DS Data Interface <info> response converted into an
@@ -501,9 +501,9 @@ Internet-Draft             unhandledNamespaces               August 2020
 
 
 
-Gould & Casanova        Expires 18 February 2021                [Page 9]
+Gould & Casanova          Expires 12 March 2021                 [Page 9]
 
-Internet-Draft             unhandledNamespaces               August 2020
+Internet-Draft             unhandledNamespaces            September 2020
 
 
    S:          <domain:pw>2fooBAR</domain:pw>
@@ -557,9 +557,9 @@ Internet-Draft             unhandledNamespaces               August 2020
 
 
 
-Gould & Casanova        Expires 18 February 2021               [Page 10]
+Gould & Casanova          Expires 12 March 2021                [Page 10]
 
-Internet-Draft             unhandledNamespaces               August 2020
+Internet-Draft             unhandledNamespaces            September 2020
 
 
    The unhandled namespace approach for general EPP responses SHOULD
@@ -613,9 +613,9 @@ Internet-Draft             unhandledNamespaces               August 2020
 
 
 
-Gould & Casanova        Expires 18 February 2021               [Page 11]
+Gould & Casanova          Expires 12 March 2021                [Page 11]
 
-Internet-Draft             unhandledNamespaces               August 2020
+Internet-Draft             unhandledNamespaces            September 2020
 
 
    S:          <domain:hostObj>ns1.example.net</domain:hostObj>
@@ -669,9 +669,9 @@ Internet-Draft             unhandledNamespaces               August 2020
 
 
 
-Gould & Casanova        Expires 18 February 2021               [Page 12]
+Gould & Casanova          Expires 12 March 2021                [Page 12]
 
-Internet-Draft             unhandledNamespaces               August 2020
+Internet-Draft             unhandledNamespaces            September 2020
 
 
    [RFC5731] domain name <info> <poll> message response with the
@@ -725,9 +725,9 @@ Internet-Draft             unhandledNamespaces               August 2020
 
 
 
-Gould & Casanova        Expires 18 February 2021               [Page 13]
+Gould & Casanova          Expires 12 March 2021                [Page 13]
 
-Internet-Draft             unhandledNamespaces               August 2020
+Internet-Draft             unhandledNamespaces            September 2020
 
 
    S:        <domain:crID>ClientY</domain:crID>
@@ -781,9 +781,9 @@ Internet-Draft             unhandledNamespaces               August 2020
 
 
 
-Gould & Casanova        Expires 18 February 2021               [Page 14]
+Gould & Casanova          Expires 12 March 2021                [Page 14]
 
-Internet-Draft             unhandledNamespaces               August 2020
+Internet-Draft             unhandledNamespaces            September 2020
 
 
    S:        <value>
@@ -837,9 +837,9 @@ Internet-Draft             unhandledNamespaces               August 2020
 
 
 
-Gould & Casanova        Expires 18 February 2021               [Page 15]
+Gould & Casanova          Expires 12 March 2021                [Page 15]
 
-Internet-Draft             unhandledNamespaces               August 2020
+Internet-Draft             unhandledNamespaces            September 2020
 
 
 7.2.  EPP Extension Registry
@@ -893,9 +893,9 @@ Internet-Draft             unhandledNamespaces               August 2020
 
 
 
-Gould & Casanova        Expires 18 February 2021               [Page 16]
+Gould & Casanova          Expires 12 March 2021                [Page 16]
 
-Internet-Draft             unhandledNamespaces               August 2020
+Internet-Draft             unhandledNamespaces            September 2020
 
 
 8.1.  Verisign EPP SDK
@@ -949,9 +949,9 @@ Internet-Draft             unhandledNamespaces               August 2020
 
 
 
-Gould & Casanova        Expires 18 February 2021               [Page 17]
+Gould & Casanova          Expires 12 March 2021                [Page 17]
 
-Internet-Draft             unhandledNamespaces               August 2020
+Internet-Draft             unhandledNamespaces            September 2020
 
 
 10.  Acknowledgements
@@ -1005,9 +1005,9 @@ Internet-Draft             unhandledNamespaces               August 2020
 
 
 
-Gould & Casanova        Expires 18 February 2021               [Page 18]
+Gould & Casanova          Expires 12 March 2021                [Page 18]
 
-Internet-Draft             unhandledNamespaces               August 2020
+Internet-Draft             unhandledNamespaces            September 2020
 
 
    [RFC7451]  Hollenbeck, S., "Extension Registry for the Extensible
@@ -1061,9 +1061,9 @@ A.5.  Change from REGEXT 01 to REGEXT 02
 
 
 
-Gould & Casanova        Expires 18 February 2021               [Page 19]
+Gould & Casanova          Expires 12 March 2021                [Page 19]
 
-Internet-Draft             unhandledNamespaces               August 2020
+Internet-Draft             unhandledNamespaces            September 2020
 
 
    2.  Changed the reference from RFC 5730 to RFC 5731 for the transfer
@@ -1117,4 +1117,4 @@ Authors' Addresses
 
 
 
-Gould & Casanova        Expires 18 February 2021               [Page 20]
+Gould & Casanova          Expires 12 March 2021                [Page 20]
