@@ -45,12 +45,9 @@
 <?rfc inline="yes" ?>
 <!-- inline cref output -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc xmlns:xi="http://www.w3.org/2001/XInclude" category="bcp" docName="draft-ietf-regext-unhandled-namespaces-03" ipr="trust200902" obsoletes="" updates="" submissionType="IETF" xml:lang="en" tocInclude="true" tocDepth="4" symRefs="true" sortRefs="true" version="3" consensus="true">
-  <!-- xml2rfc v2v3 conversion 2.47.0 -->
-  <!-- category values: std, bcp, info, exp, and historic
-     ipr values: full3667, noModification3667, noDerivatives3667
-     you can add the attributes updates="NNNN" and obsoletes="NNNN"
-     they will automatically be output with "(if approved)" -->
+<rfc xmlns:xi="http://www.w3.org/2001/XInclude" category="std" docName="draft-ietf-regext-unhandled-namespaces-04"
+  ipr="trust200902" obsoletes="" updates="" submissionType="IETF" xml:lang="en" tocInclude="true" tocDepth="4"
+  symRefs="true" sortRefs="true" version="3" consensus="true">
 
   <!-- ***** FRONT MATTER ***** -->
 
@@ -85,7 +82,7 @@
         <uri>http://www.switch.ch</uri>
       </address>
     </author>
-    <date day="8" month="September" year="2020"/>
+    <date day="22" month="September" year="2020"/>
     <abstract>
       <t>The Extensible Provisioning Protocol (EPP), as defined in RFC 5730,
       includes a method for the client and server to
@@ -398,9 +395,9 @@ S:</epp>
     </section>
     <section anchor="signal-client-server-support" numbered="true" toc="default">
       <name>Signaling Client and Server Support</name>
-      <t>This document does not define new protocol but a Best Current Practice (BCP) using the existing EPP protocol, where
-        the client and the server can signal support for the BCP using a namespace URI in the login and greeting extension services.
-        The namespace URI "urn:ietf:params:xml:ns:epp:unhandled-namespaces-1.0" is used to signal support for the BCP.  The
+      <t>This document does not define new protocol but an operational practice using the existing EPP protocol, where
+        the client and the server can signal support for the operational practice using a namespace URI in the login and greeting extension services.
+        The namespace URI "urn:ietf:params:xml:ns:epp:unhandled-namespaces-1.0" is used to signal support for the operational practice.  The
         client includes the namespace URI in an &lt;svcExtension&gt; &lt;extURI&gt; element of the <xref target="RFC5730" format="default"/> &lt;login&gt; Command.
         The server includes the namespace URI in an &lt;svcExtension&gt; &lt;extURI&gt; element of the <xref target="RFC5730" format="default"/> Greeting.</t>
       <t>A client that receives the namespace URI in the server's Greeting extension services, can expect the following supported behavior by the server:
@@ -660,7 +657,7 @@ S:</epp>
       <section anchor="EPP-Extension-Registry" numbered="true" toc="default">
         <name>EPP Extension Registry</name>
         <t>
-   The EPP Best Current Practice (BCP) described in this document should be registered by
+   The EPP operational practice described in this document should be registered by
    the IANA in the EPP Extension Registry described in <xref target="RFC7451" format="default"/>.  The
    details of the registration are as follows:
         </t>
@@ -668,7 +665,7 @@ S:</epp>
    Name of Extension: "Extensible Provisioning Protocol (EPP) Unhandled Namespaces"
         </t>
         <t>
-   Document status: Best Current Practice
+   Document status: Standards Track
         </t>
         <t>
    Reference: (insert reference to RFC version of this document)
@@ -839,6 +836,12 @@ S:</epp>
           <li>Converted from xml2rfc v2 to v3.</li>
           <li>Updated Acknowledgements to match the approach taken by the RFC Editor with draft-ietf-regext-login-security.</li>
           <li>Changed reference of ietf-regext-change-poll to RFC 8590.</li>
+        </ol>
+      </section>
+      <section anchor="change-WG03-to-WG04" numbered="true" toc="default">
+        <name>Change from REGEXT 03 to REGEXT 04</name>
+        <ol spacing="compact" type="1">
+          <li>Changed from Best Current Practice (BCP) to Standards Track based on mailing list discussion.</li>
         </ol>
       </section>
     </section>
