@@ -54,7 +54,7 @@
   <front>
     <title abbrev="unhandledNamespaces">
     Extensible Provisioning Protocol (EPP) Unhandled Namespaces</title>
-    <seriesInfo name="Internet-Draft" value="draft-ietf-regext-unhandled-namespaces-02"/>
+    <seriesInfo name="Internet-Draft" value="draft-ietf-regext-unhandled-namespaces-04"/>
     <author fullname="James Gould" initials="J.G" surname="Gould">
       <organization>VeriSign, Inc.</organization>
       <address>
@@ -82,7 +82,7 @@
         <uri>http://www.switch.ch</uri>
       </address>
     </author>
-    <date day="22" month="September" year="2020"/>
+    <date day="21" month="October" year="2020"/>
     <abstract>
       <t>The Extensible Provisioning Protocol (EPP), as defined in RFC 5730,
       includes a method for the client and server to
@@ -262,10 +262,10 @@ S:            xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
 S:            <domain:name>example.com</domain:name>
 S:            <domain:trStatus>pending</domain:trStatus>
 S:            <domain:reID>ClientX</domain:reID>
-S:            <domain:reDate>2000-06-06T22:00:00.0Z</domain:reDate>
+S:            <domain:reDate>2020-06-06T22:00:00.0Z</domain:reDate>
 S:            <domain:acID>ClientY</domain:acID>
-S:            <domain:acDate>2000-06-11T22:00:00.0Z</domain:acDate>
-S:            <domain:exDate>2002-09-08T22:00:00.0Z</domain:exDate>
+S:            <domain:acDate>2020-06-11T22:00:00.0Z</domain:acDate>
+S:            <domain:exDate>2021-09-08T22:00:00.0Z</domain:exDate>
 S:          </domain:trnData>
 S:        </value>
 S:        <reason>
@@ -376,8 +376,8 @@ S:        <domain:clID>ClientX</domain:clID>
 S:        <domain:crID>ClientY</domain:crID>
 S:        <domain:crDate>1999-04-03T22:00:00.0Z</domain:crDate>
 S:        <domain:upID>ClientX</domain:upID>
-S:        <domain:upDate>1999-12-03T09:00:00.0Z</domain:upDate>
-S:        <domain:exDate>2005-04-03T22:00:00.0Z</domain:exDate>
+S:        <domain:upDate>2020-12-03T09:00:00.0Z</domain:upDate>
+S:        <domain:exDate>2021-04-03T22:00:00.0Z</domain:exDate>
 S:        <domain:trDate>2000-04-08T09:00:00.0Z</domain:trDate>
 S:        <domain:authInfo>
 S:          <domain:pw>2fooBAR</domain:pw>
@@ -473,8 +473,8 @@ S:        <domain:clID>ClientX</domain:clID>
 S:        <domain:crID>ClientY</domain:crID>
 S:        <domain:crDate>1999-04-03T22:00:00.0Z</domain:crDate>
 S:        <domain:upID>ClientX</domain:upID>
-S:        <domain:upDate>1999-12-03T09:00:00.0Z</domain:upDate>
-S:        <domain:exDate>2005-04-03T22:00:00.0Z</domain:exDate>
+S:        <domain:upDate>2020-12-03T09:00:00.0Z</domain:upDate>
+S:        <domain:exDate>2021-04-03T22:00:00.0Z</domain:exDate>
 S:        <domain:trDate>2000-04-08T09:00:00.0Z</domain:trDate>
 S:        <domain:authInfo>
 S:          <domain:pw>2fooBAR</domain:pw>
@@ -524,7 +524,7 @@ S:          xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0"
 S:            state="after">
 S:            <changePoll:operation>update</changePoll:operation>
 S:            <changePoll:date>
-S:              2013-11-22T05:00:00.000Z</changePoll:date>
+S:              2020-11-22T05:00:00.000Z</changePoll:date>
 S:            <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
 S:            <changePoll:who>URS Admin</changePoll:who>
 S:            <changePoll:caseId type="urs">urs123
@@ -541,7 +541,7 @@ S:    <msgQ
 S:      count="15"
 S:      id="1"
 S:    >
-S:      <qDate>2018-08-24T19:21:51.087Z</qDate>
+S:      <qDate>2020-11-22T05:00:00.000Z</qDate>
 S:      <msg>Registry initiated update of domain.</msg>
 S:    </msgQ>
 S:    <resData>
@@ -559,8 +559,8 @@ S:        <domain:clID>ClientX</domain:clID>
 S:        <domain:crID>ClientY</domain:crID>
 S:        <domain:crDate>2012-05-03T04:00:00.000Z</domain:crDate>
 S:        <domain:upID>ClientZ</domain:upID>
-S:        <domain:upDate>2013-11-22T05:00:00.000Z</domain:upDate>
-S:        <domain:exDate>2014-05-03T04:00:00.000Z</domain:exDate>
+S:        <domain:upDate>2020-11-22T05:00:00.000Z</domain:upDate>
+S:        <domain:exDate>2021-05-03T04:00:00.000Z</domain:exDate>
 S:      </domain:infData>
 S:    </resData>
 S:    <trID>
@@ -595,8 +595,8 @@ S:            <domain:clID>ClientX</domain:clID>
 S:            <domain:crID>ClientY</domain:crID>
 S:            <domain:crDate>2012-05-03T04:00:00.000Z</domain:crDate>
 S:            <domain:upID>ClientZ</domain:upID>
-S:            <domain:upDate>2013-11-22T05:00:00.000Z</domain:upDate>
-S:            <domain:exDate>2014-05-03T04:00:00.000Z</domain:exDate>
+S:            <domain:upDate>2020-11-22T05:00:00.000Z</domain:upDate>
+S:            <domain:exDate>2021-05-03T04:00:00.000Z</domain:exDate>
 S:          </domain:infData>
 S:        </value>
 S:        <reason>
@@ -610,7 +610,7 @@ S:          xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0"
 S:            state="after">
 S:            <changePoll:operation>update</changePoll:operation>
 S:            <changePoll:date>
-S:              2013-11-22T05:00:00.000Z</changePoll:date>
+S:              2020-11-22T05:00:00.000Z</changePoll:date>
 S:            <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
 S:            <changePoll:who>URS Admin</changePoll:who>
 S:            <changePoll:caseId type="urs">urs123
@@ -627,7 +627,7 @@ S:    <msgQ
 S:      count="15"
 S:      id="1"
 S:    >
-S:      <qDate>2018-08-24T19:23:12.822Z</qDate>
+S:      <qDate>2020-11-22T05:00:00.000Z</qDate>
 S:      <msg>Registry initiated update of domain.</msg>
 S:    </msgQ>
 S:    <trID>
@@ -842,6 +842,7 @@ S:</epp>
         <name>Change from REGEXT 03 to REGEXT 04</name>
         <ol spacing="compact" type="1">
           <li>Changed from Best Current Practice (BCP) to Standards Track based on mailing list discussion.</li>
+          <li>Revised the dates in the examples to be more up-to-date.</li>
         </ol>
       </section>
     </section>
