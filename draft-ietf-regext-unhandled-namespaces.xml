@@ -45,7 +45,7 @@
 <?rfc inline="yes" ?>
 <!-- inline cref output -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc xmlns:xi="http://www.w3.org/2001/XInclude" category="std" docName="draft-ietf-regext-unhandled-namespaces-04"
+<rfc xmlns:xi="http://www.w3.org/2001/XInclude" category="std" docName="draft-ietf-regext-unhandled-namespaces-05"
   ipr="trust200902" obsoletes="" updates="" submissionType="IETF" xml:lang="en" tocInclude="true" tocDepth="4"
   symRefs="true" sortRefs="true" version="3" consensus="true">
 
@@ -54,8 +54,8 @@
   <front>
     <title abbrev="unhandledNamespaces">
     Extensible Provisioning Protocol (EPP) Unhandled Namespaces</title>
-    <seriesInfo name="Internet-Draft" value="draft-ietf-regext-unhandled-namespaces-04"/>
-    <author fullname="James Gould" initials="J.G" surname="Gould">
+    <seriesInfo name="Internet-Draft" value="draft-ietf-regext-unhandled-namespaces-05"/>
+    <author fullname="James Gould" surname="Gould">
       <organization>VeriSign, Inc.</organization>
       <address>
         <postal>
@@ -69,7 +69,7 @@
         <uri>http://www.verisigninc.com</uri>
       </address>
     </author>
-    <author fullname="Martin Casanova" initials="M.C" surname="Casanova">
+    <author fullname="Martin Casanova" surname="Casanova">
       <organization>SWITCH</organization>
       <address>
         <postal>
@@ -82,7 +82,7 @@
         <uri>http://www.switch.ch</uri>
       </address>
     </author>
-    <date day="21" month="October" year="2020"/>
+    <date day="4" month="November" year="2020"/>
     <abstract>
       <t>The Extensible Provisioning Protocol (EPP), as defined in RFC 5730,
       includes a method for the client and server to
@@ -173,6 +173,11 @@
     </section>
     <section anchor="extValueApproach" numbered="true" toc="default">
       <name>Use of EPP &lt;extValue&gt; for Unhandled Namespace Data</name>
+      <t>In <xref target="RFC5730" format="default"/>, the &lt;extValue&gt; element is used to provide additional
+      error diagnostic information, including the &lt;value&gt; element that identifies the client-provided element that caused
+      a server error condition, and the &lt;reason&gt; element containing the human-readable message that describes the reason for
+      the error.  This operational practice extends the use of the &lt;extValue&gt; element for the purpose of returning
+      unhandled namespace information in a successful response.</t>
       <t>When a server has data to return to the client, that the client does not support based on the login services,
       the server MAY return a successful response, with the data for each unsupported namespace moved into an
       <xref target="RFC5730" format="default"/> &lt;extValue&gt; element.  The unhandled namespace will not cause an error response,
@@ -638,6 +643,50 @@ S:  </response>
 S:</epp>
             ]]></artwork>
     </section>
+    <section anchor="ImplementationConsiderations" numbered="true" toc="default">
+      <name>Implementation Considerations</name>
+      <t>There are implementation considerations for the client and the server to help address
+        the risk of the client ignoring unhandled namespace information included in an EPP response
+        that is needed to meet technical, policy, or legal requirements.
+      </t>
+      <section anchor="ClientImplementationConsiderations" numbered="true" toc="default">
+        <name>Client Implementation Considerations</name>
+        <t>To reduce the likelihood of a client receiving unhandled namespace information, the
+          client should consider the following:</t>
+          <ol spacing="compact" type="1">
+            <li>Ensure that the login services is accurate with what is supported by the client.
+              If there are gaps between the services supported by the client and the login
+              services included in the login command, the client may
+              receive unhandled namespace information that the client could have supported.
+            </li>
+            <li>Support all of the services included in the server greeting services that
+              may be included in an EPP response, including the poll queue responses.
+              The client should evaluate the gaps between the greeting services and the
+              login services provided in the login command to identify extensions that need
+              to be supported.</li>
+            <li>Proactively monitor for unhandled namespace information in the EPP
+            responses, by looking for the inclusion of the &lt;extValue&gt; element in
+            successful responses, recording the unsupported namespace included in the
+            &lt;reason&gt; element, and recording the unhandled namespace information included in the
+            &lt;value&gt; element for later processing.  The unhandled namespace can be implemented
+            by the client to ensure that information is processed fully in future EPP responses.</li>
+          </ol>
+      </section>
+      <section anchor="ServerImplementationConsiderations" numbered="true" toc="default">
+        <name>Server Implementation Considerations</name>
+        <t>To assist the clients in recognizing unhandled namespaces, the server should consider
+          the following:</t>
+          <ol spacing="compact" type="1">
+            <li>Monitor for returning unhandled namespace information to clients and report it
+              to the clients out-of-band to EPP so the clients can add support for
+              the unhandled namespaces.
+            </li>
+            <li>Look for the unhandled namespace support in the login services when
+              returning optional unhandled namespace information in General EPP Responses.
+            </li>
+          </ol>
+      </section>
+    </section>
     <section anchor="IANA" numbered="true" toc="default">
       <name>IANA Considerations</name>
       <section anchor="IANA-XML-Namespace" numbered="true" toc="default">
@@ -743,6 +792,7 @@ S:</epp>
     <section anchor="Acknowledgements" numbered="true" toc="default">
       <name>Acknowledgements</name>
       <t>The authors wish to thank the following persons for their feedback and suggestions:
+        <contact fullname="Thomas Corte"/>
         <contact fullname="Scott Hollenbeck"/>,
         <contact fullname="Patrick Mevzek"/>,
         and <contact fullname="Marcel Parodi"/>.
@@ -843,6 +893,17 @@ S:</epp>
         <ol spacing="compact" type="1">
           <li>Changed from Best Current Practice (BCP) to Standards Track based on mailing list discussion.</li>
           <li>Revised the dates in the examples to be more up-to-date.</li>
+        </ol>
+      </section>
+      <section anchor="change-WG04-to-WG05" numbered="true" toc="default">
+        <name>Change from REGEXT 04 to REGEXT 05</name>
+        <ol spacing="compact" type="1">
+          <li>Based on feedback from Thomas Corte, added a description of the &lt;extValue&gt; element in RFC 5730 and
+            it being extended to support returning unhandled namespace information.</li>
+          <li>Based on feedback from Thomas Corte, added a Implemenation Considerations section to cover client and server
+          implementation recommendations such as monitoring unhandled namespaces in the server to report to the clients out-of-band and
+          monitoring for responses containing unhanded namespace information in the client to proactively add support
+          for the unhandled namespaces.</li>
         </ol>
       </section>
     </section>
