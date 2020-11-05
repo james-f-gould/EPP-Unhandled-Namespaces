@@ -82,10 +82,10 @@
         <uri>http://www.switch.ch</uri>
       </address>
     </author>
-    <date day="4" month="November" year="2020"/>
+    <date day="5" month="November" year="2020"/>
     <abstract>
       <t>The Extensible Provisioning Protocol (EPP), as defined in RFC 5730,
-      includes a method for the client and server to
+      includes a method for the client and server tof
       determine the objects to be managed during a session and the object
       extensions to be used during a session.  The services are identified using
       namespace URIs.  How should the server handle
@@ -792,7 +792,7 @@ S:</epp>
     <section anchor="Acknowledgements" numbered="true" toc="default">
       <name>Acknowledgements</name>
       <t>The authors wish to thank the following persons for their feedback and suggestions:
-        <contact fullname="Thomas Corte"/>
+        <contact fullname="Thomas Corte"/>,
         <contact fullname="Scott Hollenbeck"/>,
         <contact fullname="Patrick Mevzek"/>,
         and <contact fullname="Marcel Parodi"/>.
