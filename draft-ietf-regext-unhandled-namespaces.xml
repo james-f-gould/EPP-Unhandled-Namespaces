@@ -82,7 +82,7 @@
         <uri>http://www.switch.ch</uri>
       </address>
     </author>
-    <date day="9" month="November" year="2020"/>
+    <date day="15" month="November" year="2020"/>
     <abstract>
       <t>The Extensible Provisioning Protocol (EPP), as defined in RFC 5730,
       includes a method for the client and server tof
@@ -816,30 +816,37 @@ S:</epp>
      filing system or remote ones accessed by http (http://domain/dir/... ).-->
 
     <references>
-      <name>Normative References</name>
+      <name>References</name>
+      <references>
+        <name>Normative References</name>
 
-      &RFC2119;
+        &RFC2119;
 
-      &RFC3688;
+        &RFC3688;
 
-      &RFC3735;
+        &RFC3915;
 
-      &RFC3915;
+        &RFC5234;
 
-      &RFC5234;
+        &RFC5730;
 
-      &RFC5730;
+        &RFC5731;
 
-      &RFC5731;
+        &RFC5910;
 
-      &RFC5910;
+        &RFC7942;
 
-      &RFC7451;
+        &RFC8590;
 
-      &RFC7942;
+      </references>
+      <references>
+        <name>Informative References</name>
 
-      &RFC8590;
+        &RFC3735;
 
+        &RFC7451;
+
+      </references>
     </references>
     <section numbered="true" toc="default">
       <name>Change History</name>
@@ -904,6 +911,7 @@ S:</epp>
           implementation recommendations such as monitoring unhandled namespaces in the server to report to the clients out-of-band and
           monitoring for responses containing unhanded namespace information in the client to proactively add support
           for the unhandled namespaces.</li>
+          <li>Moved RFC 3735 and RFC 7451 to informative references to address down reference errors in idnits.</li>
         </ol>
       </section>
     </section>
